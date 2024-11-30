@@ -1,9 +1,5 @@
 {
   "framework": "nextjs",
   "buildCommand": "next build",
-  "cleanUrls": true,
-  "i18n": {
-    "locales": ["en", "ja", "ko"],
-    "defaultLocale": "ja"
-  }
+  "cleanUrls": true
 }
