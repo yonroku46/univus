@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: `${process.env.NEXT_PUBLIC_APP_NAME} | Company`,
   description: 'Univusはサービスではなく、経験を提供します',
   icons: {
-    icon: '/assets/icon/app-icon.svg'
+    icon: '/assets/icon/favicon.svg'
   }
 };
 

@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   title: `${process.env.NEXT_PUBLIC_APP_NAME}`,
   description: 'Univusはサービスを通じて社会的貢献を実現したいと思います',
   icons: {
-    icon: '/assets/icon/app-icon.svg'
+    icon: '/assets/icon/favicon.svg'
   }
 };
 
@@ -48,7 +48,7 @@ export default function MainLayout(
         <link rel='alternate' href={`${baseUrl}/ko/`} hrefLang='ko' />
         <link rel='alternate' href={`${baseUrl}/en/`} hrefLang='en' />
         <link rel='alternate' href={`${baseUrl}/`} hrefLang='x-default' />
-        <link rel='icon' href='/assets/icon/app-icon.svg' sizes='any' />
+        <link rel='icon' href='/assets/icon/favicon.svg' sizes='any' />
       </head>
       <body className={bodyClassName}>
         <Header lng={lng} />
