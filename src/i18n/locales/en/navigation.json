@@ -1,0 +1,59 @@
+{
+  "login": {
+    "title": "SignIn/SignUp",
+    "social": {
+      "title": "Sign in with SNS account"
+    }
+  },
+  "logout": {
+    "title": "Logout"
+  },
+  "mypage": {
+    "title": "Mypage"
+  },
+  "languages": {
+    "title": "Languages"
+  },
+  "menu": {
+    "root": {
+      "title": "Admin Menu",
+      "manage": "Service Manage"
+    },
+    "master": {
+      "title": "Admin Menu",
+      "dashboard": "Dashboard",
+      "manage": "School Manage",
+      "scanner": "Attendance Scanner"
+    },
+    "teacher": {
+      "title": "Account Menu",
+      "dashboard": "Dashboard"
+    },
+    "client": {
+      "title": "Account Menu",
+      "dashboard": "Dashboard"
+    },
+    "school": {
+      "title": "School",
+      "search": "School search",
+      "affiliate": "My School",
+      "attendance": "Attendance"
+    },
+    "community": {
+      "title": "Community",
+      "latest": "Latest Post",
+      "weekly": "Weekly Post",
+      "write": "Write"
+    },
+    "service": {
+      "title": "Service",
+      "about": "About",
+      "partner": "Partner",
+      "cs": "CS Center"
+    }
+  },
+  "corporation": {
+    "intro": "UNIVUS inc., Ltd.",
+    "copyright": "Copyright ⓒ UNIVUS inc.,Ltd. All Rights Reserved."
+  }
+}
