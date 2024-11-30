@@ -8,10 +8,10 @@ import CustomImg from '@/components/custom/CustomImg';
 import { Box, styled } from '@mui/material';
 
 const PhilosophySection = styled('section')(({ theme }) => ({
-  padding: '3rem 0',
+  padding: '1rem 0',
   '.philosophy-intro': {
     textAlign: 'center',
-    marginBottom: '5rem',
+    marginBottom: '3rem',
     width: '100%',
     '.main-title': {
       fontSize: '3rem',
@@ -78,13 +78,13 @@ const PhilosophySection = styled('section')(({ theme }) => ({
   },
   '.vision-section': {
     backgroundColor: '#f8f9fa',
-    padding: '4rem 0',
+    padding: '3rem 0',
     borderRadius: '2rem',
     marginBottom: '2rem',
     '.vision-content': {
       display: 'flex',
       alignItems: 'center',
-      gap: '4rem',
+      gap: '3rem',
       maxWidth: '1200px',
       margin: '0 auto',
       padding: '0 2rem',
@@ -98,6 +98,10 @@ const PhilosophySection = styled('section')(({ theme }) => ({
       },
       '.text-content': {
         flex: 1,
+        paddingLeft: '1rem',
+        '@media (max-width: 768px)': {
+          paddingLeft: '0'
+        },
         '.section-title': {
           fontSize: '2.25rem',
           fontWeight: 700,
@@ -117,7 +121,6 @@ const PhilosophySection = styled('section')(({ theme }) => ({
         display: 'flex',
         borderRadius: '1rem',
         overflow: 'hidden',
-        boxShadow: '0 4px 16px rgba(0,0,0,0.1)',
         '& img': {
           width: '100%',
           height: '100%',
@@ -201,7 +204,7 @@ export default function PhilosophyPage({
               </div>
               <div className='img-content'>
                 <CustomImg
-                  src='/assets/img/lunch2.jpg'
+                  src='/assets/img/philosophy.jpg'
                   alt='company vision'
                   width={500}
                   height={350}

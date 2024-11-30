@@ -2,6 +2,9 @@ import Link from 'next/link';
 import { useTranslation } from '@/i18n';
 import { AvailableLanguages } from '@/i18n/settings';
 
+import PlaceIcon from '@mui/icons-material/Place';
+import EmailIcon from '@mui/icons-material/Email';
+
 interface FooterProps {
   lng: AvailableLanguages;
 }
@@ -33,6 +36,12 @@ export default async function Footer (
           <p className='intro'>
             {t('corporation.intro')}
           </p>
+          <div className='location'>
+            {t('corporation.location')}
+          </div>
+          <div className='mail'>
+            {t('corporation.mail')}
+          </div>
         </div>
         <nav className='sp-nav'>
           {menuList.map((menu, idx) => {

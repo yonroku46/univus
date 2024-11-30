@@ -22,6 +22,7 @@ const CompanySection = styled('section')(({ theme }) => ({
     alignItems: 'center',
     marginBottom: '4rem',
     '@media (max-width: 768px)': {
+      textAlign: 'center',
       flexDirection: 'column',
       alignItems: 'stretch',
       gap: '2rem',
@@ -95,7 +96,7 @@ export default function CompanyPage({
             </div>
             <div className='img-content'>
               <CustomImg
-                src='/assets/img/lunch1.jpg'
+                src='/assets/img/company1.jpg'
                 alt='company vision'
                 width={500}
                 height={350}
@@ -107,7 +108,7 @@ export default function CompanyPage({
           <div className='section-content'>
             <div className='img-content'>
               <CustomImg
-                src='/assets/img/lunch2.jpg'
+                src='/assets/img/company2.jpg'
                 alt='company mission'
                 width={500}
                 height={350}

@@ -54,6 +54,8 @@
   },
   "corporation": {
     "intro": "UNIVUS inc., Ltd.",
+    "location": "〒810-0041\nFukuoka, Fukuoka City Chuo-ku\nDaimyo 2-9-35 Tou-senten bld 9F",
+    "mail": "info@univus.co.jp",
     "copyright": "Copyright ⓒ UNIVUS inc.,Ltd. All Rights Reserved."
   }
 }

@@ -10,7 +10,7 @@ import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
 import EmailIcon from '@mui/icons-material/Email';
 
 const LocationSection = styled('section')(({ theme }) => ({
-  padding: '2rem 0',
+  padding: '1rem 0',
   '.location-intro': {
     textAlign: 'center',
     marginBottom: '3rem',
@@ -57,7 +57,7 @@ const LocationSection = styled('section')(({ theme }) => ({
       borderRadius: '1rem',
       boxShadow: '0 4px 24px rgba(0,0,0,0.06)',
       '.info-title': {
-        fontSize: '1.5rem',
+        fontSize: '1.25rem',
         fontWeight: 600,
         color: 'var(--main-color)',
         marginBottom: '2rem',
@@ -147,7 +147,7 @@ export default function LocationPage({
                   <div className='text'>
                     <div className='label'>주소</div>
                     <div className='value'>
-                      {'〒810-0001\n후쿠오카현 후쿠오카시 주오구\n텐진 1-1-1 텐진빌딩 8층'}
+                      {'〒810-0041\n후쿠오카현 후쿠오카시 주오구\n 다이묘2-9-35 토우센텐진빌딩9F'}
                     </div>
                   </div>
                 </div>
@@ -156,7 +156,7 @@ export default function LocationPage({
                   <LocalPhoneIcon className='icon' />
                   <div className='text'>
                     <div className='label'>전화번호</div>
-                    <div className='value'>+81-92-XXX-XXXX</div>
+                    <div className='value'>+81-92-781-5111</div>
                   </div>
                 </div>
 
