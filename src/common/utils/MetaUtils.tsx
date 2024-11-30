@@ -47,7 +47,7 @@ export async function generatePageMetadata(type: MetadataType, lng: AvailableLan
       alternateLocale: ['ja', 'ko', 'en'],
       images: [
         {
-          url: '/assets/icon/thumbnail.png',
+          url: '/assets/img/thumbnail.png',
           width: 1200,
           height: 630,
           alt: t(`${type}.ogImageAlt`),
@@ -58,7 +58,7 @@ export async function generatePageMetadata(type: MetadataType, lng: AvailableLan
       card: 'summary_large_image',
       title: t(`${type}.title`),
       description: t(`${type}.description`),
-      images: ['/assets/icon/thumbnail.png'],
+      images: ['/assets/img/thumbnail.png'],
       creator: '@univus',
     },
     robots: {
