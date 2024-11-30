@@ -5,7 +5,7 @@ import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import { useTranslation } from '@/i18n/client';
 import { AvailableLanguages } from '@/i18n/settings';
-import { convertLngCode, removeLngPrefix } from '@/common/utils/LngUtils';
+import { convertLngCode, getLocalizedPath, removeLngPrefix } from '@/common/utils/LngUtils';
 import LngDialog from '@/components/dialog/LngDialog';
 
 import Drawer from '@mui/material/Drawer';
@@ -88,17 +88,17 @@ export default function Header (
   const { t, i18n } = useTranslation(lng, 'navigation');
 
   const menuList: Array<MenuItem> = [
-    { groupName: '회사소개', groupHref: '/company', unit: [
-      { name: '회사개요', href: '/company' },
-      { name: '기업이념', href: '/company/philosophy' },
-      { name: '오시는 길', href: '/company/location' }
+    { groupName: t('menu.company.title'), groupHref: getLocalizedPath('/company', lng), unit: [
+      { name: t('menu.company.main'), href: getLocalizedPath('/company', lng) },
+      { name: t('menu.company.philosophy'), href: getLocalizedPath('/company/philosophy', lng) },
+      { name: t('menu.company.location'), href: getLocalizedPath('/company/location', lng) }
     ]},
-    { groupName: '사업내용', groupHref: '/project', unit: [
-      { name: '히루쿠루', href: '/project' }
+    { groupName: t('menu.project.title'), groupHref: getLocalizedPath('/project', lng), unit: [
+      { name: t('menu.project.main'), href: getLocalizedPath('/project', lng) }
     ]},
-    { groupName: '문의/상담', groupHref: '/contact', unit: [
-      { name: '문의/상담하기', href: '/contact' },
-      { name: '공지사항', href: '/contact/notice' }
+    { groupName: t('menu.contact.title'), groupHref: getLocalizedPath('/contact', lng), unit: [
+      { name: t('menu.contact.inquiry'), href: getLocalizedPath('/contact', lng) },
+      { name: t('menu.contact.notice'), href: getLocalizedPath('/contact/notice', lng) }
     ]}
   ]
 
@@ -106,8 +106,6 @@ export default function Header (
   const [open, setOpen] = useState(false);
   const [isTop, setIsTop] = useState(true);
 
-
-  // 다언어모달용
   const path = usePathname().substring(3);
   const [lngOpen, setLngOpen] = useState<boolean>(false);
   const handleLngClose = () => {
@@ -123,17 +121,12 @@ export default function Header (
   };
 
   useEffect(() => {
-    // 상단스크롤
     window.scrollTo(0, 0);
-    // 스크롤 이벤트
     window.addEventListener('scroll', handleScroll);
-    // 리다이렉트 패스 저장
     if (!currentPath.startsWith('/login')) {
       sessionStorage.setItem('redirect', currentPath);
     }
-    // 이동시 메뉴바 닫기
     setOpen(false);
-    // 스크롤 이벤트 클린업
     return () => {
       if (currentPath === '') {
         window.removeEventListener('scroll', handleScroll);
@@ -146,7 +139,7 @@ export default function Header (
       <div className='container header-group'>
         <div className='left-area'>
           <div className='logo'>
-            <Link href='/'>
+            <Link href={getLocalizedPath('/', lng)}>
               Univus
             </Link>
           </div>

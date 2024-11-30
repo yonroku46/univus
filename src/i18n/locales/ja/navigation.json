@@ -1,55 +1,22 @@
 {
-  "login": {
-    "title": "ログイン/会員登録",
-    "social": {
-      "title": "SNSアカウントでログイン"
-    }
-  },
-  "logout": {
-    "title": "ログアウト"
-  },
-  "mypage": {
-    "title": "マイページ"
-  },
   "languages": {
     "title": "言語選択"
   },
   "menu": {
-    "root": {
-      "title": "管理者メニュー",
-      "manage": "サービス管理"
+    "company": {
+      "title": "会社紹介",
+      "main": "会社概要",
+      "philosophy": "企業理念",
+      "location": "アクセス"
     },
-    "master": {
-      "title": "管理者メニュー",
-      "dashboard": "ダッシュボード",
-      "manage": "学園管理",
-      "scanner": "出欠スキャナー"
+    "project": {
+      "title": "事業内容",
+      "main": "プロジェクト紹介"
     },
-    "teacher": {
-      "title": "ユーザーメニュー",
-      "dashboard": "ダッシュボード"
-    },
-    "client": {
-      "title": "ユーザーメニュー",
-      "dashboard": "ダッシュボード"
-    },
-    "school": {
-      "title": "学園",
-      "search": "学園検索",
-      "affiliate": "所属学園",
-      "attendance": "出欠"
-    },
-    "community": {
-      "title": "コミュニティ",
-      "latest": "最新投稿",
-      "weekly": "週間人気投稿",
-      "write": "投稿作成"
-    },
-    "service": {
-      "title": "サービス",
-      "about": "サービス紹介",
-      "partner": "利用申請",
-      "cs": "カスタマーセンター"
+    "contact": {
+      "title": "お問い合わせ",
+      "inquiry": "お問い合わせ",
+      "notice": "お知らせ"
     }
   },
   "corporation": {

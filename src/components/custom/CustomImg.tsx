@@ -27,7 +27,7 @@ const CustomImg: React.FC<CustomImgProps> = ({ src, alt, width, height, fallback
   const [imgAlt, setImgAlt] = useState<string>('unknown');
 
   useEffect(() => {
-    // 값이 null, undefined, 또는 문자열 'null','undefined'인 경우 기본 이미지 사용
+    // Use default image if value is null, undefined, or string 'null','undefined'
     if (!src || src === 'null' || src === 'undefined') {
       setImgSrc(fallbackSrc);
     } else {

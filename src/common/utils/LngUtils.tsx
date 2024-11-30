@@ -27,6 +27,10 @@ export function convertLngCode(lng: AvailableLanguages, type: CodeType): string 
   return typeCode[lng as LanguageCode];
 }
 
+export function getLocalizedPath(path: string, lng: AvailableLanguages): string {
+  return `/${lng}${path.startsWith('/') ? path : `/${path}`}`;
+}
+
 export function removeLngPrefix(path: string) {
   const regex = new RegExp(`^/(${languages.join('|')})`);
   return path.replace(regex, '') || '';

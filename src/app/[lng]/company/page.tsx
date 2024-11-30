@@ -1,11 +1,12 @@
 'use client'
 
-import { useRouter } from 'next/navigation';
-import { TabMenu } from '@/components/layout/TabMenu';
 import { useTranslation } from '@/i18n/client';
 import { AvailableLanguages } from '@/i18n/settings';
+import { getLocalizedPath } from '@/common/utils/LngUtils';
+import { TabMenu } from '@/components/layout/TabMenu';
 import CustomImg from '@/components/custom/CustomImg';
-import { Box, styled } from '@mui/material';
+
+import { styled } from '@mui/material';
 
 const CompanySection = styled('section')(({ theme }) => ({
   padding: '3rem 0',
@@ -61,13 +62,12 @@ export default function CompanyPage({
 }: {
   params: { lng: AvailableLanguages }
 }) {
-  const { t } = useTranslation(lng, 'navigation');
-  const router = useRouter();
+  const { t } = useTranslation(lng, 'company');
 
   const tabItems = [
-    { title: '회사개요', href: '/company' },
-    { title: '기업이념', href: '/company/philosophy' },
-    { title: '오시는 길', href: '/company/location' }
+    { title: t('company.tab.overview'), href: getLocalizedPath('/company', lng) },
+    { title: t('company.tab.philosophy'), href: getLocalizedPath('/company/philosophy', lng) },
+    { title: t('company.tab.location'), href: getLocalizedPath('/company/location', lng) }
   ];
 
   return (
@@ -82,16 +82,13 @@ export default function CompanyPage({
           <div className='section-content'>
             <div className='text-content'>
               <h2 className='section-title'>
-                {'서비스를 통한\n사회적 가치 실현'}
+                {t('company.overview1.title')}
               </h2>
               <p className='highlight'>
-                {'유니버스는 혁신적인 서비스로\n더 나은 세상을 만들어갑니다'}
+                {t('company.overview1.highlight')}
               </p>
               <p className='description'>
-                {'바쁜 현대인의 일상 속에서 작은 여유와 편리함을 제공하는 것으로 시작하여,\n' +
-                '점차 더 많은 영역에서 긍정적인 변화를 이끌어내고자 합니다.\n' +
-                '우리의 서비스가 사회에 기여할 수 있다는 믿음으로,\n' +
-                '끊임없는 혁신과 발전을 추구합니다.'}
+                {t('company.overview1.description')}
               </p>
             </div>
             <div className='img-content'>
@@ -116,16 +113,14 @@ export default function CompanyPage({
               />
             </div>
             <div className='text-content'>
-            <h2 className='section-title'>
-                {'기술로 연결되는\n더 나은 미래'}
+              <h2 className='section-title'>
+                {t('company.overview2.title')}
               </h2>
               <p className='highlight'>
-                {'최신 기술과 창의적인 아이디어로\n새로운 가치를 창출합니다'}
+                {t('company.overview2.highlight')}
               </p>
               <p className='description'>
-                {'유니버스는 기술을 통해 사람과 사람, 서비스와 가치를 연결합니다.\n' +
-                '히루쿠루를 시작으로, 더 많은 혁신적인 서비스를 선보일 예정입니다.\n' +
-                '우리의 도전이 만들어갈 미래를 기대해주세요.'}
+                {t('company.overview2.description')}
               </p>
             </div>
           </div>

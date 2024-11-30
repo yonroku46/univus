@@ -4,7 +4,7 @@ import Loading from '@/app/[lng]/loading';
 
 export const metadata: Metadata = {
   title: `${process.env.NEXT_PUBLIC_APP_NAME} | Contact`,
-  description: '문의/상담을 위해 연락주세요',
+  description: 'ご質問やご意見がありましたら、お気軽にお問い合わせください',
   icons: {
     icon: '/assets/icon/app-icon.svg'
   }

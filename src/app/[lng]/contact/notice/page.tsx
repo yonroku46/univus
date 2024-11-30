@@ -55,7 +55,7 @@ const StyledListItem = styled(ListItem)(({ theme }) => ({
 export default function NoticePage(
   { params: { lng } }: { params: { lng: AvailableLanguages } }
 ) {
-  const { t } = useTranslation(lng, 'navigation');
+  const { t } = useTranslation(lng, 'contact');
 
   const [selectedNotice, setSelectedNotice] = useState<number | null>(null);
   const [noticesList, setNoticesList] = useState<Notice[]>([]);
@@ -69,7 +69,7 @@ export default function NoticePage(
         content: '더 나은 서비스 제공을 위해 다음과 같이 개선되었습니다.',
         date: '2024.03.20',
         isNew: true,
-        type: '서비스',
+        type: 'service',
       },
       {
         id: 2,
@@ -77,7 +77,7 @@ export default function NoticePage(
         content: '개인정보처리방침이 다음과 같이 개정될 예정입니다.',
         date: '2024.03.15',
         isNew: false,
-        type: '안내',
+        type: 'info',
       },
       {
         id: 3,
@@ -85,13 +85,13 @@ export default function NoticePage(
         content: '설 연휴 기간 고객센터 운영시간이 조정됩니다.',
         date: '2024.02.05',
         isNew: false,
-        type: '안내',
+        type: 'info',
       },
     ];
-    setNoticesList(dummy);
+    setNoticesList(dummy as Notice[]);
     async function fetchNotices() {
       try {
-        const response = await fetch('https://my-bucket.s3.region.amazonaws.com/notices.json');
+        const response = await fetch(`https://my-bucket.s3.region.amazonaws.com/notices-${lng}.json`);
         const data = await response.json();
         setNoticesList(data.notices);
       } catch (error) {
@@ -118,10 +118,10 @@ export default function NoticePage(
         <MuiProvider>
           <Box sx={{ py: 4, width: '100%' }}>
             <Typography variant='h4' component='h1' sx={{ textAlign: 'center', mb: 1, fontWeight: 700 }}>
-              공지사항
+              {t('notice.title')}
             </Typography>
             <Box sx={{ textAlign: 'center', mb: 4, color: 'text.secondary' }}>
-              Univus의 새로운 소식을 확인하세요
+              {t('notice.subTitle')}
             </Box>
             <StyledPaper>
               <List disablePadding>
@@ -138,7 +138,7 @@ export default function NoticePage(
                         <Box sx={{ width: '100%' }}>
                           <Box className='notice-header'>
                             <Chip
-                              label={notice.type}
+                              label={`${t(`notice.types.${notice.type}`)}`}
                               size='small'
                               sx={{
                                 backgroundColor: 'var(--main-color)',

@@ -47,17 +47,17 @@ const initialForm: ContactForm = {
 export default function ContactPage(
   { params: { lng } }: { params: { lng: AvailableLanguages } }
 ) {
-  const { t } = useTranslation(lng, 'navigation');
+  const { t } = useTranslation(lng, 'contact');
 
   const [form, setForm] = useState<ContactForm>(initialForm);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
 
   const inquiryTypes = [
-    { value: 'service', label: '서비스 문의' },
-    { value: 'partnership', label: '제휴 문의' },
-    { value: 'technical', label: '기술 지원' },
-    { value: 'other', label: '기타 문의' },
+    { value: 'service', label: t('contact.types.service') },
+    { value: 'partnership', label: t('contact.types.partnership') },
+    { value: 'technical', label: t('contact.types.technical') },
+    { value: 'other', label: t('contact.types.other') },
   ];
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -70,12 +70,12 @@ export default function ContactPage(
     setIsSubmitting(true);
 
     try {
-      // API 호출 로직 구현(임시 딜레이 적용)
+      // API dummy delay
       await new Promise(resolve => setTimeout(resolve, 1000));
       setShowSuccess(true);
       setForm(initialForm);
     } catch (error) {
-      console.error('문의 제출 실패:', error);
+      console.error(t('contact.submit.error'), error);
     } finally {
       setIsSubmitting(false);
     }
@@ -87,10 +87,10 @@ export default function ContactPage(
         <MuiProvider>
           <Box sx={{ py: 4,  width: { xs: '100%', sm: 'auto' } }}>
             <Typography variant='h4' component='h1' sx={{ textAlign: 'center', mb: 1, fontWeight: 700 }}>
-              문의하기
+              {t('contact.title')}
             </Typography>
             <Typography sx={{ textAlign: 'center', mb: 4, color: 'text.secondary' }}>
-              궁금하신 점이 있으시다면 언제든 문의해주세요
+              {t('contact.subTitle')}
             </Typography>
 
             <StyledPaper>
@@ -99,7 +99,7 @@ export default function ContactPage(
                   <TextField
                     select
                     fullWidth
-                    label='문의 유형'
+                    label={t('contact.label.types')}
                     name='type'
                     value={form.type}
                     onChange={handleChange}
@@ -111,20 +111,18 @@ export default function ContactPage(
                       </MenuItem>
                     ))}
                   </TextField>
-
                   <TextField
                     fullWidth
-                    label='회사명'
+                    label={t('contact.label.company')}
                     name='company'
                     value={form.company}
                     onChange={handleChange}
                     required
                   />
-
                   <Box sx={{ display: 'grid', gap: 3, gridTemplateColumns: { xs: '1fr', sm: '1fr 1fr' } }}>
                     <TextField
                       fullWidth
-                      label='담당자명'
+                      label={t('contact.label.name')}
                       name='name'
                       value={form.name}
                       onChange={handleChange}
@@ -132,7 +130,7 @@ export default function ContactPage(
                     />
                     <TextField
                       fullWidth
-                      label='이메일'
+                      label={t('contact.label.email')}
                       type='email'
                       name='email'
                       value={form.email}
@@ -140,19 +138,17 @@ export default function ContactPage(
                       required
                     />
                   </Box>
-
                   <TextField
                     fullWidth
-                    label='연락처'
+                    label={t('contact.label.phone')}
                     name='phone'
                     value={form.phone}
                     onChange={handleChange}
                     required
                   />
-
                   <TextField
                     fullWidth
-                    label='문의 내용'
+                    label={t('contact.label.message')}
                     name='message'
                     value={form.message}
                     onChange={handleChange}
@@ -160,7 +156,6 @@ export default function ContactPage(
                     rows={10}
                     required
                   />
-
                   <Button
                     type='submit'
                     variant='contained'
@@ -176,7 +171,7 @@ export default function ContactPage(
                       }
                     }}
                   >
-                    {isSubmitting ? '제출 중...' : '문의하기'}
+                    {isSubmitting ? t('contact.submit.loading') : t('contact.submit.button')}
                   </Button>
                 </Box>
               </form>
@@ -194,7 +189,7 @@ export default function ContactPage(
               severity='success'
               sx={{ width: '100%' }}
             >
-              문의가 성공적으로 접수되었습니다.
+              {t('contact.submit.success')}
             </Alert>
           </Snackbar>
         </MuiProvider>

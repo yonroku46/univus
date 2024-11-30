@@ -1,7 +1,6 @@
 'use client'
 
 import { useEffect } from 'react';
-import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import CustomImg from '@/components/custom/CustomImg';
 import { TabMenu } from '@/components/layout/TabMenu';
@@ -12,9 +11,7 @@ import Loading from '@/app/[lng]/loading';
 export default function ProjectPage(
   { params: { lng } }: { params: { lng: AvailableLanguages } }
 ) {
-
   const { t } = useTranslation(lng, 'navigation');
-  const router = useRouter();
 
   useEffect(() => {
   }, []);

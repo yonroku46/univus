@@ -36,21 +36,3 @@ export function extractDelimiter(target: string, delimiter = '/'): string {
   const result = splitedTarget.length >= 3 ? `${delimiter}${splitedTarget.slice(1, 3).join(delimiter)}` : '';
   return result;
 }
-
-export function calculateAge(birthday: string): number {
-  // 문자열을 Date 객체로 변환
-  const birthDate = new Date(birthday);
-  const currentDate = new Date();
-  
-  // 현재 연도에서 생년을 뺌
-  let age = currentDate.getFullYear() - birthDate.getFullYear();
-  
-  // 생일이 아직 지나지 않았다면 나이를 1살 줄임
-  const monthDifference = currentDate.getMonth() - birthDate.getMonth();
-  const dayDifference = currentDate.getDate() - birthDate.getDate();
-  if (monthDifference < 0 || (monthDifference === 0 && dayDifference < 0)) {
-    age--;
-  }
-  
-  return age;
-}

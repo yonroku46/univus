@@ -1,0 +1,34 @@
+{
+  "contact": {
+    "title": "Contact",
+    "subTitle": "If you have any questions, please contact us anytime",
+    "label": {
+      "types": "Contact Type",
+      "company": "Company Name",
+      "name": "Contact Name",
+      "email": "Email",
+      "phone": "Phone Number",
+      "message": "Details"
+    },
+    "types": {
+      "service": "Service",
+      "partnership": "Partnership",
+      "technical": "Technical Support",
+      "other": "Other"
+    },
+    "submit": {
+      "button": "Contact",
+      "loading": "Sending...",
+      "success": "Contact request successful.",
+      "error": "Failed to send contact request."
+    }
+  },
+  "notice": {
+    "title": "Notice",
+    "subTitle": "Check out Univus's latest news",
+    "types": {
+      "service": "Service",
+      "info": "Info"
+    }
+  }
+}

@@ -22,7 +22,7 @@ const notoSansEn = Noto_Sans ({
 
 export const metadata: Metadata = {
   title: `${process.env.NEXT_PUBLIC_APP_NAME}`,
-  description: '유니버스는 서비스를 통해 사회적 공헌을 실현하고자 합니다.',
+  description: 'Univusはサービスを通じて社会的貢献を実現したいと思います',
   icons: {
     icon: '/assets/icon/app-icon.svg'
   }

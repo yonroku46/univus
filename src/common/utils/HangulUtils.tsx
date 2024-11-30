@@ -1,6 +1,6 @@
 import Hangul from 'hangul-js';
 
-// 한글 초성으로 리스트 필터링하는 유틸리티 함수
+// Utility function to filter list by Korean initial consonants (Hangul Jamo)
 export function filterByInitial<T>(list: T[], searchValue: string, getTargetString: (item: T) => string | string[]): T[] {
   if (!list || searchValue === '') return list;
 
@@ -10,7 +10,7 @@ export function filterByInitial<T>(list: T[], searchValue: string, getTargetStri
     const searchInitials = Hangul.disassemble(searchValue).map((char) => Hangul.assemble([char]));
 
     return list.filter((item) => {
-      const targetStrings = getTargetString(item); // 필터링할 대상 문자열 (배열로 받을 수 있음)
+      const targetStrings = getTargetString(item);
       const targetArray = Array.isArray(targetStrings) ? targetStrings : [targetStrings];
 
       return targetArray.some((targetString) => {

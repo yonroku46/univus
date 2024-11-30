@@ -1,0 +1,42 @@
+{
+  "company": {
+    "tab": {
+      "overview": "Overview",
+      "philosophy": "Philosophy",
+      "location": "Location"
+    },
+    "overview1": {
+      "title": "Services to\nAchieve Social Contribution",
+      "highlight": "Univus creates a better world\nwith innovative services",
+      "description": "Starting with providing small convenience and ease in the daily lives of busy modern people, we aim to gradually cause positive changes in more areas. Thanks to our belief that our services can contribute to society, we continue to innovate and develop."
+    },
+    "overview2": {
+      "title": "Technology to Connect\nto a Better Future",
+      "highlight": "Latest technology and creative ideas\nto create new value",
+      "description": "Univus connects people and services through technology to create new value. We will start with Hilcru and provide more innovative services. We look forward to the future we create."
+    },
+    "philosophy": {
+      "title": "Philosophy",
+      "highlight": "Our values and vision\nwill bring positive change to society",
+      "value1": "Unending innovation to create new value.\nThrough the development of technology and services,\nwe will build a better future.",
+      "value2": "Building sustainable relationships based on trust.\nWe will fulfill social responsibility with honesty and transparency.",
+      "value3": "Collaboration to create greater synergy.\nWe will pursue the value of co-existence and growth.",
+      "vision": "Univus will create a better future through innovation in technology and services.\n\nThrough user-centric services, we will solve daily inconveniences and create new value to contribute to social development.\nThis is our vision."
+    },
+    "location": {
+      "title": "Access",
+      "description": "Welcome to Univus's headquarters.\nWe will guide you to the access route.",
+      "label": {
+        "address": "Address",
+        "phone": "Phone Number",
+        "email": "Email Address"
+      },
+      "info": {
+        "title": "Headquarters",
+        "address": "〒810-0041\nFukuoka Prefecture, Fukuoka City, Hakata Ward, Daimyo 2-9-35, Tozen Tenjin Building 9F",
+        "phone": "+81-92-781-5111",
+        "email": "info@univus.co.jp"
+      }
+    }
+  }
+}

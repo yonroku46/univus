@@ -1,0 +1,34 @@
+{
+  "contact": {
+    "title": "問い合わせ",
+    "subTitle": "ご不明な点がありましたら、いつでもお問い合わせください",
+    "label": {
+      "types": "問い合わせ内容",
+      "company": "会社名",
+      "name": "担当者名",
+      "email": "メールアドレス",
+      "phone": "電話番号",
+      "message": "詳細内容"
+    },
+    "types": {
+      "service": "サービス",
+      "partnership": "提携",
+      "technical": "技術サポート",
+      "other": "その他"
+    },
+    "submit": {
+      "button": "問い合わせ",
+      "loading": "送信中...",
+      "success": "問い合わせが成功しました。",
+      "error": "問い合わせの送信に失敗しました。"
+    }
+  },
+  "notice": {
+    "title": "お知らせ",
+    "subTitle": "Univusの新しいニュースをご確認ください",
+    "types": {
+      "service": "サービス",
+      "info": "お知らせ"
+    }
+  }
+}

@@ -1,11 +1,12 @@
 'use client'
 
-import { useRouter } from 'next/navigation';
-import { TabMenu } from '@/components/layout/TabMenu';
 import { useTranslation } from '@/i18n/client';
 import { AvailableLanguages } from '@/i18n/settings';
+import { getLocalizedPath } from '@/common/utils/LngUtils';
+import { TabMenu } from '@/components/layout/TabMenu';
 import CustomImg from '@/components/custom/CustomImg';
-import { Box, styled } from '@mui/material';
+
+import { styled } from '@mui/material';
 
 const PhilosophySection = styled('section')(({ theme }) => ({
   padding: '1rem 0',
@@ -136,28 +137,18 @@ export default function PhilosophyPage({
 }: {
   params: { lng: AvailableLanguages }
 }) {
-  const { t } = useTranslation(lng, 'navigation');
-  const router = useRouter();
+  const { t } = useTranslation(lng, 'company');
 
   const tabItems = [
-    { title: '회사개요', href: '/company' },
-    { title: '기업이념', href: '/company/philosophy' },
-    { title: '오시는 길', href: '/company/location' }
+    { title: t('company.tab.overview'), href: getLocalizedPath('/company', lng) },
+    { title: t('company.tab.philosophy'), href: getLocalizedPath('/company/philosophy', lng) },
+    { title: t('company.tab.location'), href: getLocalizedPath('/company/location', lng) }
   ];
 
   const values = [
-    {
-      title: 'Innovation',
-      description: '끊임없는 혁신으로\n새로운 가치를 창출합니다.\n기술과 서비스의 발전을 통해\n더 나은 미래를 만들어갑니다.'
-    },
-    {
-      title: 'Trust',
-      description: '신뢰를 바탕으로\n지속 가능한 관계를 구축합니다.\n정직과 투명성을 기반으로\n사회적 책임을 다합니다.'
-    },
-    {
-      title: 'Collaboration',
-      description: '협력을 통해\n더 큰 시너지를 만들어냅니다.\n함께 성장하고 발전하는\n상생의 가치를 추구합니다.'
-    }
+    { title: 'Innovation', description: t('company.philosophy.value1') },
+    { title: 'Trust', description: t('company.philosophy.value2') },
+    { title: 'Collaboration', description: t('company.philosophy.value3') }
   ];
 
   return (
@@ -170,18 +161,19 @@ export default function PhilosophyPage({
       <PhilosophySection>
         <div className='container'>
           <div className='philosophy-intro'>
-            <h1 className='main-title'>기업이념</h1>
+            <h1 className='main-title'>
+              {t('company.philosophy.title')}
+            </h1>
             <p className='sub-title'>
-              {'유니버스는 혁신적인 서비스로 더 나은 세상을 만들어갑니다.\n' +
-              '우리의 가치와 비전을 통해 사회에 긍정적인 변화를 이끌어내겠습니다.'}
+              {t('company.philosophy.highlight')}
             </p>
           </div>
 
           <div className='value-grid'>
-            {values.map((value, index) => (
-              <div key={index} className='value-card'>
+            {values.map((value, idx) => (
+              <div key={idx} className='value-card'>
                 <div className='card-title'>
-                  <span className='number'>{index + 1}</span>
+                  <span className='number'>{idx + 1}</span>
                   <h3>{value.title}</h3>
                 </div>
                 <p className='card-desc'>{value.description}</p>
@@ -196,10 +188,7 @@ export default function PhilosophyPage({
                   {'Our Vision\nInnovate for Better Tomorrow'}
                 </h2>
                 <p className='description'>
-                  {'유니버스는 기술과 서비스의 혁신을 통해\n더 나은 미래를 만들어갑니다.\n\n' +
-                  '사용자 중심의 서비스로 일상의 불편함을 해소하고,\n' +
-                  '새로운 가치를 창출하여 사회 발전에 기여하는 것이\n' +
-                  '우리의 비전입니다.'}
+                  {t('company.philosophy.vision')}
                 </p>
               </div>
               <div className='img-content'>

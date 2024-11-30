@@ -1,0 +1,50 @@
+{
+  "home": {
+    "mainTitle": "Everyday Every life",
+    "subTitle": "Univus",
+    "about": {
+      "title": "Univus is not a service,\nbut an experience",
+      "description1": "Enjoy the daily",
+      "description2": "Experience a better direction",
+      "description3": "Enjoy being together again"
+    },
+    "project": {
+      "title": "Hirukuru",
+      "text": "Busy daily\nLunch break with a little extra",
+      "highlight": "One hour out of eight hours,\nA precious lunch break",
+      "description": "Enjoy a delicious meal and a leisurely break\nHirukuru with you will be even more special",
+      "more": "Service introduction"
+    },
+    "crew": {
+      "title": "Together to gather here"
+    },
+    "crew1": {
+      "nickname": "YR",
+      "title": "Ha",
+      "from": "Pusan",
+      "intro": "I want to convey the small joys I feel in everyday life."
+    },
+    "crew2": {
+      "nickname": "GO",
+      "title": "Matoba",
+      "from": "Saitama",
+      "intro": "I expect to make it real to provide an experience that is not just a service, but one that is memorable."
+    },
+    "crew3": {
+      "nickname": "?",
+      "title": "Anonymous",
+      "from": "TBD",
+      "intro": "The crew is preparing an introduction"
+    },
+    "crew4": {
+      "nickname": "?",
+      "title": "Anonymous",
+      "from": "TBD",
+      "intro": "The crew is preparing an introduction"
+    },
+    "inquary": {
+      "title": "Join Univus with us",
+      "more": "Details here"
+    }
+  }
+}

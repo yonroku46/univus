@@ -1,55 +1,22 @@
 {
-  "login": {
-    "title": "로그인/회원가입",
-    "social": {
-      "title": "SNS 계정으로 로그인"
-    }
-  },
-  "logout": {
-    "title": "로그아웃"
-  },
-  "mypage": {
-    "title": "마이페이지"
-  },
   "languages": {
     "title": "언어선택"
   },
   "menu": {
-    "root": {
-      "title": "관리자 메뉴",
-      "manage": "서비스관리"
+    "company": {
+      "title": "회사소개",
+      "main": "회사개요",
+      "philosophy": "기업이념",
+      "location": "오시는 길"
     },
-    "master": {
-      "title": "관리자 메뉴",
-      "dashboard": "대쉬보드",
-      "manage": "학원관리",
-      "scanner": "출결 스캐너"
+    "project": {
+      "title": "사업내용",
+      "main": "프로젝트 소개"
     },
-    "teacher": {
-      "title": "사용자 메뉴",
-      "dashboard": "대쉬보드"
-    },
-    "client": {
-      "title": "사용자 메뉴",
-      "dashboard": "대쉬보드"
-    },
-    "school": {
-      "title": "학원",
-      "search": "학원검색",
-      "affiliate": "소속학원",
-      "attendance": "출결"
-    },
-    "community": {
-      "title": "커뮤니티",
-      "latest": "최신글",
-      "weekly": "주간인기글",
-      "write": "글쓰기"
-    },
-    "service": {
-      "title": "서비스",
-      "about": "서비스 소개",
-      "partner": "이용신청",
-      "cs": "고객센터"
+    "contact": {
+      "title": "고객센터",
+      "inquiry": "문의하기",
+      "notice": "공지사항"
     }
   },
   "corporation": {

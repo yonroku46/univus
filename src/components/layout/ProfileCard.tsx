@@ -5,7 +5,6 @@ type ProfileCardProps = {
   color: string;
   title: string;
   subTitle: string;
-  thumbnail: string;
   intro: string;
 }
 
@@ -16,7 +15,7 @@ type ProfileCardProps = {
  * @returns {JSX.Element} - 프로필 카드 컴포넌트 반환
  */
 export default function ProfileCard(
-  { nickname, color, title, subTitle, thumbnail, intro }: ProfileCardProps
+  { nickname, color, title, subTitle, intro }: ProfileCardProps
 ) {
 
   return (

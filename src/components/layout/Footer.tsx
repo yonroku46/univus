@@ -1,9 +1,7 @@
 import Link from 'next/link';
 import { useTranslation } from '@/i18n';
 import { AvailableLanguages } from '@/i18n/settings';
-
-import PlaceIcon from '@mui/icons-material/Place';
-import EmailIcon from '@mui/icons-material/Email';
+import { getLocalizedPath } from '@/common/utils/LngUtils';
 
 interface FooterProps {
   lng: AvailableLanguages;
@@ -15,17 +13,17 @@ export default async function Footer (
   const { t } = await useTranslation(lng, 'navigation');
 
   const menuList: Array<MenuItem> = [
-    { groupName: '회사소개', groupHref: '/company', unit: [
-      { name: '회사개요', href: '/company' },
-      { name: '기업이념', href: '/company/philosophy' },
-      { name: '오시는 길', href: '/company/location' }
+    { groupName: t('menu.company.title'), groupHref: getLocalizedPath('/company', lng), unit: [
+      { name: t('menu.company.main'), href: getLocalizedPath('/company', lng) },
+      { name: t('menu.company.philosophy'), href: getLocalizedPath('/company/philosophy', lng) },
+      { name: t('menu.company.location'), href: getLocalizedPath('/company/location', lng) }
     ]},
-    { groupName: '사업내용', groupHref: '/project', unit: [
-      { name: '히루쿠루', href: '/project' }
+    { groupName: t('menu.project.title'), groupHref: getLocalizedPath('/project', lng), unit: [
+      { name: t('menu.project.main'), href: getLocalizedPath('/project', lng) }
     ]},
-    { groupName: '문의/상담', groupHref: '/contact', unit: [
-      { name: '문의/상담하기', href: '/contact' },
-      { name: '공지사항', href: '/contact/notice' }
+    { groupName: t('menu.contact.title'), groupHref: getLocalizedPath('/contact', lng), unit: [
+      { name: t('menu.contact.inquiry'), href: getLocalizedPath('/contact', lng) },
+      { name: t('menu.contact.notice'), href: getLocalizedPath('/contact/notice', lng) }
     ]}
   ]
 

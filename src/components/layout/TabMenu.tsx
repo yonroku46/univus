@@ -1,8 +1,7 @@
 'use client'
 
-import { usePathname } from 'next/navigation'
-import { removeLngPrefix } from '@/common/utils/LngUtils'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 
 interface TabItem {
   title: string
@@ -14,8 +13,7 @@ interface TabMenuProps {
 }
 
 export function TabMenu({ items }: TabMenuProps) {
-
-  const pathname = removeLngPrefix(usePathname());
+  const pathname = usePathname();
 
   return (
     <div className='tab-menu'>

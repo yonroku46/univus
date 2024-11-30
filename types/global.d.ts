@@ -30,7 +30,7 @@ declare global {
     content: string;
     date: string;
     isNew: boolean;
-    type: string;
+    type: 'service' | 'info';
   }
 }
 

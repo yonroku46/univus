@@ -1,10 +1,11 @@
 'use client'
 
-import { useRouter } from 'next/navigation';
-import { TabMenu } from '@/components/layout/TabMenu';
 import { useTranslation } from '@/i18n/client';
 import { AvailableLanguages } from '@/i18n/settings';
-import { Box, styled } from '@mui/material';
+import { getLocalizedPath } from '@/common/utils/LngUtils';
+import { TabMenu } from '@/components/layout/TabMenu';
+
+import { styled } from '@mui/material';
 import PlaceIcon from '@mui/icons-material/Place';
 import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
 import EmailIcon from '@mui/icons-material/Email';
@@ -100,13 +101,12 @@ export default function LocationPage({
 }: {
   params: { lng: AvailableLanguages }
 }) {
-  const { t } = useTranslation(lng, 'navigation');
-  const router = useRouter();
+  const { t } = useTranslation(lng, 'company');
 
   const tabItems = [
-    { title: '회사개요', href: '/company' },
-    { title: '기업이념', href: '/company/philosophy' },
-    { title: '오시는 길', href: '/company/location' }
+    { title: t('company.tab.overview'), href: getLocalizedPath('/company', lng) },
+    { title: t('company.tab.philosophy'), href: getLocalizedPath('/company/philosophy', lng) },
+    { title: t('company.tab.location'), href: getLocalizedPath('/company/location', lng) }
   ];
 
   return (
@@ -120,51 +120,62 @@ export default function LocationPage({
       <LocationSection>
         <div className='container'>
           <div className='location-intro'>
-            <h1 className='main-title'>오시는 길</h1>
+            <h1 className='main-title'>
+              {t('company.location.title')}
+            </h1>
             <p className='sub-title'>
-              {'유니버스 본사에 방문하시는 것을 환영합니다.\n찾아오시는 길을 안내해드립니다.'}
+              {t('company.location.description')}
             </p>
           </div>
 
           <div className='info-section'>
             <div className='map-container'>
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1661.7800288466237!2d130.39290469139814!3d33.59077023583008!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x35419188d205b021%3A0x6b2ac52dd2d464b6!2sYoka%20Lab%20Tenjin!5e0!3m2!1sko!2skr!4v1732891156478!5m2!1sko!2skr"
-              width="100%"
-              height="100%"
-              style={{ border: 0 }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            />
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1661.7800288466237!2d130.39290469139814!3d33.59077023583008!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x35419188d205b021%3A0x6b2ac52dd2d464b6!2sYoka%20Lab%20Tenjin!5e0!3m2!1sko!2skr!4v1732891156478!5m2!1sko!2skr"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
             </div>
-
             <div className='info-content'>
-              <h2 className='info-title'>본사 정보</h2>
+              <h2 className='info-title'>
+                {t('company.location.info.title')}
+              </h2>
               <div className='info-list'>
                 <div className='info-item'>
                   <PlaceIcon className='icon' />
                   <div className='text'>
-                    <div className='label'>주소</div>
+                    <div className='label'>
+                      {t('company.location.label.address')}
+                    </div>
                     <div className='value'>
-                      {'〒810-0041\n후쿠오카현 후쿠오카시 주오구\n 다이묘2-9-35 토우센텐진빌딩9F'}
+                      {t('company.location.info.address')}
                     </div>
                   </div>
                 </div>
-
                 <div className='info-item'>
                   <LocalPhoneIcon className='icon' />
                   <div className='text'>
-                    <div className='label'>전화번호</div>
-                    <div className='value'>+81-92-781-5111</div>
+                    <div className='label'>
+                      {t('company.location.label.phone')}
+                    </div>
+                    <div className='value'>
+                      {t('company.location.info.phone')}
+                    </div>
                   </div>
                 </div>
-
                 <div className='info-item'>
                   <EmailIcon className='icon' />
                   <div className='text'>
-                    <div className='label'>이메일</div>
-                    <div className='value'>info@univus.co.jp</div>
+                    <div className='label'>
+                      {t('company.location.label.email')}
+                    </div>
+                    <div className='value'>
+                      {t('company.location.info.email')}
+                    </div>
                   </div>
                 </div>
               </div>
