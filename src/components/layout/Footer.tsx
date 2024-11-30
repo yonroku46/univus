@@ -1,5 +1,7 @@
+'use client'
+
 import Link from 'next/link';
-import { useTranslation } from '@/i18n';
+import { useTranslation } from '@/i18n/client';
 import { AvailableLanguages } from '@/i18n/settings';
 import { getLocalizedPath } from '@/common/utils/LngUtils';
 
@@ -7,10 +9,10 @@ interface FooterProps {
   lng: AvailableLanguages;
 }
 
-export default async function Footer (
+export default function Footer (
   { lng }: FooterProps
 ) {
-  const { t } = await useTranslation(lng, 'navigation');
+  const { t } = useTranslation(lng, 'navigation');
 
   const menuList: Array<MenuItem> = [
     { groupName: t('menu.company.title'), groupHref: getLocalizedPath('/company', lng), unit: [
