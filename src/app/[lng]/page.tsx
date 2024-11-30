@@ -42,7 +42,7 @@ export default function Home(
     <article>
       <div className='home background'>
         <div className='bg-video'>
-          <video className='bg-video-content' autoPlay loop muted>
+          <video className='bg-video-content' autoPlay loop muted playsInline>
             <source src='/assets/img/background.mp4' type='video/mp4' />
             Your browser does not support the video tag
           </video>
