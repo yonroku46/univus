@@ -1,0 +1,26 @@
+{
+  "common": {
+    "description": "Univusはサービスを通じて社会的貢献を実現したいと思います",
+    "keywords": "Univus,ユニバス,IT,ソフトウェア,開発,技術,ソリューション"
+  },
+  "home": {
+    "title": "Univus",
+    "description": "みんなが繋がる日常へ",
+    "ogImageAlt": "Univusメインイメージ"
+  },
+  "company": {
+    "title": "会社紹介",
+    "description": "Univusはサービスではなく、経験を提供します",
+    "ogImageAlt": "Univus会社紹介イメージ"
+  },
+  "project": {
+    "title": "プロジェクト",
+    "description": "Univusの革新的なプロジェクトを紹介します",
+    "ogImageAlt": "Univusプロジェクトイメージ"
+  },
+  "contact": {
+    "title": "お問い合わせ",
+    "description": "ご不明な点がありましたら、いつでもお問い合わせください",
+    "ogImageAlt": "Univusお問い合わせイメージ"
+  }
+}

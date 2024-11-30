@@ -1,14 +1,11 @@
-import type { Metadata } from 'next';
 import { Suspense } from 'react';
+import { AvailableLanguages } from '@/i18n/settings';
+import { generatePageMetadata } from '@/common/utils/MetaUtils';
 import Loading from '@/app/[lng]/loading';
 
-export const metadata: Metadata = {
-  title: `${process.env.NEXT_PUBLIC_APP_NAME} | Company`,
-  description: 'Univusはサービスではなく、経験を提供します',
-  icons: {
-    icon: '/assets/icon/favicon.svg'
-  }
-};
+export async function generateMetadata({ params }: { params: { lng: AvailableLanguages } }) {
+  return generatePageMetadata('company', params.lng);
+}
 
 export default async function CompanyLayout(
   { children }: { children: React.ReactNode }

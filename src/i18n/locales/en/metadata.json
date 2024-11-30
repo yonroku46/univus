@@ -1,0 +1,26 @@
+{
+  "common": {
+    "description": "Univus is committed to achieving social contributions through services",
+    "keywords": "Univus,IT,Software,Development,Technology,Solution"
+  },
+  "home": {
+    "title": "Univus",
+    "description": "Everyone connects to everyday life with Univus",
+    "ogImageAlt": "Univus Main Image"
+  },
+  "company": {
+    "title": "Company",
+    "description": "Univus provides experiences, not services",
+    "ogImageAlt": "Univus Company Introduction Image"
+  },
+  "project": {
+    "title": "Project",
+    "description": "Univus's innovative projects",
+    "ogImageAlt": "Univus Project Image"
+  },
+  "contact": {
+    "title": "Contact",
+    "description": "If you have any questions, please contact us anytime",
+    "ogImageAlt": "Univus Contact Image"
+  }
+}
