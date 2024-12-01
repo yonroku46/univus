@@ -27,7 +27,7 @@ export async function generatePageMetadata(type: MetadataType, lng: AvailableLan
   const baseMetadata: Metadata = {
     metadataBase: new URL(process.env.NEXT_PUBLIC_APP_ADDRESS || ''),
     title: {
-      template: `%s | ${appName}`,
+      template: `${appName} | %s`,
       default: appName || '',
     },
     description: t('common.description'),
@@ -43,14 +43,14 @@ export async function generatePageMetadata(type: MetadataType, lng: AvailableLan
     openGraph: {
       type: 'website',
       siteName: appName,
-      title: `${t(`${type}.title`)} | ${appName}`,
+      title: `${appName} | ${t(`${type}.title`)}`,
       description: t(`${type}.description`),
       url: `${process.env.NEXT_PUBLIC_APP_ADDRESS}/${lng}/${type !== 'home' ? type : ''}`,
       locale: lng,
       alternateLocale: ['ja', 'ko', 'en'],
       images: [
         {
-          url: new URL('/og-image.png', process.env.NEXT_PUBLIC_APP_ADDRESS).toString(),
+          url: new URL('/assets/img/og-image.png', process.env.NEXT_PUBLIC_APP_ADDRESS).toString(),
           width: 1200,
           height: 630,
           alt: t(`${type}.ogImageAlt`),
@@ -59,9 +59,9 @@ export async function generatePageMetadata(type: MetadataType, lng: AvailableLan
     },
     twitter: {
       card: 'summary_large_image',
-      title: `${t(`${type}.title`)} | ${appName}`,
+      title: `${appName} | ${t(`${type}.title`)}`,
       description: t(`${type}.description`),
-      images: [new URL('/og-image.png', process.env.NEXT_PUBLIC_APP_ADDRESS).toString()],
+      images: [new URL('/assets/img/og-image.png', process.env.NEXT_PUBLIC_APP_ADDRESS).toString()],
       creator: '@univus',
     },
     robots: {
@@ -85,11 +85,11 @@ export async function generatePageMetadata(type: MetadataType, lng: AvailableLan
     },
     icons: {
       icon: [
-        { url: '/favicon.ico' },
-        { url: '/favicon.svg', type: 'image/svg+xml' }
+        { url: '/assets/icon/favicon.ico' },
+        { url: '/assets/icon/favicon.svg', type: 'image/svg+xml' }
       ],
       apple: [
-        { url: '/apple-touch-icon.png' }
+        { url: '/assets/icon/apple-touch-icon.png' }
       ],
     },
     manifest: '/manifest.json',
