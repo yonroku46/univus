@@ -22,11 +22,13 @@ export async function generatePageMetadata(type: MetadataType, lng: AvailableLan
   const i18n = await initI18next(lng, 'metadata');
   const t = i18n.getFixedT(lng, 'metadata');
 
+  const appName = process.env.NEXT_PUBLIC_APP_NAME || '';
+
   const baseMetadata: Metadata = {
     metadataBase: new URL(process.env.NEXT_PUBLIC_APP_ADDRESS || ''),
     title: {
-      template: `%s | ${process.env.NEXT_PUBLIC_APP_NAME}`,
-      default: process.env.NEXT_PUBLIC_APP_NAME || '',
+      template: `%s | ${appName}`,
+      default: appName || '',
     },
     description: t('common.description'),
     keywords: t('common.keywords').split(','),
@@ -40,14 +42,15 @@ export async function generatePageMetadata(type: MetadataType, lng: AvailableLan
     },
     openGraph: {
       type: 'website',
-      siteName: process.env.NEXT_PUBLIC_APP_NAME,
-      title: t(`${type}.title`),
+      siteName: appName,
+      title: `${t(`${type}.title`)} | ${appName}`,
       description: t(`${type}.description`),
+      url: `${process.env.NEXT_PUBLIC_APP_ADDRESS}/${lng}/${type !== 'home' ? type : ''}`,
       locale: lng,
       alternateLocale: ['ja', 'ko', 'en'],
       images: [
         {
-          url: '/assets/img/thumbnail.png',
+          url: new URL('/og-image.png', process.env.NEXT_PUBLIC_APP_ADDRESS).toString(),
           width: 1200,
           height: 630,
           alt: t(`${type}.ogImageAlt`),
@@ -56,9 +59,9 @@ export async function generatePageMetadata(type: MetadataType, lng: AvailableLan
     },
     twitter: {
       card: 'summary_large_image',
-      title: t(`${type}.title`),
+      title: `${t(`${type}.title`)} | ${appName}`,
       description: t(`${type}.description`),
-      images: ['/assets/img/thumbnail.png'],
+      images: [new URL('/og-image.png', process.env.NEXT_PUBLIC_APP_ADDRESS).toString()],
       creator: '@univus',
     },
     robots: {
@@ -82,11 +85,11 @@ export async function generatePageMetadata(type: MetadataType, lng: AvailableLan
     },
     icons: {
       icon: [
-        { url: '/assets/icon/favicon.ico' },
-        { url: '/assets/icon/favicon.svg', type: 'image/svg+xml' }
+        { url: '/favicon.ico' },
+        { url: '/favicon.svg', type: 'image/svg+xml' }
       ],
       apple: [
-        { url: '/assets/icon/apple-touch-icon.png' }
+        { url: '/apple-touch-icon.png' }
       ],
     },
     manifest: '/manifest.json',
@@ -100,7 +103,7 @@ export async function generatePageMetadata(type: MetadataType, lng: AvailableLan
   const pageMetadata: Record<MetadataType, Metadata> = {
     home: {
       ...baseMetadata,
-      title: process.env.NEXT_PUBLIC_APP_NAME || '',
+      title: appName,
     },
     company: {
       ...baseMetadata,

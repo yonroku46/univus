@@ -1,3 +1,4 @@
+import { SpeedInsights } from '@vercel/speed-insights/next'
 import { dir } from 'i18next'
 import { AvailableLanguages, languages } from '@/i18n/settings'
 import { Noto_Sans_JP, Noto_Sans_KR, Noto_Sans } from 'next/font/google';
@@ -45,6 +46,7 @@ export default function MainLayout(
           {children}
         </main>
         <Footer lng={lng} />
+        <SpeedInsights />
       </body>
     </html>
   );
