@@ -80,7 +80,7 @@ export default function Home(
             title={t('home.project.title')}
           />
           <div className='contents project'>
-            <div className='project-main'>
+            <div className='project-intro'>
               <div className='project-text' data-aos='fade-right'>
                 <h1>
                   {t('home.project.text')}

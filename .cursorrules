@@ -26,6 +26,8 @@ Syntax and Formatting
 UI and Styling
 - Use MUI for components and styling.
 - Implement responsive design; use a mobile-first approach.
+- Use SCSS for styling.
+- Do not space paragraphs between SCSS.
 
 Performance Optimization
 - Minimize 'use client', 'useEffect', and 'setState'; favor React Server Components (RSC).
