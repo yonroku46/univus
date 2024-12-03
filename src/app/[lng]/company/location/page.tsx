@@ -54,13 +54,17 @@ const LocationSection = styled('section')(({ theme }) => ({
     '.info-content': {
       flex: 1,
       padding: '2rem',
-      backgroundColor: '#fff',
-      borderRadius: '1rem',
-      boxShadow: '0 4px 24px rgba(0,0,0,0.06)',
+      backgroundColor: 'var(--bg-color)',
+      borderLeft: '1px solid var(--border-color)',
+      '@media (max-width: 768px)': {
+        borderLeft: 'none',
+        borderTop: '1px solid var(--border-color)'
+      },
       '.info-title': {
         fontSize: '1.25rem',
         fontWeight: 600,
         color: 'var(--main-color)',
+        marginTop: '0',
         marginBottom: '2rem',
       },
       '.info-list': {
@@ -81,7 +85,7 @@ const LocationSection = styled('section')(({ theme }) => ({
               fontSize: '1.1rem',
               fontWeight: 600,
               marginBottom: '0.5rem',
-              color: 'var(--sub-color)',
+              color: 'var(--main-color)',
             },
             '.value': {
               fontSize: '1rem',

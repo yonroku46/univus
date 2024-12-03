@@ -47,7 +47,6 @@ const CompanySection = styled('section')(({ theme }) => ({
       display: 'flex',
       borderRadius: '1rem',
       overflow: 'hidden',
-      boxShadow: '0 4px 16px rgba(0,0,0,0.1)',
       '& img': {
         width: '100%',
         height: '100%',
@@ -93,7 +92,7 @@ export default function CompanyPage({
             </div>
             <div className='img-content'>
               <CustomImg
-                src='/assets/img/company1.jpg'
+                src='/assets/img/company1.jpeg'
                 alt='company vision'
                 width={500}
                 height={350}

@@ -1,6 +1,7 @@
 type ContentsTitleProps = {
   description: string;
   title: string;
+  accentWidth?: number;
 }
 
 /**
@@ -8,10 +9,11 @@ type ContentsTitleProps = {
  *
  * @param {string} description - 컨텐츠 부제목
  * @param {string} title - 컨텐츠 제목
+ * @param {number} accentWidth - 컨텐츠 제목 밑줄 너비
  * @returns {JSX.Element} - 컨텐츠 타이틀 컴포넌트 반환
  */
 export default function ContentsTitle(
-  { description, title }: ContentsTitleProps
+  { description, title, accentWidth = 0 }: ContentsTitleProps
 ) {
   return (
     <div className='contents-title' data-aos='fade-down' >
@@ -23,6 +25,7 @@ export default function ContentsTitle(
         <div
           className='title-accent'
           data-aos='fade-right'
+          style={{ width: `${accentWidth}%` }}
         />
       </div>
     </div>

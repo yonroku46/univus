@@ -16,9 +16,9 @@ export default function Home(
   const { t } = useTranslation(lng, 'home');
 
   const aboutCardList = [
-    { img: '/assets/img/home1.jpg', title: 'Enjoy', description: t('home.about.description1') },
+    { img: '/assets/img/home1.avif', title: 'Enjoy', description: t('home.about.description1') },
     { img: '/assets/img/home2.avif', title: 'Experience', description: t('home.about.description2') },
-    { img: '/assets/img/home3.jpg', title: 'Each other', description: t('home.about.description3') }
+    { img: '/assets/img/home3.avif', title: 'Each other', description: t('home.about.description3') }
   ]
   const crewCardList = [
     { nickname: t('home.crew1.nickname'), color: 'var(--main-color)', title: t('home.crew1.title'), subTitle: t('home.crew1.from'), intro: t('home.crew1.intro') },

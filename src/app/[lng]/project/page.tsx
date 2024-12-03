@@ -1,20 +1,38 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+
+import InsightsOutlinedIcon from '@mui/icons-material/InsightsOutlined';
+import AddBusinessOutlinedIcon from '@mui/icons-material/AddBusinessOutlined';
+import ThumbUpOffAltOutlinedIcon from '@mui/icons-material/ThumbUpOffAltOutlined';
+import LocalDiningOutlinedIcon from '@mui/icons-material/LocalDiningOutlined';
+import TaskAltOutlinedIcon from '@mui/icons-material/TaskAltOutlined';
 
 export default function ServiceInfoPage() {
+
   const [userType, setUserType] = useState<'seller' | 'buyer'>('seller');
 
+  useEffect(() => {
+    import('aos').then((AOS) => {
+      AOS.default.init({
+        once: true,
+        startEvent: 'DOMContentLoaded',
+        initClassName: 'aos-init',
+        animatedClassName: 'aos-animate'
+      });
+    });
+  }, []);
+
   const sellerBenefits = [
-    '더 많은 고객에게 도달하여 매출 증대',
-    '간편한 주문 및 재고 관리 시스템',
-    '효율적인 고객 피드백 수집'
+    { icon: InsightsOutlinedIcon, title: '더 많은 고객에게 도달하여\n매출 증대' },
+    { icon: AddBusinessOutlinedIcon, title: '간편한 주문 및\n재고 관리 시스템' },
+    { icon: ThumbUpOffAltOutlinedIcon, title: '효율적인 고객\n피드백 수집' }
   ];
 
   const buyerBenefits = [
-    '다양한 도시락 옵션으로 선택의 폭 확대',
-    '편리한 주문 및 안전한 결제 시스템',
-    '빠르고 신뢰할 수 있는 배송 서비스'
+    { icon: LocalDiningOutlinedIcon, title: '다양한 도시락 옵션으로\n선택의 폭 확대' },
+    { icon: TaskAltOutlinedIcon, title: '편리하고 효율적인\n식사경험' },
+    { icon: ThumbUpOffAltOutlinedIcon, title: '신뢰할 수 있는\n실제 이용자의 후기' }
   ];
 
   return (
@@ -22,11 +40,9 @@ export default function ServiceInfoPage() {
       <div className='project-main'>
         <div className='container'>
           <h2 className='section-title'>
-            히루쿠루
+            <span className='app-name'>히루쿠루 </span>
+            {`에서 점심시간 여유롭게,\n맛있게 경험해보세요!`}
           </h2>
-          <p className='section-content'>
-            {`주변의 도시락을 손쉽게 소개하고 만나보세요\n히루쿠루는 도시락 판매자와 구매자를 연결하여 더 나은 경험을 제공합니다`}
-          </p>
           <div className='type-select'>
             <div
               className={`type-select-item ${userType === 'seller' ? 'selected' : ''}`}
@@ -52,26 +68,43 @@ export default function ServiceInfoPage() {
 
       <div className='project-detail'>
         <div className='container'>
-          <div className='coming-soon'>
-            <div className='sub-title'>
-              Coming Soon
-            </div>
-            <div className='title'>
-              상세내용은 준비중입니다...
+
+          <div className='service-benefit'>
+            <h2>{userType === 'seller' ? '판매자라면?\n이런점이 좋아요!' : '구매자라면?\n이런점이 좋아요!'}</h2>
+            <div className='card'>
+              {(userType === 'seller' ? sellerBenefits : buyerBenefits).map((benefit, index) => (
+                <div key={index} className='card-item'>
+                  <benefit.icon className='icon' />
+                  {benefit.title}
+                </div>
+              ))}
             </div>
           </div>
-          {/* <div className='card-container'>
-            <h2>{userType === 'seller' ? '판매자 혜택' : '구매자 혜택'}</h2>
-            <div className='card'>
-              <ul>
-                {(userType === 'seller' ? sellerBenefits : buyerBenefits).map((benefit, index) => (
-                  <li key={index} className='card-item'>
-                    {benefit}
-                  </li>
-                ))}
-              </ul>
+
+          <div className='service-method'>
+            <h2>{'서비스 이용방법'}</h2>
+            <div className='coming-soon'>
+              <div className='sub-title'>
+                Coming Soon
+              </div>
+              <div className='title'>
+                상세내용을 준비중입니다...
+              </div>
             </div>
-          </div> */}
+          </div>
+
+          <div className='service-review'>
+            <h2>{'이용후기'}</h2>
+            <div className='coming-soon'>
+              <div className='sub-title'>
+                Coming Soon
+              </div>
+              <div className='title'>
+                상세내용을 준비중입니다...
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </article>
