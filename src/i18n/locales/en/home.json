@@ -1,34 +1,34 @@
 {
   "home": {
-    "mainTitle": "Everyday Every life",
+    "mainTitle": "Everyone Connected Every Day",
     "subTitle": "Univus",
     "about": {
       "title": "Univus is not a service,\nbut an experience",
-      "description1": "Enjoy the daily",
-      "description2": "Experience a better direction",
-      "description3": "Enjoy being together again"
+      "description1": "Enjoy every moment",
+      "description2": "Discover a better path forward",
+      "description3": "Experience the joy of connection"
     },
     "project": {
-      "title": "Hirukuru",
-      "text": "Busy daily\nLunch break with a little extra",
-      "highlight": "One hour out of eight hours,\nA precious lunch break",
-      "description": "Enjoy a delicious meal and a leisurely break\nHirukuru with you will be even more special",
+      "title": "Hiru-kuru (Daily Deli)",
+      "text": "Add a little extra to your lunch, even on your busiest days",
+      "highlight": "Your precious one-hour break in the midst of a busy 8-hour workday.",
+      "description": "Enjoy a delicious meal and a relaxing break. Hiru-Kuru (Daily Deli) makes your time even more special with fresh, tasty, clean, and convenient meals, all served with care.",
       "more": "Service introduction"
     },
     "crew": {
-      "title": "Together to gather here"
+      "title": "Univus Family"
     },
     "crew1": {
       "nickname": "YR",
       "title": "Ha",
       "from": "Pusan",
-      "intro": "I want to convey the small joys I feel in everyday life."
+      "intro": "I want to share the small joys I feel in everyday life."
     },
     "crew2": {
       "nickname": "GO",
       "title": "Matoba",
       "from": "Saitama",
-      "intro": "I expect to make it real to provide an experience that is not just a service, but one that is memorable."
+      "intro": "I strive to offer experiences that are not just mere services, but ones that are truly memorable."
     },
     "crew3": {
       "nickname": "?",
@@ -43,7 +43,7 @@
       "intro": "The crew is preparing an introduction"
     },
     "inquary": {
-      "title": "Join Univus with us",
+      "title": "Join the Univus family",
       "more": "Details here"
     }
   }

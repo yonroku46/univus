@@ -17,7 +17,7 @@ export default function Footer (
   const menuList: Array<MenuItem> = [
     { groupName: t('menu.company.title'), groupHref: getLocalizedPath('/company', lng), unit: [
       { name: t('menu.company.main'), href: getLocalizedPath('/company', lng) },
-      { name: t('menu.company.philosophy'), href: getLocalizedPath('/company/philosophy', lng) },
+      { name: t('menu.company.ideology'), href: getLocalizedPath('/company/ideology', lng) },
       { name: t('menu.company.location'), href: getLocalizedPath('/company/location', lng) }
     ]},
     { groupName: t('menu.project.title'), groupHref: getLocalizedPath('/project', lng), unit: [

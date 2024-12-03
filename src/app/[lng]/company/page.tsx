@@ -65,7 +65,7 @@ export default function CompanyPage({
 
   const tabItems = [
     { title: t('company.tab.overview'), href: getLocalizedPath('/company', lng) },
-    { title: t('company.tab.philosophy'), href: getLocalizedPath('/company/philosophy', lng) },
+    { title: t('company.tab.ideology'), href: getLocalizedPath('/company/ideology', lng) },
     { title: t('company.tab.location'), href: getLocalizedPath('/company/location', lng) }
   ];
 

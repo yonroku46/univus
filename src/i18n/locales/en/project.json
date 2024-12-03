@@ -1,0 +1,33 @@
+{
+  "project": {
+    "comingSoon": "Detail content is being prepared...",
+    "service": {
+      "name": "Hiru-kuru",
+      "description": " Enjoy lunchtime with ease,\nand taste deliciously!",
+      "seller": {
+        "title": "Shop",
+        "benefit": {
+          "title": "Shop's Benefits!",
+          "item1": "Reach more customers\nand increase sales",
+          "item2": "Easy order and\ninventory management system",
+          "item3": "Efficient customer\nfeedback collection"
+        }
+      },
+      "buyer": {
+        "title": "Client",
+        "benefit": {
+          "title": "Client's Benefits!",
+          "item1": "Expand your options\nwith various lunch box options",
+          "item2": "Convenient and efficient\nmeal experience",
+          "item3": "Reliable reviews\nfrom actual users"
+        }
+      },
+      "method": {
+        "title": "Usage Method"
+      },
+      "review": {
+        "title": "User's Review"
+      }
+    }
+  }
+}

@@ -2,30 +2,30 @@
   "company": {
     "tab": {
       "overview": "Overview",
-      "philosophy": "Philosophy",
+      "ideology": "Ideology",
       "location": "Location"
     },
     "overview1": {
-      "title": "Services to\nAchieve Social Contribution",
-      "highlight": "Univus creates a better world\nwith innovative services",
-      "description": "Starting with providing small convenience and ease in the daily lives of busy modern people, we aim to gradually cause positive changes in more areas. Thanks to our belief that our services can contribute to society, we continue to innovate and develop."
+      "title": "Societal contributions made possible through services.",
+      "highlight": "Univus creates a better world for tomorrow by making use of innovative services",
+      "description": "In today’s fast-paced world, we understand how valuable your time is. That’s why we set out to create a service designed to bring greater convenience to your life and to have a positive impact. At Univus, our services are driven by a deep commitment to societal contribution. This passion inspires us to continuously innovate and evolve, ensuring we meet your needs with care and dedication."
     },
     "overview2": {
-      "title": "Technology to Connect\nto a Better Future",
-      "highlight": "Latest technology and creative ideas\nto create new value",
-      "description": "Univus connects people and services through technology to create new value. We will start with Hilcru and provide more innovative services. We look forward to the future we create."
+      "title": "Technology that connects us\nto a better Future",
+      "highlight": "Innovation and creative ideas\nto create new values",
+      "description": "Univus brings people and services together through innovative technology, creating new value and enriching everyday life. Our journey begins with Hiru-Kuru (Daily Deli), and we are excited to introduce even more groundbreaking services in the near future. We believe the challenges we embrace today will shape a brighter, more connected tomorrow, and we look forward to building that future with you."
     },
-    "philosophy": {
-      "title": "Philosophy",
-      "highlight": "Our values and vision\nwill bring positive change to society",
-      "value1": "Unending innovation to create new value.\nThrough the development of technology and services,\nwe will build a better future.",
-      "value2": "Building sustainable relationships based on trust.\nWe will fulfill social responsibility with honesty and transparency.",
-      "value3": "Collaboration to create greater synergy.\nWe will pursue the value of co-existence and growth.",
-      "vision": "Univus will create a better future through innovation in technology and services.\n\nThrough user-centric services, we will solve daily inconveniences and create new value to contribute to social development.\nThis is our vision."
+    "ideology": {
+      "title": "Univus' Ideology",
+      "highlight": "Our values and vision are dedicated to driving positive change, making a meaningful difference in society.",
+      "value1": "Value 1: Relentless Innovation towards modern values\nWith unwavering determination, we pursue continuous innovation to create new values. Through the advancement of technology and services, we are dedicated to shaping a better, brighter future.",
+      "value2": "Value 2: Trust and Integrity in Every Relationship\nWe are committed to cultivating sustainable relationships built on trust. Through honesty, transparency, and integrity, we uphold our social responsibility with purpose and dedication.",
+      "value3": "Value 3: Collaboration to enhance Synergy\nWe are committed to fostering collaboration that amplifies synergy, striving for co-existence and mutual growth.",
+      "vision": "Vision: Univus is committed to creating a better future through innovation in technology and services. By delivering user-centric solutions, we aim to solve everyday challenges, generate new value, and contribute to societal development. This is the vision that drives us forward."
     },
     "location": {
       "title": "Access",
-      "description": "Welcome to Univus's headquarters.\nWe will guide you to the access route.",
+      "description": "Welcome to Univus's headquarters. You can contact us via the following.",
       "label": {
         "address": "Address",
         "phone": "Phone Number",
@@ -33,7 +33,7 @@
       },
       "info": {
         "title": "Headquarters",
-        "address": "〒810-0041\nFukuoka Prefecture, Fukuoka City, Hakata Ward, Daimyo 2-9-35, Tozen Tenjin Building 9F",
+        "address": "2-chōme-9-35 Daimyō, Chuo Ward,\nFukuoka-shi, Chuō-ku Fukuoka,\n810-0041,\nJapan",
         "phone": "+81-92-781-5111",
         "email": "info@univus.co.jp"
       }

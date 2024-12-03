@@ -4,25 +4,25 @@
   },
   "menu": {
     "company": {
-      "title": "Company",
+      "title": "About",
       "main": "Overview",
-      "philosophy": "Philosophy",
-      "location": "Access"
+      "ideology": "Ideology",
+      "location": "Location"
     },
     "project": {
       "title": "Project",
-      "main": "Introduction"
+      "main": "Brief"
     },
     "contact": {
-      "title": "Inquiry",
+      "title": "Contact",
       "inquiry": "Inquiry",
       "notice": "Notice"
     }
   },
   "corporation": {
-    "intro": "Univus inc., Ltd.",
-    "location": "〒810-0041\nFukuoka, Fukuoka City Chuo-ku\nDaimyo 2-9-35 Tou-senten bld 9F",
+    "intro": "UNIVUS inc. Ltd.",
+    "location": "2-chōme-9-35 Daimyō, Chuo Ward,\nFukuoka-shi, Chuō-ku Fukuoka,\n810-0041,\nJapan",
     "mail": "info@univus.co.jp",
-    "copyright": "Copyright ⓒ Univus inc.,Ltd. All Rights Reserved."
+    "copyright": "Copyright ⓒ UNIVUS inc. Ltd., All Rights Reserved."
   }
 }

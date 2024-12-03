@@ -8,9 +8,9 @@ import CustomImg from '@/components/custom/CustomImg';
 
 import { styled } from '@mui/material';
 
-const PhilosophySection = styled('section')(({ theme }) => ({
+const IdeologySection = styled('section')(({ theme }) => ({
   padding: '1rem 0',
-  '.philosophy-intro': {
+  '.ideology-intro': {
     textAlign: 'center',
     marginBottom: '3rem',
     width: '100%',
@@ -132,7 +132,7 @@ const PhilosophySection = styled('section')(({ theme }) => ({
   }
 }));
 
-export default function PhilosophyPage({
+export default function IdeologyPage({
   params: { lng }
 }: {
   params: { lng: AvailableLanguages }
@@ -141,14 +141,14 @@ export default function PhilosophyPage({
 
   const tabItems = [
     { title: t('company.tab.overview'), href: getLocalizedPath('/company', lng) },
-    { title: t('company.tab.philosophy'), href: getLocalizedPath('/company/philosophy', lng) },
+    { title: t('company.tab.ideology'), href: getLocalizedPath('/company/ideology', lng) },
     { title: t('company.tab.location'), href: getLocalizedPath('/company/location', lng) }
   ];
 
   const values = [
-    { title: 'Innovation', description: t('company.philosophy.value1') },
-    { title: 'Trust', description: t('company.philosophy.value2') },
-    { title: 'Collaboration', description: t('company.philosophy.value3') }
+    { title: 'Innovation', description: t('company.ideology.value1') },
+    { title: 'Trust', description: t('company.ideology.value2') },
+    { title: 'Collaboration', description: t('company.ideology.value3') }
   ];
 
   return (
@@ -158,14 +158,14 @@ export default function PhilosophyPage({
           <TabMenu items={tabItems} />
         </div>
       </div>
-      <PhilosophySection>
+      <IdeologySection>
         <div className='container'>
-          <div className='philosophy-intro'>
+          <div className='ideology-intro'>
             <h1 className='main-title'>
-              {t('company.philosophy.title')}
+              {t('company.ideology.title')}
             </h1>
             <p className='sub-title'>
-              {t('company.philosophy.highlight')}
+              {t('company.ideology.highlight')}
             </p>
           </div>
 
@@ -188,12 +188,12 @@ export default function PhilosophyPage({
                   {'Our Vision\nInnovate for Better Tomorrow'}
                 </h2>
                 <p className='description'>
-                  {t('company.philosophy.vision')}
+                  {t('company.ideology.vision')}
                 </p>
               </div>
               <div className='img-content'>
                 <CustomImg
-                  src='/assets/img/philosophy.jpg'
+                  src='/assets/img/ideology.jpg'
                   alt='company vision'
                   width={500}
                   height={350}
@@ -203,7 +203,7 @@ export default function PhilosophyPage({
             </div>
           </div>
         </div>
-      </PhilosophySection>
+      </IdeologySection>
     </article>
   );
 }
