@@ -97,7 +97,7 @@ export default function Home(
                   <span className='arrow'>→</span>
                 </Link>
               </div>
-              <div className='project-img' data-aos='fade-left'>
+              <div className='project-img' data-aos='fade'>
                 <div className='image-wrapper back'>
                   <CustomImg
                     src='/assets/img/lunch1.jpg'
