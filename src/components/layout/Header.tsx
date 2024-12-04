@@ -175,7 +175,7 @@ export default function Header (
           <button className='sp-only menu-btn' onClick={() => setOpen(true)}>
             <MenuRoundedIcon className='menu-icon' />
           </button>
-          <Drawer PaperProps={{sx: {borderRadius: '0 0 1rem 1rem'}}} anchor={'top'} open={open} onClose={() => setOpen(false)}>
+          <Drawer PaperProps={{sx: {minWidth: '230px'}}} anchor={'right'} open={open} onClose={() => setOpen(false)}>
             <nav>
               <div className='menu-group top-area'>
                 <CloseRoundedIcon className='close-icon' onClick={() => setOpen(false)} />

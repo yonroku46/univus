@@ -3,6 +3,7 @@
   --main-color: #233142;
   --sub-color: #455d7a;
   --accent-color: #59a4f9;
+  --accent-bg-color: #59a4f923;
   // theme color rgb
   --rgb-main-color: 35, 49, 66;
   --rgb-sub-color: 69, 93, 122;
@@ -142,7 +143,7 @@ nav {
     .group-name {
       font-weight: bold;
       margin-bottom: 0.25rem;
-      padding-bottom: 0.25rem;
+      padding-bottom: 0.5rem;
       border-bottom: 1px solid var(--text-sub-color);
       width: 100%;
     }
@@ -159,7 +160,7 @@ nav {
       align-items: flex-start;
       a {
         width: 100%;
-        padding: 0.3rem 1rem;
+        padding: 0.35rem 1rem;
         font-weight: normal;
       }
     }
@@ -171,6 +172,7 @@ footer {
   width: 100%;
   border-top-width: 1px;
   background-color: var(--bg-color);
+  color: var(--text-sub-color);
   .footer-group {
     display: flex;
     flex-direction: row;
@@ -193,12 +195,17 @@ footer {
     .sp-nav {
       flex: 1;
       font-size: 0.9rem;
+      color: var(--text-sub-color);
+      a {
+        color: var(--text-sub-color);
+      }
     }
   }
   .copyright {
     text-align: center;
     font-size: 0.9rem;
     color: var(--text-sub-color);
+    opacity: 0.6;
     padding-bottom: 1.5rem;
   }
 }
@@ -897,25 +904,30 @@ select {
     }
     .card {
       display: flex;
-      gap: 1rem;
+      gap: 3rem;
       .card-item {
         position: relative;
         flex: 1;
         display: flex;
-        align-items: center;
-        border-width: 1px;
-        box-shadow: rgba(0, 0, 0, 0.1) 0rem 0.6rem 0.9rem -0.1rem, rgba(0, 0, 0, 0.05) 0rem 0.2rem 0.3rem -0.1rem;
-        border-radius: 1rem;
+        flex-direction: column;
         padding: 2rem;
-        gap: 2rem;
         font-size: 1.1rem;
+        .title {
+          font-weight: 600;
+          margin-top: 1rem;
+          margin-bottom: 0.5rem;
+        }
+        .description {
+          font-size: 0.9rem;
+          color: var(--text-sub-color);
+        }
         .icon {
           display: flex;
           align-items: center;
           justify-content: center;
-          font-size: 3.5rem;
-          background-color: var(--accent-color);
-          color: var(--bg-color);
+          font-size: 3.25rem;
+          background-color: var(--accent-bg-color);
+          color: var(--accent-color);
           padding: 0.75rem;
           border-radius: 1rem;
         }
@@ -1091,6 +1103,7 @@ select {
     .service-benefit, .service-method, .service-review {
       .card {
         flex-direction: column;
+        gap: 0;
       }
     }
   }

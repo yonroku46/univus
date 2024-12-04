@@ -29,15 +29,15 @@ export default function ServiceInfoPage(
   }, []);
 
   const sellerBenefits = [
-    { icon: InsightsOutlinedIcon, title: t('project.service.seller.benefit.item1') },
-    { icon: AddBusinessOutlinedIcon, title: t('project.service.seller.benefit.item2') },
-    { icon: ThumbUpOffAltOutlinedIcon, title: t('project.service.seller.benefit.item3') }
+    { icon: InsightsOutlinedIcon, title: t('project.service.seller.benefit.item1'), description: t('project.service.seller.benefit.description1') },
+    { icon: AddBusinessOutlinedIcon, title: t('project.service.seller.benefit.item2'), description: t('project.service.seller.benefit.description2') },
+    { icon: ThumbUpOffAltOutlinedIcon, title: t('project.service.seller.benefit.item3'), description: t('project.service.seller.benefit.description3') }
   ];
 
   const buyerBenefits = [
-    { icon: LocalDiningOutlinedIcon, title: t('project.service.buyer.benefit.item1') },
-    { icon: TaskAltOutlinedIcon, title: t('project.service.buyer.benefit.item2') },
-    { icon: ThumbUpOffAltOutlinedIcon, title: t('project.service.buyer.benefit.item3') }
+    { icon: LocalDiningOutlinedIcon, title: t('project.service.buyer.benefit.item1'), description: t('project.service.buyer.benefit.description1') },
+    { icon: TaskAltOutlinedIcon, title: t('project.service.buyer.benefit.item2'), description: t('project.service.buyer.benefit.description2') },
+    { icon: ThumbUpOffAltOutlinedIcon, title: t('project.service.buyer.benefit.item3'), description: t('project.service.buyer.benefit.description3') }
   ];
 
   return (
@@ -80,7 +80,12 @@ export default function ServiceInfoPage(
               {(userType === 'seller' ? sellerBenefits : buyerBenefits).map((benefit, index) => (
                 <div key={index} className='card-item'>
                   <benefit.icon className='icon' />
-                  {benefit.title}
+                  <div className='title'>
+                    {benefit.title}
+                  </div>
+                  <div className='description'>
+                    {benefit.description}
+                  </div>
                 </div>
               ))}
             </div>

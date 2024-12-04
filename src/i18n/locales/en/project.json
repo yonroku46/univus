@@ -8,18 +8,24 @@
         "title": "Shop",
         "benefit": {
           "title": "Shop's Benefits!",
-          "item1": "Reach more customers\nand increase sales",
-          "item2": "Easy order and\ninventory management system",
-          "item3": "Efficient customer\nfeedback collection"
+          "item1": "Attracting customers",
+          "description1": "Through Hiru-kuru, you can reach more customers and increase sales.",
+          "item2": "Inventory Management",
+          "description2": "You can efficiently manage orders and inventory through a simple management system.",
+          "item3": "Feedback Collection",
+          "description3": "You can collect opinions through actual buyer reviews."
         }
       },
       "buyer": {
         "title": "Client",
         "benefit": {
           "title": "Client's Benefits!",
-          "item1": "Expand your options\nwith various lunch box options",
-          "item2": "Convenient and efficient\nmeal experience",
-          "item3": "Reliable reviews\nfrom actual users"
+          "item1": "Choice Pleasure",
+          "description1": "You can check various lunch boxes at a glance and expand your options.",
+          "item2": "Warm Meal",
+          "description2": "You can eat conveniently, efficiently, and warmly through pre-ordering.",
+          "item3": "Actual Reviews",
+          "description3": "You can enhance your meal experience through other buyers' reviews."
         }
       },
       "method": {
