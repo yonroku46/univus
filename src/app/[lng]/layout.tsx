@@ -32,11 +32,10 @@ export async function generateStaticParams() {
 export default function MainLayout(
   { children, params: { lng } }: { children: React.ReactNode, params: { lng: AvailableLanguages } }
 ) {
-  const baseUrl = process.env.NEXT_PUBLIC_APP_ADDRESS;
   const bodyClassName =
-  lng === 'ja' ? notoSansJP.className :
-  lng === 'ko' ? notoSansKR.className :
-  notoSansEn.className
+    lng === 'ja' ? notoSansJP.className :
+    lng === 'ko' ? notoSansKR.className :
+    notoSansEn.className
 
   return (
     <html lang={lng} dir={dir(lng)}>
