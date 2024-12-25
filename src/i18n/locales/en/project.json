@@ -1,38 +1,38 @@
 {
   "project": {
-    "comingSoon": "Detail content is being prepared...",
+    "comingSoon": "More detailed content is being prepared...",
     "service": {
-      "name": "Hiru-kuru",
-      "description": " Enjoy lunchtime with ease,\nand taste deliciously!",
+      "name": "Hiru-kuru (Daily Deli)",
+      "description": " Enjoy a deliciously\nmemorable lunch experience!",
       "seller": {
-        "title": "Shop",
+        "title": "Distributor",
         "benefit": {
-          "title": "Shop's Benefits!",
+          "title": "Benefits for distributors",
           "item1": "Attracting customers",
           "description1": "Through Hiru-kuru, you can reach more customers and increase sales.",
           "item2": "Inventory Management",
           "description2": "You can efficiently manage orders and inventory through a simple management system.",
           "item3": "Feedback Collection",
-          "description3": "You can collect opinions through actual buyer reviews."
+          "description3": "You can collect opinions through genuine buyer reviews."
         }
       },
       "buyer": {
         "title": "Client",
         "benefit": {
           "title": "Client's Benefits!",
-          "item1": "Choice Pleasure",
-          "description1": "You can check various lunch boxes at a glance and expand your options.",
-          "item2": "Warm Meal",
-          "description2": "You can eat conveniently, efficiently, and warmly through pre-ordering.",
-          "item3": "Actual Reviews",
-          "description3": "You can enhance your meal experience through other buyers' reviews."
+          "item1": "Enjoy a great variety",
+          "description1": "Explore a variety of bento (lunch box) options and combinations at a glance through our website or app, bringing more variety and enjoyment to your daily lunch experience.",
+          "item2": "Guaranteed Warm Meal",
+          "description2": "Through advance orders, you can enjoy meals that are convenient, efficient, and served warm.",
+          "item3": "Share Reviews",
+          "description3": "Feel confident in choosing our bentos by checking reviews from other satisfied customers."
         }
       },
       "method": {
-        "title": "Usage Method"
+        "title": "Service usage policy"
       },
       "review": {
-        "title": "User's Review"
+        "title": "User's Reviews"
       }
     }
   }
