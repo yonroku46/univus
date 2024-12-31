@@ -13,6 +13,7 @@ import PublicSharpIcon from '@mui/icons-material/PublicSharp';
 import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
 import { Box, styled } from '@mui/material';
+import CustomImg from '../custom/CustomImg';
 
 const NavMenu = styled('nav')(({ theme }) => ({
   display: 'flex',
@@ -140,7 +141,12 @@ export default function Header (
         <div className='left-area'>
           <div className='logo'>
             <Link href={getLocalizedPath('/', lng)}>
-              Univus
+              <img
+                src={'/assets/icon/logo.svg'}
+                alt='logo'
+                width={100}
+                height={40}
+              />
             </Link>
           </div>
         </div>

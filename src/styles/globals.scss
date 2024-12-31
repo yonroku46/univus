@@ -63,7 +63,7 @@ header {
       color: var(--bg-color);
       border-color: var(--bg-color);
     }
-    .logo a, .pc-nav a {
+    .pc-nav a {
       color: var(--bg-color);
     }
   }
@@ -79,10 +79,7 @@ header {
       gap: 1.5rem;
       align-items: center;
       .logo {
-        font-weight: bold;
-        font-size: 1.5rem;
-        letter-spacing: 0.5px;
-        transition: color 0.3s;
+        margin-left: -1rem;
       }
     }
     .right-area {
@@ -340,13 +337,14 @@ textarea {
   z-index: 1;
   position: relative;
   margin: 4rem 0;
-  border-left: 3px solid var(--text-color);
-  padding-left: 1rem;
   .description {
     font-size: 1.25rem;
     line-height: 1rem;
-    margin-bottom: 0.5rem;
     font-weight: 800;
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid;
+    width: 80%;
   }
   .title {
     font-size: 1.75rem;
@@ -559,7 +557,10 @@ select {
   display: flex;
   flex-direction: column;
   position: relative;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
   gap: 3rem;
+  padding-top: 1rem;
   background-color: var(--bg-color);
   box-shadow: rgba(255, 255, 255, 0.25) 0rem 4px 1rem;
   .contents-inquary {
@@ -1020,8 +1021,7 @@ select {
     }
     .project-img {
       order: 2;
-      width: 100%;
-      min-height: 300px;
+       min-height: 300px;
       .image-wrapper {
         position: relative;
         width: 80%;

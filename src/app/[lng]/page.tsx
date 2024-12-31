@@ -100,15 +100,17 @@ export default function Home(
               <div className='project-img' data-aos='fade'>
                 <div className='image-wrapper back'>
                   <CustomImg
+                    style={{ marginLeft: '-2rem', marginBottom: '-2rem' }}
                     src='/assets/img/lunch1.jpg'
                     alt='lunch1'
-                    width={340}
-                    height={250}
+                    width={400}
+                    height={280}
                     priority
                   />
                 </div>
                 <div className='image-wrapper front'>
                   <CustomImg
+                    style={{ marginRight: '-2rem' }}
                     src='/assets/img/lunch2.jpg'
                     alt='lunch2'
                     width={340}

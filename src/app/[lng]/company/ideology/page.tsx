@@ -79,7 +79,7 @@ const IdeologySection = styled('section')(({ theme }) => ({
   },
   '.vision-section': {
     backgroundColor: '#f8f9fa',
-    padding: '3rem 0',
+    padding: '4rem 0',
     borderRadius: '2rem',
     marginBottom: '2rem',
     '.vision-content': {
