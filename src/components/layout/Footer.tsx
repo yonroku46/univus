@@ -40,7 +40,7 @@ export default function Footer (
             {t('corporation.location')}
           </div>
           <div className='mail'>
-            {t('corporation.mail')}
+            {t('corporation.email')}
           </div>
         </div>
         <nav className='sp-nav'>

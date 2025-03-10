@@ -26,6 +26,7 @@
   "notice": {
     "title": "お知らせ",
     "subTitle": "Univusの新しいニュースをご確認ください",
+    "noNotice": "表示するお知らせがありません",
     "types": {
       "service": "サービス",
       "info": "お知らせ"

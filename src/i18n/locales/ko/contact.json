@@ -26,6 +26,7 @@
   "notice": {
     "title": "공지사항",
     "subTitle": "Univus의 새로운 소식을 확인하세요",
+    "noNotice": "표시할 공지사항이 없습니다",
     "types": {
       "service": "서비스",
       "info": "안내"

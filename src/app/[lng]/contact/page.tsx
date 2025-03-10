@@ -54,10 +54,10 @@ export default function ContactPage(
   const [showSuccess, setShowSuccess] = useState(false);
 
   const inquiryTypes = [
-    { value: 'service', label: t('contact.types.service') },
-    { value: 'partnership', label: t('contact.types.partnership') },
-    { value: 'technical', label: t('contact.types.technical') },
-    { value: 'other', label: t('contact.types.other') },
+    { value: t('contact.types.service'), label: t('contact.types.service') },
+    { value: t('contact.types.partnership'), label: t('contact.types.partnership') },
+    { value: t('contact.types.technical'), label: t('contact.types.technical') },
+    { value: t('contact.types.other'), label: t('contact.types.other') },
   ];
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -70,10 +70,20 @@ export default function ContactPage(
     setIsSubmitting(true);
 
     try {
-      // API dummy delay
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      setShowSuccess(true);
-      setForm(initialForm);
+      const response = await fetch('https://alxumyekmg.execute-api.ap-northeast-1.amazonaws.com/send', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(form)
+      });
+
+      if (response.ok) {
+        setShowSuccess(true);
+        setForm(initialForm);
+      } else {
+        console.error(t('contact.submit.error'), response.statusText);
+      }
     } catch (error) {
       console.error(t('contact.submit.error'), error);
     } finally {

@@ -135,7 +135,7 @@ export default function LocationPage({
           <div className='info-section'>
             <div className='map-container'>
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1661.7800288466237!2d130.39290469139814!3d33.59077023583008!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x35419188d205b021%3A0x6b2ac52dd2d464b6!2sYoka%20Lab%20Tenjin!5e0!3m2!1sko!2skr!4v1732891156478!5m2!1sko!2skr"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3323.4451007277326!2d130.41336308830793!3d33.5937539730544!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x354191c68c8db49d%3A0xa714bbe4691285a!2z5pel5pys44CB44CSODEyLTAwMTEg56aP5bKh55yM56aP5bKh5biC5Y2a5aSa5Yy65Y2a5aSa6aeF5YmN77yR5LiB55uu77yS77yT4oiS77yS!5e0!3m2!1sja!2skr!4v1741582070141!5m2!1sja!2skr"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
@@ -157,17 +157,6 @@ export default function LocationPage({
                     </div>
                     <div className='value'>
                       {t('company.location.info.address')}
-                    </div>
-                  </div>
-                </div>
-                <div className='info-item'>
-                  <LocalPhoneIcon className='icon' />
-                  <div className='text'>
-                    <div className='label'>
-                      {t('company.location.label.phone')}
-                    </div>
-                    <div className='value'>
-                      {t('company.location.info.phone')}
                     </div>
                   </div>
                 </div>
