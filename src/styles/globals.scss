@@ -157,7 +157,7 @@ nav {
       align-items: flex-start;
       a {
         width: 100%;
-        padding: 0.35rem 1rem;
+        padding: 1rem;
         font-weight: normal;
       }
     }
@@ -186,7 +186,7 @@ footer {
       .location, .mail {
         display: flex;
         font-size: 0.9rem;
-        padding-top: 0.5rem;
+        padding-top: 1rem;
       }
     }
     .sp-nav {
@@ -892,7 +892,7 @@ select {
   .container {
     gap: 3rem;
   }
-  .service-benefit, .service-method, .service-review {
+  .service-description, .service-benefit, .service-method, .service-review {
     width: 100%;
     margin-top: 1rem;
     margin-bottom: 2rem;
@@ -902,6 +902,22 @@ select {
       font-size: 1.75rem;
       line-height: 2rem;
       margin-bottom: 2rem;
+      width: fit-content;
+      position: relative;
+      &::after {
+        z-index: -1;
+        content: "";
+        display: block;
+        width: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        height: 2px;
+        padding-right: 1.5rem;
+        margin-left: 1rem;
+        background-color: var(--text-sub-color);
+        position: absolute;
+        bottom: -0.75rem;
+      }
     }
     .card {
       display: flex;
@@ -917,9 +933,10 @@ select {
           font-weight: 600;
           margin-top: 1rem;
           margin-bottom: 0.5rem;
+          font-size: 1.25rem;
         }
         .description {
-          font-size: 0.9rem;
+          font-size: 1rem;
           color: var(--text-sub-color);
         }
         .icon {
@@ -932,6 +949,51 @@ select {
           padding: 0.75rem;
           border-radius: 1rem;
         }
+      }
+    }
+    .contents {
+      font-size: 1.5rem;
+      color: var(--text-sub-color);
+    }
+    .service-usage {
+      display: flex;
+      align-items: center;
+      padding: 2rem 0;
+      background: var(--accent-color);
+      border-radius: 3rem;
+      .usage-card {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        .title-wrapper {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 1rem;
+          background: var(--bg-color);
+          border-radius: 50%;
+          width: 220px;
+          height: 220px;
+          padding: 1.5rem;
+          .title {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: var(--accent-color);
+            text-align: center;
+          }
+        }
+        .description {
+          font-size: 1rem;
+          font-weight: normal;
+          color: var(--bg-color);
+          text-align: center;
+        }
+      }
+      .usage-card-arrow {
+        font-size: 2.5rem;
+        color: var(--bg-color);
       }
     }
     .coming-soon {
@@ -1100,10 +1162,17 @@ select {
     }
   }
   .project-detail {
-    .service-benefit, .service-method, .service-review {
+    .service-description, .service-benefit, .service-method, .service-review {
       .card {
         flex-direction: column;
         gap: 0;
+      }
+      .service-usage {
+        flex-direction: column;
+        gap: 0.5rem;
+        .usage-card-arrow {
+          transform: rotate(90deg);
+        }
       }
     }
   }

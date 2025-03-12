@@ -3,7 +3,7 @@
     "comingSoon": "More detailed content is being prepared...",
     "service": {
       "name": "Hiru-kuru (Daily Deli)",
-      "description": " Enjoy a deliciously\nmemorable lunch experience!",
+      "description": " Smart Lunch\nwith our Takeout-Only Service",
       "seller": {
         "title": "Distributor",
         "benefit": {
@@ -28,8 +28,18 @@
           "description3": "Feel confident in choosing our bentos by checking reviews from other satisfied customers."
         }
       },
-      "method": {
-        "title": "Service usage policy"
+      "detail": {
+        "title": "What is HiruKuru?",
+        "content": "Takeout service that streamlines access to your daily lunch by bringing together sellers and buyers under a single app"
+      },
+      "usage": {
+        "title": "How to use",
+        "item1": "Choose your product",
+        "description1": "Pick an item that suits your tastes",
+        "item2": "Checkout",
+        "description2": "Order and payment are both conveniently processed from within the app",
+        "item3": "Pick up",
+        "description3": "Collect your food from the shop at the designated time"
       },
       "review": {
         "title": "User's Reviews"

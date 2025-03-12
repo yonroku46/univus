@@ -3,7 +3,7 @@
     "comingSoon": "상세내용을 준비중입니다...",
     "service": {
       "name": "히루쿠루",
-      "description": "에서 점심시간 여유롭게,\n맛있게 경험해보세요!",
+      "description": "에서 점심시간 스마트하게!\n테이크아웃 전문 서비스",
       "seller": {
         "title": "사장님",
         "benefit": {
@@ -28,8 +28,18 @@
           "description3": "실제 이용자간의 후기를 통해 식사 경험을 높일 수 있습니다."
         }
       },
-      "method": {
-        "title": "서비스 이용방법"
+      "detail": {
+        "title": "히루쿠루란?",
+        "content": "판매자와 구매자를 연결하여,\n점심식사 시간을 더욱 유익하게 만드는 테이크아웃 중개 서비스입니다."
+      },
+      "usage": {
+        "title": "서비스 이용방법",
+        "item1": "상품선택",
+        "description1": "좋아하는 상품을 골라주세요",
+        "item2": "주문 및 결제",
+        "description2": "앱에서 주문 및 결제",
+        "item3": "매장에서 수령",
+        "description3": "지정된 시간에 매장에서\n상품을 수령완료!"
       },
       "review": {
         "title": "이용후기"
