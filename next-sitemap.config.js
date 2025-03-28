@@ -24,4 +24,4 @@ const sitemapConfig = {
   }
 };
 
-export default sitemapConfig;
+module.exports = sitemapConfig;
