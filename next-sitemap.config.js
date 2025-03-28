@@ -17,9 +17,6 @@ const sitemapConfig = {
         allow: '/',
         disallow: ['/api/', '/admin/']
       }
-    ],
-    additionalSitemaps: [
-      'https://univus.jp/server-sitemap.xml'
     ]
   }
 };

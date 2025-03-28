@@ -1,4 +1,5 @@
 import { SpeedInsights } from '@vercel/speed-insights/next'
+import Head from 'next/head';
 import { dir } from 'i18next'
 import { AvailableLanguages, languages } from '@/i18n/settings'
 import { Noto_Sans_JP, Noto_Sans_KR, Noto_Sans } from 'next/font/google';
@@ -39,6 +40,20 @@ export default function MainLayout(
 
   return (
     <html lang={lng} dir={dir(lng)}>
+      <Head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              "name": process.env.NEXT_PUBLIC_APP_NAME,
+              "url": process.env.NEXT_PUBLIC_APP_ADDRESS,
+              "alternateName": process.env.NEXT_PUBLIC_APP_NAME
+            }),
+          }}
+        />
+      </Head>
       <body className={bodyClassName}>
         <Header lng={lng} />
         <main>
