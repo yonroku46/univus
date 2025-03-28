@@ -28,6 +28,10 @@ const nextConfig = {
         source: `${process.env.NEXT_PUBLIC_API_ROOT}/:path*`,
         destination: `${process.env.NEXT_PUBLIC_APP_ADDRESS}:${process.env.NEXT_PUBLIC_API_PORT}${process.env.NEXT_PUBLIC_API_ROOT}/:path*`
       },
+      {
+        source: '/sitemap-server.xml',
+        destination: '/api/sitemap-server',
+      },
     ];
   },
 };
