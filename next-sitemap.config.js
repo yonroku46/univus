@@ -1,7 +1,7 @@
 /** @type {import('next-sitemap').IConfig} */
 
 const sitemapConfig = {
-  siteUrl: 'https://univus.co.jp',
+  siteUrl: 'https://univus.jp',
   generateRobotsTxt: true,
   sitemapSize: 5000,
   changefreq: 'daily',
@@ -19,7 +19,7 @@ const sitemapConfig = {
       }
     ],
     additionalSitemaps: [
-      'https://univus.co.jp/server-sitemap.xml'
+      'https://univus.jp/server-sitemap.xml'
     ]
   }
 };
