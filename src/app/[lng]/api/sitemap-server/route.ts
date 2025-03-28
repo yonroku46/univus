@@ -1,15 +1,26 @@
 import { getServerSideSitemap } from 'next-sitemap';
 import { ISitemapField } from 'next-sitemap';
 
-export async function GET() {
-  const staticUrls: ISitemapField[] = [
-    {
-      loc: `${process.env.NEXT_PUBLIC_APP_ADDRESS}`,
-      lastmod: new Date().toISOString(),
-      changefreq: 'daily' as const,
-      priority: 1.0
-    },
-  ];
+const staticPaths = [
+  { path: '', priority: 1.0, changefreq: 'daily' },
+  { path: 'company', priority: 0.8, changefreq: 'weekly' },
+  { path: 'project', priority: 0.8, changefreq: 'weekly' },
+  { path: 'contact', priority: 0.7, changefreq: 'weekly' },
+] as const;
+
+export async function GET(
+  request: Request,
+  { params }: { params: { lng: string } }
+) {
+  const { lng } = params;
+  const baseUrl = process.env.NEXT_PUBLIC_APP_ADDRESS;
+
+  const staticUrls: ISitemapField[] = staticPaths.map(({ path, priority, changefreq }) => ({
+    loc: `${baseUrl}/${lng}${path ? `/${path}` : ''}`,
+    lastmod: new Date().toISOString(),
+    changefreq,
+    priority
+  }));
 
   return getServerSideSitemap([
     ...staticUrls,

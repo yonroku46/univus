@@ -32,6 +32,10 @@ const nextConfig = {
         source: '/sitemap-server.xml',
         destination: '/api/sitemap-server',
       },
+      {
+        source: '/:lng/sitemap-server.xml',
+        destination: '/:lng/api/sitemap-server',
+      }
     ];
   },
 };
