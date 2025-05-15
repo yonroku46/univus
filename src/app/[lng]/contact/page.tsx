@@ -1,7 +1,6 @@
 'use client'
 
 import { useState } from 'react';
-import { useTranslation } from '@/i18n/client';
 import { AvailableLanguages } from '@/i18n/settings';
 import MuiProvider from '@/styles/theme/MuiProvider';
 
@@ -47,17 +46,16 @@ const initialForm: ContactForm = {
 export default function ContactPage(
   { params: { lng } }: { params: { lng: AvailableLanguages } }
 ) {
-  const { t } = useTranslation(lng, 'contact');
-
   const [form, setForm] = useState<ContactForm>(initialForm);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
 
   const inquiryTypes = [
-    { value: t('contact.types.service'), label: t('contact.types.service') },
-    { value: t('contact.types.partnership'), label: t('contact.types.partnership') },
-    { value: t('contact.types.technical'), label: t('contact.types.technical') },
-    { value: t('contact.types.other'), label: t('contact.types.other') },
+    { value: 'サービス', label: 'サービス' },
+    { value: '提携・相談', label: '提携・相談' },
+    { value: '技術サポート', label: '技術サポート' },
+    { value: '採用関連', label: '採用関連' },
+    { value: 'その他', label: 'その他' },
   ];
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -82,10 +80,10 @@ export default function ContactPage(
         setShowSuccess(true);
         setForm(initialForm);
       } else {
-        console.error(t('contact.submit.error'), response.statusText);
+        console.error('問い合わせの送信に失敗しました。', response.statusText);
       }
     } catch (error) {
-      console.error(t('contact.submit.error'), error);
+      console.error('問い合わせの送信に失敗しました。', error);
     } finally {
       setIsSubmitting(false);
     }
@@ -97,10 +95,10 @@ export default function ContactPage(
         <MuiProvider>
           <Box sx={{ py: 4,  width: { xs: '100%', sm: 'auto' } }}>
             <Typography variant='h4' component='h1' sx={{ textAlign: 'center', mb: 1, fontWeight: 700 }}>
-              {t('contact.title')}
+              {`問い合わせ`}
             </Typography>
             <Typography sx={{ textAlign: 'center', mb: 4, color: 'text.secondary' }}>
-              {t('contact.subTitle')}
+              {`ご不明な点がありましたら、いつでもお問い合わせください`}
             </Typography>
 
             <StyledPaper>
@@ -109,7 +107,7 @@ export default function ContactPage(
                   <TextField
                     select
                     fullWidth
-                    label={t('contact.label.types')}
+                    label={'問い合わせ内容'}
                     name='type'
                     value={form.type}
                     onChange={handleChange}
@@ -123,7 +121,7 @@ export default function ContactPage(
                   </TextField>
                   <TextField
                     fullWidth
-                    label={t('contact.label.company')}
+                    label={'会社名'}
                     name='company'
                     value={form.company}
                     onChange={handleChange}
@@ -132,7 +130,7 @@ export default function ContactPage(
                   <Box sx={{ display: 'grid', gap: 3, gridTemplateColumns: { xs: '1fr', sm: '1fr 1fr' } }}>
                     <TextField
                       fullWidth
-                      label={t('contact.label.name')}
+                      label={'担当者名'}
                       name='name'
                       value={form.name}
                       onChange={handleChange}
@@ -140,7 +138,7 @@ export default function ContactPage(
                     />
                     <TextField
                       fullWidth
-                      label={t('contact.label.email')}
+                      label={'メールアドレス'}
                       type='email'
                       name='email'
                       value={form.email}
@@ -150,7 +148,7 @@ export default function ContactPage(
                   </Box>
                   <TextField
                     fullWidth
-                    label={t('contact.label.phone')}
+                    label={'電話番号'}
                     name='phone'
                     value={form.phone}
                     onChange={handleChange}
@@ -158,7 +156,7 @@ export default function ContactPage(
                   />
                   <TextField
                     fullWidth
-                    label={t('contact.label.message')}
+                    label={'詳細内容'}
                     name='message'
                     value={form.message}
                     onChange={handleChange}
@@ -181,7 +179,7 @@ export default function ContactPage(
                       }
                     }}
                   >
-                    {isSubmitting ? t('contact.submit.loading') : t('contact.submit.button')}
+                    {isSubmitting ? '送信中...' : '問い合わせ'}
                   </Button>
                 </Box>
               </form>
@@ -199,7 +197,7 @@ export default function ContactPage(
               severity='success'
               sx={{ width: '100%' }}
             >
-              {t('contact.submit.success')}
+              {`問い合わせが成功しました。`}
             </Alert>
           </Snackbar>
         </MuiProvider>

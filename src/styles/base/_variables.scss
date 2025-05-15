@@ -1,0 +1,30 @@
+:root {
+  // theme color
+  --main-color: #233142;
+  --sub-color: #455d7a;
+  --accent-color: #59a4f9;
+  --accent-bg-color: #59a4f923;
+  --accent-sub-color: #d680f8;
+  --accent-sub-bg-color: #d680f823;
+  // theme color rgb
+  --rgb-main-color: 35, 49, 66;
+  --rgb-sub-color: 69, 93, 122;
+  --rgb-accent-color: 89, 164, 249;
+  --rgb-accent-sub-color: 214, 128, 248;
+  // default
+  --bg-color: #fff;
+  --bg-sub-color: #f8fafb;
+  --bg-shadow-color: #0000002d;
+  --tb-border-color: #bebebe;
+  --info-inset-shadow: inset 0px 0px 2px #dcdcdc;
+  --text-color: #000;
+  --text-sub-color: rgb(114, 114, 114);
+  --border-color: #ececec;
+  --scroller-color: #c9c9c9;
+  --scroller-hover-color: #9b9b9b;
+  --red-color: #f34848;
+  --blue-color: #4545eb;
+  // global variable
+  --input-padding: 0.4rem 1rem;
+  --header-height: 4rem;
+}

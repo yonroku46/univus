@@ -1,11 +1,10 @@
 import { Metadata } from 'next';
-import { AvailableLanguages } from '@/i18n/settings';
+import { AvailableLanguages, languages, getOptions } from '@/i18n/settings';
 import { createInstance } from 'i18next';
 import { initReactI18next } from 'react-i18next/initReactI18next';
 import resourcesToBackend from 'i18next-resources-to-backend';
-import { getOptions } from '@/i18n/settings';
 
-type MetadataType = 'home' | 'company' | 'project' | 'contact';
+type MetadataType = 'home' | 'company' | 'project' | 'recruit' | 'contact' | 'contact/notice';
 
 async function initI18next(lng: AvailableLanguages, ns: string) {
   const i18nInstance = createInstance();
@@ -47,7 +46,7 @@ export async function generatePageMetadata(type: MetadataType, lng: AvailableLan
       description: t(`${type}.description`),
       url: `${process.env.NEXT_PUBLIC_APP_ADDRESS}/${lng}/${type !== 'home' ? type : ''}`,
       locale: lng,
-      alternateLocale: ['ja', 'ko', 'en'],
+      alternateLocale: languages,
       images: [
         {
           url: new URL('/assets/img/og-image.png', process.env.NEXT_PUBLIC_APP_ADDRESS).toString(),
@@ -101,21 +100,29 @@ export async function generatePageMetadata(type: MetadataType, lng: AvailableLan
   };
 
   const pageMetadata: Record<MetadataType, Metadata> = {
-    home: {
+    'home': {
       ...baseMetadata,
       title: appName,
     },
-    company: {
+    'company': {
       ...baseMetadata,
       title: t('company.title'),
     },
-    project: {
+    'project': {
       ...baseMetadata,
       title: t('project.title'),
     },
-    contact: {
+    'recruit': {
+      ...baseMetadata,
+      title: t('recruit.title'),
+    },
+    'contact': {
       ...baseMetadata,
       title: t('contact.title'),
+    },
+    'contact/notice': {
+      ...baseMetadata,
+      title: t('notice.title'),
     },
   };
 

@@ -1,5 +1,6 @@
 export const fallbackLng = 'ja'
-export const languages = [fallbackLng, 'ko', 'en']
+// export const languages = [fallbackLng, 'ko', 'en']
+export const languages = [fallbackLng]
 export const defaultNS = 'translation'
 export const cookieName = 'i18next'
 

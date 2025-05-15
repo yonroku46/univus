@@ -5,22 +5,32 @@
   },
   "home": {
     "title": "Univus",
-    "description": "みんなが繋がる日常へ",
-    "ogImageAlt": "Univusメインイメージ"
+    "description": "人々を繋げる",
+    "ogImageAlt": "Univusメイン"
   },
   "company": {
     "title": "会社紹介",
     "description": "Univusはサービスではなく、経験を提供します",
-    "ogImageAlt": "Univus会社紹介イメージ"
+    "ogImageAlt": "Univus会社紹介"
   },
   "project": {
     "title": "プロジェクト",
     "description": "Univusの革新的なプロジェクトを紹介します",
-    "ogImageAlt": "Univusプロジェクトイメージ"
+    "ogImageAlt": "Univusプロジェクト"
+  },
+  "recruit": {
+    "title": "採用情報",
+    "description": "Univusの採用情報を紹介します",
+    "ogImageAlt": "Univus採用情報"
   },
   "contact": {
     "title": "お問い合わせ",
     "description": "ご不明な点がありましたら、いつでもお問い合わせください",
-    "ogImageAlt": "Univusお問い合わせイメージ"
+    "ogImageAlt": "Univusお問い合わせ"
+  },
+  "notice": {
+    "title": "ニュース",
+    "description": "Univusのニュースを紹介します",
+    "ogImageAlt": "Univusニュース"
   }
 }

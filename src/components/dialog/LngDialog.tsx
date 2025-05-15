@@ -1,11 +1,11 @@
 'use clinet'
 
 import { useRouter } from 'next/navigation';
+import Image from 'next/image';
 import { i18n } from 'i18next';
 import { useTranslation } from '@/i18n/client';
 import { AvailableLanguages } from '@/i18n/settings';
 import { convertLngCode } from '@/common/utils/LngUtils';
-import CustomImg from '@/components/custom/CustomImg';
 
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
@@ -30,16 +30,6 @@ type LngDialogProps = {
   onClose: () => void;
 }
 
-/**
- * 언어 선택 다이얼로그 컴포넌트
- *
- * @param {i18n} i18n - i18next 인스턴스
- * @param {AvailableLanguages} lng - 현재 선택된 언어 코드
- * @param {string} path - 현재 페이지 경로
- * @param {boolean} open - 다이얼로그의 열림 상태를 나타내는 플래그
- * @param {() => void} onClose - 다이얼로그를 닫는 함수
- * @returns {JSX.Element} - 언어 선택 다이얼로그 반환
- */
 export default function LngDialog(
   { lng, path, open, onClose }: LngDialogProps
 ) {
@@ -71,6 +61,15 @@ export default function LngDialog(
       disableAutoFocus
       disableEnforceFocus
       disableRestoreFocus
+      sx={{
+        '& .MuiDialog-paper': {
+          fontFamily: 'inherit',
+          borderRadius: '0.75rem',
+        },
+        '& .MuiTypography-root': {
+          fontFamily: 'inherit',
+        }
+      }}
     >
       <DialogTitle className='title'>
         {t('languages.title')}
@@ -84,8 +83,8 @@ export default function LngDialog(
           >
             <div onClick={() => handleLngClick(languages.lng)}>
               <ListItemButton className='select-btn'>
-                <ListItemAvatar>
-                  <CustomImg
+                <ListItemAvatar sx={{ display: 'flex' }}>
+                  <Image
                     className='avatar'
                     src={`https://flagcdn.com/w40/${languages.code.toLowerCase()}.png`}
                     alt={languages.label}

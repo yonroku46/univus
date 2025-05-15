@@ -1,6 +1,7 @@
 /** @type {import('next-sitemap').IConfig} */
 
-const languages = ['ja', 'ko', 'en'];
+// const languages = ['ja', 'ko', 'en'];
+const languages = ['ja'];
 const siteUrl = 'https://univus.jp';
 
 const sitemapConfig = {

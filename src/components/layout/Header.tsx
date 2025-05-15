@@ -3,19 +3,19 @@
 import React, { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
-import { useTranslation } from '@/i18n/client';
+import Image from 'next/image';
 import { AvailableLanguages } from '@/i18n/settings';
-import { convertLngCode, getLocalizedPath, removeLngPrefix } from '@/common/utils/LngUtils';
-import LngDialog from '@/components/dialog/LngDialog';
+import { getLocalizedPath, removeLngPrefix } from '@/common/utils/LngUtils';
+// import { useTranslation } from '@/i18n/client';
+// import LngDialog from '@/components/dialog/LngDialog';
 
 import Drawer from '@mui/material/Drawer';
-import PublicSharpIcon from '@mui/icons-material/PublicSharp';
 import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
 import { Box, styled } from '@mui/material';
-import CustomImg from '../custom/CustomImg';
+// import PublicSharpIcon from '@mui/icons-material/PublicSharp';
 
-const NavMenu = styled('nav')(({ theme }) => ({
+const NavMenu = styled('nav')(() => ({
   display: 'flex',
   gap: '2rem',
   position: 'relative',
@@ -38,12 +38,12 @@ const NavMenu = styled('nav')(({ theme }) => ({
     borderRadius: '0.5rem',
     padding: '8px',
     minWidth: '180px',
-    boxShadow: '0 2px 6px rgba(0,0,0,0.08)',
     opacity: 0,
     visibility: 'hidden',
     transform: 'translateY(-10px)',
     transition: 'all 0.2s ease-in-out',
     borderWidth: '1px',
+    boxShadow: 'rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px',
     '&::before': {
       content: '""',
       position: 'absolute',
@@ -54,7 +54,7 @@ const NavMenu = styled('nav')(({ theme }) => ({
       background: '#fff',
       transform: 'rotate(45deg)',
       border: '1px solid var(--border-color)',
-      boxShadow: '-2px -2px 4px rgba(0,0,0,0.03)',
+      boxShadow: 'rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px',
     },
     '&::after': {
       content: '""',
@@ -86,20 +86,23 @@ interface HeaderProps {
 export default function Header (
   { lng }: HeaderProps
 ) {
-  const { t, i18n } = useTranslation(lng, 'navigation');
+  // const { t, i18n } = useTranslation(lng, 'navigation');
 
   const menuList: Array<MenuItem> = [
-    { groupName: t('menu.company.title'), groupHref: getLocalizedPath('/company', lng), unit: [
-      { name: t('menu.company.main'), href: getLocalizedPath('/company', lng) },
-      { name: t('menu.company.ideology'), href: getLocalizedPath('/company/ideology', lng) },
-      { name: t('menu.company.location'), href: getLocalizedPath('/company/location', lng) }
+    { groupName: '会社紹介', groupHref: getLocalizedPath('/company', lng), unit: [
+      { name: '会社概要', href: getLocalizedPath('/company', lng) },
+      { name: '企業理念', href: getLocalizedPath('/company/ideology', lng) },
+      { name: 'アクセス', href: getLocalizedPath('/company/location', lng) }
     ]},
-    { groupName: t('menu.project.title'), groupHref: getLocalizedPath('/project', lng), unit: [
-      { name: t('menu.project.main'), href: getLocalizedPath('/project', lng) }
+    { groupName: '事業内容', groupHref: getLocalizedPath('/project', lng), unit: [
+      { name: 'プロジェクト', href: getLocalizedPath('/project', lng) }
     ]},
-    { groupName: t('menu.contact.title'), groupHref: getLocalizedPath('/contact', lng), unit: [
-      { name: t('menu.contact.inquiry'), href: getLocalizedPath('/contact', lng) },
-      { name: t('menu.contact.notice'), href: getLocalizedPath('/contact/notice', lng) }
+    { groupName: '採用', groupHref: getLocalizedPath('/recruit', lng), unit: [
+      { name: '採用情報', href: getLocalizedPath('/recruit', lng) },
+    ]},
+    { groupName: 'コンタクト', groupHref: getLocalizedPath('/contact', lng), unit: [
+      { name: 'お問い合わせ', href: getLocalizedPath('/contact', lng) },
+      { name: 'ニュース', href: getLocalizedPath('/contact/notice', lng) }
     ]}
   ]
 
@@ -107,11 +110,11 @@ export default function Header (
   const [open, setOpen] = useState(false);
   const [isTop, setIsTop] = useState(true);
 
-  const path = usePathname().substring(3);
-  const [lngOpen, setLngOpen] = useState<boolean>(false);
-  const handleLngClose = () => {
-    setLngOpen(false);
-  }
+  // const path = usePathname().substring(3);
+  // const [lngOpen, setLngOpen] = useState<boolean>(false);
+  // const handleLngClose = () => {
+  //   setLngOpen(false);
+  // }
 
   const handleScroll = () => {
     if (window.scrollY < 5) {
@@ -141,23 +144,27 @@ export default function Header (
         <div className='left-area'>
           <div className='logo'>
             <Link href={getLocalizedPath('/', lng)}>
-              <img
+              <Image
                 src={'/assets/icon/logo.svg'}
                 alt='logo'
                 width={100}
                 height={40}
+                priority
               />
             </Link>
           </div>
         </div>
         <div className='right-area'>
-          <LngDialog
+          {/* <LngDialog
             i18n={i18n}
             lng={lng}
             path={path || ''}
             open={lngOpen}
             onClose={handleLngClose}
           />
+          <button className='lng-btn' onClick={() => setLngOpen(true)}>
+            <PublicSharpIcon fontSize='small' />
+          </button> */}
           <NavMenu className='pc-only pc-nav'>
             {menuList.map((menu, idx) => (
               <div key={idx} className='menu-item'>
@@ -174,14 +181,10 @@ export default function Header (
               </div>
             ))}
           </NavMenu>
-          <button className='lng-btn' onClick={() => setLngOpen(true)}>
-            <div className='lng-title'>{convertLngCode(lng, 'label')}</div>
-            <PublicSharpIcon fontSize='small' />
-          </button>
           <button className='sp-only menu-btn' onClick={() => setOpen(true)}>
             <MenuRoundedIcon className='menu-icon' />
           </button>
-          <Drawer PaperProps={{sx: {minWidth: '230px'}}} anchor={'right'} open={open} onClose={() => setOpen(false)}>
+          <Drawer PaperProps={{sx: {minWidth: '250px', borderRadius: '0.5rem 0 0 0.5rem' }}} anchor={'right'} open={open} onClose={() => setOpen(false)}>
             <nav>
               <div className='menu-group top-area'>
                 <CloseRoundedIcon className='close-icon' onClick={() => setOpen(false)} />

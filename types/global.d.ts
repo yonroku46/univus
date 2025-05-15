@@ -32,6 +32,20 @@ declare global {
     isNew: boolean;
     type: 'service' | 'info';
   }
+  interface Position {
+    id: string;
+    category: string;
+    limit: string;
+    title: string;
+    employmentType: string;
+    tags: string[];
+    location: string;
+    description: string;
+  }
+  interface Filter {
+    category: string;
+    employmentType: string;
+  }
 }
 
 export {};

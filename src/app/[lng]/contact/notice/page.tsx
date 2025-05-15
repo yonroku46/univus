@@ -1,7 +1,6 @@
 'use client'
 
 import { useEffect, useState } from 'react';
-import { useTranslation } from '@/i18n/client';
 import { AvailableLanguages } from '@/i18n/settings';
 import MuiProvider from '@/styles/theme/MuiProvider';
 import Loading from '@/app/[lng]/loading';
@@ -29,8 +28,14 @@ const StyledListItem = styled(ListItem)(({ theme }) => ({
   '& .notice-header': {
     display: 'flex',
     alignItems: 'center',
+    justifyContent: 'space-between',
     gap: theme.spacing(1),
     marginBottom: theme.spacing(1),
+  },
+  '& .chips': {
+    display: 'flex',
+    alignItems: 'center',
+    gap: theme.spacing(1),
   },
   '& .notice-date': {
     color: theme.palette.text.secondary,
@@ -58,11 +63,14 @@ const StyledListItem = styled(ListItem)(({ theme }) => ({
 export default function NoticePage(
   { params: { lng } }: { params: { lng: AvailableLanguages } }
 ) {
-  const { t } = useTranslation(lng, 'contact');
-
   const [selectedNotice, setSelectedNotice] = useState<number | null>(null);
   const [noticesList, setNoticesList] = useState<Notice[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
+
+  const noticeTypes = {
+    'service': 'サービス',
+    'info': 'お知らせ'
+  }
 
   function convertLinksToJSX(text: string) {
     const urlRegex = /(https?:\/\/[^\s]+)/g;
@@ -89,7 +97,7 @@ export default function NoticePage(
   useEffect(() => {
     async function fetchNotices() {
       try {
-        const response = await fetch(`https://univus-jp.s3.ap-northeast-1.amazonaws.com/notices-${lng}.json`);
+        const response = await fetch(`https://univus-jp.s3.ap-northeast-1.amazonaws.com/notices-ja.json`);
         const data = await response.json();
         setNoticesList(data.notices);
       } catch (error) {
@@ -115,10 +123,10 @@ export default function NoticePage(
         <MuiProvider>
           <Box sx={{ py: 4, width: '100%' }}>
             <Typography variant='h4' component='h1' sx={{ textAlign: 'center', mb: 1, fontWeight: 700 }}>
-              {t('notice.title')}
+              {`ニュース`}
             </Typography>
             <Box sx={{ textAlign: 'center', mb: 4, color: 'text.secondary' }}>
-              {t('notice.subTitle')}
+              {`Univusの新しいニュースをご確認ください`}
             </Box>
             <StyledPaper>
               <List disablePadding>
@@ -135,28 +143,30 @@ export default function NoticePage(
                         >
                           <Box sx={{ width: '100%' }}>
                             <Box className='notice-header'>
-                              <Chip
-                                label={`${t(`notice.types.${notice.type}`)}`}
-                                size='small'
-                                sx={{
-                                  backgroundColor: 'var(--main-color)',
-                                  color: 'white',
-                                  fontWeight: 600,
-                                  px: 1
-                                }}
-                              />
-                              {notice.isNew && (
+                              <Box className='chips'>
                                 <Chip
-                                  label='NEW'
+                                  label={`${noticeTypes[notice.type]}`}
                                   size='small'
                                   sx={{
-                                    backgroundColor: '#FF4E4E',
+                                    backgroundColor: 'var(--main-color)',
                                     color: 'white',
                                     fontWeight: 600,
                                     px: 1
                                   }}
                                 />
-                              )}
+                                {notice.isNew && (
+                                  <Chip
+                                    label='NEW'
+                                    size='small'
+                                    sx={{
+                                      backgroundColor: '#FF4E4E',
+                                      color: 'white',
+                                      fontWeight: 600,
+                                      px: 1
+                                    }}
+                                  />
+                                )}
+                              </Box>
                               <Typography
                                 component="span"
                                 variant='body2'
@@ -222,7 +232,7 @@ export default function NoticePage(
                   :
                   <div className='center'>
                     <Typography variant='body1' sx={{ textAlign: 'center', padding: "1rem 0" }}>
-                      {t('notice.noNotice')}
+                      {`表示するニュースがありません`}
                     </Typography>
                   </div>
                 }

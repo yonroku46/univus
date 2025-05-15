@@ -1,13 +1,11 @@
 'use client'
 
-import { useTranslation } from '@/i18n/client';
 import { AvailableLanguages } from '@/i18n/settings';
 import { getLocalizedPath } from '@/common/utils/LngUtils';
 import { TabMenu } from '@/components/layout/TabMenu';
 
 import { styled } from '@mui/material';
 import PlaceIcon from '@mui/icons-material/Place';
-import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
 import EmailIcon from '@mui/icons-material/Email';
 
 const LocationSection = styled('section')(({ theme }) => ({
@@ -48,7 +46,7 @@ const LocationSection = styled('section')(({ theme }) => ({
       overflow: 'hidden',
       boxShadow: '0 4px 24px rgba(0,0,0,0.06)',
       iframe: {
-        minHeight: '300px',
+        minHeight: '280px',
       }
     },
     '.info-content': {
@@ -105,30 +103,25 @@ export default function LocationPage({
 }: {
   params: { lng: AvailableLanguages }
 }) {
-  const { t } = useTranslation(lng, 'company');
-
   const tabItems = [
-    { title: t('company.tab.overview'), href: getLocalizedPath('/company', lng) },
-    { title: t('company.tab.ideology'), href: getLocalizedPath('/company/ideology', lng) },
-    { title: t('company.tab.location'), href: getLocalizedPath('/company/location', lng) }
+    { title: '会社概要', href: getLocalizedPath('/company', lng) },
+    { title: '企業理念', href: getLocalizedPath('/company/ideology', lng) },
+    { title: 'アクセス', href: getLocalizedPath('/company/location', lng) }
   ];
 
   return (
     <article>
-      <div className='company-header'>
-        <div className='container'>
-          <TabMenu items={tabItems} />
-        </div>
+      <div className='container'>
+        <TabMenu items={tabItems} />
       </div>
-
       <LocationSection>
         <div className='container'>
           <div className='location-intro'>
             <h1 className='main-title'>
-              {t('company.location.title')}
+              {`アクセス`}
             </h1>
             <p className='sub-title'>
-              {t('company.location.description')}
+              {`Univus本社にご来社いただきありがとうございます。\nアクセスルートをご案内します。`}
             </p>
           </div>
 
@@ -146,17 +139,17 @@ export default function LocationPage({
             </div>
             <div className='info-content'>
               <h2 className='info-title'>
-                {t('company.location.info.title')}
+                {`本社`}
               </h2>
               <div className='info-list'>
                 <div className='info-item'>
                   <PlaceIcon className='icon' />
                   <div className='text'>
                     <div className='label'>
-                      {t('company.location.label.address')}
+                      {`住所`}
                     </div>
                     <div className='value'>
-                      {t('company.location.info.address')}
+                      {`〒812-0011\n福岡県福岡市博多区博多駅前1丁目\n23番2号ParkFront博多駅前1丁目5F-B`}
                     </div>
                   </div>
                 </div>
@@ -164,10 +157,10 @@ export default function LocationPage({
                   <EmailIcon className='icon' />
                   <div className='text'>
                     <div className='label'>
-                      {t('company.location.label.email')}
+                      {`メールアドレス`}
                     </div>
                     <div className='value'>
-                      {t('company.location.info.email')}
+                      {`support@univus.jp`}
                     </div>
                   </div>
                 </div>

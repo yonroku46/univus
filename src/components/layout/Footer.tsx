@@ -1,9 +1,9 @@
 'use client'
 
 import Link from 'next/link';
-import { useTranslation } from '@/i18n/client';
-import { AvailableLanguages } from '@/i18n/settings';
 import { getLocalizedPath } from '@/common/utils/LngUtils';
+import { AvailableLanguages } from '@/i18n/settings';
+// import { useTranslation } from '@/i18n/client';
 
 interface FooterProps {
   lng: AvailableLanguages;
@@ -12,20 +12,23 @@ interface FooterProps {
 export default function Footer (
   { lng }: FooterProps
 ) {
-  const { t } = useTranslation(lng, 'navigation');
+  // const { t } = useTranslation(lng, 'navigation');
 
   const menuList: Array<MenuItem> = [
-    { groupName: t('menu.company.title'), groupHref: getLocalizedPath('/company', lng), unit: [
-      { name: t('menu.company.main'), href: getLocalizedPath('/company', lng) },
-      { name: t('menu.company.ideology'), href: getLocalizedPath('/company/ideology', lng) },
-      { name: t('menu.company.location'), href: getLocalizedPath('/company/location', lng) }
+    { groupName: '会社紹介', groupHref: getLocalizedPath('/company', lng), unit: [
+      { name: '会社概要', href: getLocalizedPath('/company', lng) },
+      { name: '企業理念', href: getLocalizedPath('/company/ideology', lng) },
+      { name: 'アクセス', href: getLocalizedPath('/company/location', lng) }
     ]},
-    { groupName: t('menu.project.title'), groupHref: getLocalizedPath('/project', lng), unit: [
-      { name: t('menu.project.main'), href: getLocalizedPath('/project', lng) }
+    { groupName: '事業内容', groupHref: getLocalizedPath('/project', lng), unit: [
+      { name: 'プロジェクト', href: getLocalizedPath('/project', lng) }
     ]},
-    { groupName: t('menu.contact.title'), groupHref: getLocalizedPath('/contact', lng), unit: [
-      { name: t('menu.contact.inquiry'), href: getLocalizedPath('/contact', lng) },
-      { name: t('menu.contact.notice'), href: getLocalizedPath('/contact/notice', lng) }
+    { groupName: '採用', groupHref: getLocalizedPath('/recruit', lng), unit: [
+      { name: '採用情報', href: getLocalizedPath('/recruit', lng) },
+    ]},
+    { groupName: 'コンタクト', groupHref: getLocalizedPath('/contact', lng), unit: [
+      { name: 'お問い合わせ', href: getLocalizedPath('/contact', lng) },
+      { name: 'ニュース', href: getLocalizedPath('/contact/notice', lng) }
     ]}
   ]
 
@@ -34,13 +37,13 @@ export default function Footer (
       <div className='container footer-group'>
         <div className='corporation'>
           <p className='intro'>
-            {t('corporation.intro')}
+            株式会社Univus
           </p>
           <div className='location'>
-            {t('corporation.location')}
+            {`〒812-0011\n福岡県福岡市博多区博多駅前1丁目\n23番2号ParkFront博多駅前1丁目5F-B`}
           </div>
           <div className='mail'>
-            {t('corporation.email')}
+            support@univus.jp
           </div>
         </div>
         <nav className='sp-nav'>
@@ -68,7 +71,7 @@ export default function Footer (
         </nav>
       </div>
       <div className='copyright'>
-        {t('corporation.copyright')}
+        Copyright ⓒ Univus inc.,Ltd. All Rights Reserved.
       </div>
     </footer>
   );

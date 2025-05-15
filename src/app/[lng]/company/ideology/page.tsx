@@ -1,10 +1,9 @@
 'use client'
 
-import { useTranslation } from '@/i18n/client';
+import Image from 'next/image';
 import { AvailableLanguages } from '@/i18n/settings';
 import { getLocalizedPath } from '@/common/utils/LngUtils';
 import { TabMenu } from '@/components/layout/TabMenu';
-import CustomImg from '@/components/custom/CustomImg';
 
 import { styled } from '@mui/material';
 
@@ -82,6 +81,7 @@ const IdeologySection = styled('section')(({ theme }) => ({
     padding: '4rem 0',
     borderRadius: '2rem',
     marginBottom: '2rem',
+    boxShadow: 'rgba(0, 0, 0, 0.05) 0px 0px 0px 1px',
     '.vision-content': {
       display: 'flex',
       alignItems: 'center',
@@ -137,35 +137,31 @@ export default function IdeologyPage({
 }: {
   params: { lng: AvailableLanguages }
 }) {
-  const { t } = useTranslation(lng, 'company');
-
   const tabItems = [
-    { title: t('company.tab.overview'), href: getLocalizedPath('/company', lng) },
-    { title: t('company.tab.ideology'), href: getLocalizedPath('/company/ideology', lng) },
-    { title: t('company.tab.location'), href: getLocalizedPath('/company/location', lng) }
+    { title: '会社概要', href: getLocalizedPath('/company', lng) },
+    { title: '企業理念', href: getLocalizedPath('/company/ideology', lng) },
+    { title: 'アクセス', href: getLocalizedPath('/company/location', lng) }
   ];
 
   const values = [
-    { title: 'Innovation', description: t('company.ideology.value1') },
-    { title: 'Trust', description: t('company.ideology.value2') },
-    { title: 'Collaboration', description: t('company.ideology.value3') }
+    { title: 'Innovation', description: `絶え間ないイノベーションで\n新しい価値を創造します。\n技術とサービスの発展を通じて\nより良い未来を築きます。` },
+    { title: 'Trust', description: `信頼を基盤として\n持続可能な関係を構築します。\n誠実さと透明性に基づいて\n社会的責任を果たします。` },
+    { title: 'Collaboration', description: `協力を通じてより大きなシナジーを生み出します。\n共に成長し発展する\n共生の価値を追求します。` }
   ];
 
   return (
     <article>
-      <div className='company-header'>
-        <div className='container'>
-          <TabMenu items={tabItems} />
-        </div>
+      <div className='container'>
+        <TabMenu items={tabItems} />
       </div>
       <IdeologySection>
         <div className='container'>
           <div className='ideology-intro'>
             <h1 className='main-title'>
-              {t('company.ideology.title')}
+              {`企業理念`}
             </h1>
             <p className='sub-title'>
-              {t('company.ideology.highlight')}
+              {`私たちの価値観とビジョンを通じて\n社会にポジティブな変化をもたらします`}
             </p>
           </div>
 
@@ -188,11 +184,11 @@ export default function IdeologyPage({
                   {'Our Vision\nInnovate for Better Tomorrow'}
                 </h2>
                 <p className='description'>
-                  {t('company.ideology.vision')}
+                  {`ユニバスは技術とサービスのイノベーションを通じて\nより良い未来を創造します。\n\nユーザー中心のサービスで日常の不便を解消し、\n新しい価値を創造することで社会の発展に貢献することが\n私たちのビジョンです。`}
                 </p>
               </div>
               <div className='img-content'>
-                <CustomImg
+                <Image
                   src='/assets/img/ideology.jpg'
                   alt='company vision'
                   width={500}
