@@ -92,7 +92,7 @@ export default function Home(
             {`一人ひとりの得意を活かし\n可能性をひらく社会へ`}
           </h2>
           <p className='about-highlight' data-aos='fade-right'>
-            {'私たちは、一人ひとりの違いを尊重し\n各人の専門性を活かすことで\nより良い価値と体験を社会に提供します'}
+            {'私たちは、一人ひとりの違いを尊重し\n各々の専門性を活かすことで\nより良い価値と体験を社会に提供します'}
           </p>
           <div className='about-box'>
             {aboutCardList.map((item, idx) => (
