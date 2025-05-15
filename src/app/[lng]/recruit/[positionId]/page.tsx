@@ -154,7 +154,7 @@ export default function RecruitInfoPage(
               </div>
               <div className="position-section">
                 <h2>賞与</h2>
-                <p>{`年2回（6月、12月））`}</p>
+                <p>{`年2回（6月、12月）`}</p>
               </div>
               <div className="position-section">
                 <h2>休日休暇</h2>
