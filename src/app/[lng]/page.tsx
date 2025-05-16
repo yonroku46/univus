@@ -162,7 +162,7 @@ export default function Home(
                 <p className='highlight'>
                   {`美味しい食事と余裕を持って楽しむ休憩\nヒルクルと一緒ならさらに特別になります`}
                 </p>
-                <Link className='service-btn' href={'https://hirukuru.com/service'} target='_blank'>
+                <Link className='service-btn' href={getLocalizedPath('/project', lng)}>
                   {`サービス紹介`}
                   <span className='arrow'>→</span>
                 </Link>
