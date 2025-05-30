@@ -26,7 +26,7 @@ export default function Home(
     {
       title: '事業相談',
       description: 'お客様のビジネスを\nサポートいたします。\nまずはご相談ください。',
-      link: '/consultation',
+      link: '/contact',
       linkText: '相談する'
     },
     {

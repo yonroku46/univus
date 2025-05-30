@@ -68,7 +68,7 @@ export default function ContactPage(
     setIsSubmitting(true);
 
     try {
-      const response = await fetch('https://alxumyekmg.execute-api.ap-northeast-1.amazonaws.com/send', {
+      const response = await fetch('https://bdt95sp7b3.execute-api.ap-northeast-1.amazonaws.com/send', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
