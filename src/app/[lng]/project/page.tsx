@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import Slider, { Settings } from "react-slick";
@@ -17,9 +17,9 @@ import TaskAltOutlinedIcon from '@mui/icons-material/TaskAltOutlined';
 import AlarmOnRoundedIcon from '@mui/icons-material/AlarmOnRounded';
 import VerifiedIcon from '@mui/icons-material/Verified';
 import PlayArrowRoundedIcon from '@mui/icons-material/PlayArrowRounded';
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import Rating from '@mui/material/Rating';
 import StarRoundedIcon from '@mui/icons-material/StarRounded';
+import Button from '@mui/material/Button';
 
 export default function ProjectPage(
   { params: { lng } }: { params: { lng: AvailableLanguages } }
@@ -82,6 +82,7 @@ export default function ProjectPage(
   };
 
   const importantSectionRef = useRef<HTMLDivElement | null>(null);
+  const [currentUsage, setCurrentUsage] = useState<"mobileOrder" | "takeout" | "waiting">("mobileOrder");
 
   const handleScrollToImportantSection = () => {
     if (importantSectionRef.current) {
@@ -96,43 +97,73 @@ export default function ProjectPage(
     }
   };
 
-  const sellerBenefits = [
-    { icon: InsightsOutlinedIcon, title: "集客効果", description: "ヒルクルを通じて、より多くの顧客に到達し、売上を増加させることができます。"  },
-    { icon: MobileFriendlyIcon, title: "モバイルオーダー", description: "モバイルオーダーを通じて、販売をより効率的に行うことができます。"  },
-    { icon: ThumbUpOffAltOutlinedIcon, title: "フォローアップ", description: "購入者とのコミュニケーションを通じて、フォローアップを行い、顧客満足度を高めることができます。" }
-  ];
-
   const buyerBenefits = [
-    { icon: LocalDiningOutlinedIcon, title: "選ぶ楽しさ", description: "様々なメニューを一目で確認し、選択肢を広げることができます。"  },
-    { icon: TaskAltOutlinedIcon, title: "圧倒的コスパ", description: "事前注文で食事を便利で効率的に食べれます。さらに食べるたびにポイントを還元。"  },
-    { icon: AlarmOnRoundedIcon, title: "余裕のある時間", description: "好きな時間を指定して注文することで、余裕のある時間を過ごすことができます。" }
+    {
+      icon: LocalDiningOutlinedIcon,
+      title: "ストレスフリーな注文体験",
+      description: "店内で並ばずにスマホから注文できるから、待ち時間ゼロで快適。"
+    },
+    {
+      icon: AlarmOnRoundedIcon,
+      title: "時間を自由にコントロール",
+      description: "テイクアウトや順番受付機能で、自分のタイミングで利用可能。"
+    },
+    {
+      icon: TaskAltOutlinedIcon,
+      title: "お得で分かりやすい",
+      description: "メニューやクーポンが一目で確認できて、選びやすくてお得。"
+    }
   ];
 
-  const serviceSteps = [
-    { time: "~11:50", prev: "メニューの悩み", now: "事前予約\nor\n選び・注文" },
-    { time: "12:00", prev: "ランチタイム\n開始", now: "ランチタイム\n開始" },
-    { time: "12:10", prev: "販売場所移動", now: "近くで受け取り\n食事開始" },
-    { time: "12:20", prev: "ランチ選び\n&\n注文/待機", now: undefined },
-    { time: "12:30", prev: "受け取り\n食事開始", now: "食事終了\n&\n余裕時間" },
-    { time: "12:40", prev: undefined, now: undefined },
-    { time: "12:50", prev: "食事終了\n&\n余裕時間", now: undefined },
-    { time: "13:00", prev: "ランチタイム\n終了", now: "ランチタイム\n終了" },
-    { time: "余裕時間", prev: "約15分", now: "約30分" },
+  const sellerBenefits = [
+    {
+      icon: MobileFriendlyIcon,
+      title: "導入がカンタン",
+      description: "個人・法人問わず、複雑な手続きなしで今日からすぐにスタート可能。"
+    },
+    {
+      icon: ThumbUpOffAltOutlinedIcon,
+      title: "人手不足でも効率UP",
+      description: "注文受付を自動化することで、少ない人手でもスムーズな運営が可能。"
+    },
+    {
+      icon: InsightsOutlinedIcon,
+      title: "新規顧客の獲得",
+      description: "オンライン掲載で新しいお客さんに見つけてもらいやすくなる。"
+    }
   ];
 
-  const usageCards = [
-    { title: "商品を選ぶ", description: "好みに合わせて商品を選ぶ", img: "/assets/img/usage-select.webp" },
-    { title: "注文・決済", description: "アプリ内で商品の注文から\n決済まで完結", img: "/assets/img/usage-order.webp" },
-    { title: "店頭で受け取り", description: "指定時間に店舗へ行き\n受け取るだけ", img: "/assets/img/usage-takeout.webp" },
+  const usageMenu: { type: "mobileOrder" | "takeout" | "waiting", title: string }[] = [
+    { type: "mobileOrder", title: "モバイルオーダー" },
+    { type: "takeout", title: "テイクアウト予約" },
+    { type: "waiting", title: "順番受付" },
+  ];
+
+  const usageCards: { type: "mobileOrder" | "takeout" | "waiting", usage: { title: string, description: string, img: string }[] }[] = [
+    { type: "mobileOrder", usage: [
+      { title: "QR読み取り", description: "店内・テーブルのQRコードを読み取り、好みに合わせて商品を注文", img: "/assets/img/usage-qrcode.webp" },
+      { title: "アプリで注文", description: "アプリ内で商品の説明から\n注文・カスタムまで全て完結", img: "/assets/img/usage-select.webp" },
+      { title: "商品到着", description: "注文した商品が完成したら\nスタッフがテーブルまでお届け", img: "/assets/img/usage-food.webp" }
+    ]},
+    { type: "takeout", usage: [
+      { title: "アプリで注文", description: "好みに合わせて商品を選択\nカートから簡単注文", img: "/assets/img/usage-select.webp" },
+      { title: "商品待ち", description: "商品した商品が準備完了になると\n通知をみて店舗へ", img: "/assets/img/usage-alert.webp" },
+      { title: "受け取り", description: "あとは指定時間に店舗へ行き\n受け取るだけ", img: "/assets/img/usage-takeout.webp" }
+    ]},
+    { type: "waiting", usage: [
+      { title: "受け付け", description: "店頭もしくはアプリで\nお店の待機受け付け", img: "/assets/img/usage-waiting.webp" },
+      { title: "順番待ち", description: "混雑状況などをリアルタイムで確認\n順番になったら店頭へ", img: "/assets/img/usage-queue.webp" },
+      { title: "入場", description: "受け付け番号を確認し\nそのまま入場", img: "/assets/img/usage-in.webp" }
+    ]},
   ];
 
   const serviceFunctions = [
     { title: "マップ検索",
       img: "/assets/img/func-search.png", description: "お店の位置とメニュー情報をリアルタイムで共有してお互いによりよい環境を提供" },
     { title: "事前予約",
-      img: "/assets/img/func-reserve.png", description: "食事を予約することでよりお得に、素早く受け取り・販売が可能" },
-    { title: "ポイント",
-      img: "/assets/img/func-point.png", description: "食べるたびにポイントを貯めて次回のランチをもっとお得に" },
+      img: "/assets/img/func-reserve.png", description: "食事時間やメニューを予約することでよりお得に、素早く食事時間を楽しめる" },
+    { title: "クーポン",
+      img: "/assets/img/func-point.png", description: "クーポンを活用してリピートするお客さんが続々増える" },
     { title: "データ提供",
       img: "/assets/img/func-data.png", description: "販売・購入したデータを提供。活用方法は人それぞれ" },
   ];
@@ -226,7 +257,7 @@ export default function ProjectPage(
               <h3 className="service-description-sub">
                 販売者との購入者を繋げて、<br/>
                 食事時間をより充実に。<br/>
-                テイクアウトをするなら、ヒルクル
+                みんなのAll in Oneサービス
               </h3>
               <div className="service-btn-wrapper">
                 <Link className="service-btn" href='https://hirukuru.com/search/map' target='_blank'>
@@ -289,52 +320,33 @@ export default function ProjectPage(
                 ))}
               </div>
             </div>
-            {/* Service Intro - Step */}
-            <div className="service-title">
-              <h2 className="title">
-                サービスのイメージ例
-              </h2>
-            </div>
-            <div className="service-step">
-              <table className='service-step-table'>
-                <thead>
-                  <tr>
-                    <th>時間</th>
-                    <th className='prev'>今のランチタイム</th>
-                    <th className='now'>ヒルクル</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {serviceSteps.map((step, index) => (
-                    <tr key={index}>
-                      <td>{step.time}</td>
-                      <td className='prev'>
-                        {step.prev || <KeyboardArrowDownIcon />}
-                      </td>
-                      <td className='now'>
-                        {step.now || <KeyboardArrowDownIcon />}
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
             {/* Service Intro - Usage */}
             <div className="service-title">
               <h2 className="title">
                 ヒルクルの使い方
               </h2>
             </div>
+            <div className='usage-menu'>
+              {usageMenu.map((menu, index) => (
+                <button
+                  key={index}
+                  className={`usage-btn ${currentUsage === menu.type ? "active" : ""}`}
+                  onClick={() => setCurrentUsage(menu.type)}
+                >
+                  {menu.title}
+                </button>
+              ))}
+            </div>
             <div className="service-usage">
-              {usageCards.map((card, index) => (
+              {usageCards.find(card => card.type === currentUsage)?.usage.map((card, index) => (
                 <>
                   <div key={index} className="usage-card">
                     <div className="img-wrapper">
                       <Image
                         src={card.img}
                         alt={card.title}
-                        width={140}
-                        height={140}
+                        width={160}
+                        height={160}
                       />
                     </div>
                     <div className="title">
@@ -463,32 +475,38 @@ export default function ProjectPage(
                 <div className='title'>業界最低水準の手数料</div>
                 <div className='price-card-wrapper'>
                   <div className='price-card'>
-                    <div className='price-card-title'>{`月額費用`}</div>
+                    <div className='price-card-title'>{`初期費用・月額費用`}</div>
                     <div className='price'>0<span className='percent'>円</span></div>
                   </div>
                   <div className='price-card'>
                     <div className='price-card-title'>{`サービス手数料`}</div>
-                    <div className='price'>5.5<span className='percent'>%</span></div>
-                  </div>
-                  <div className='price-card'>
-                    <div className='price-card-title'>{`キャッシュレス\n決済手数料`}</div>
-                    <div className='price'>3.5<span className='percent'>%</span></div>
+                    <div className='price'>2.65~<span className='percent'>%</span></div>
                   </div>
                 </div>
               </div>
             </div>
             <div className='service-extra'>
-              {`※ 導入後は運営をサポートする形で提供いたします`}
+              {`※ 導入後はサービス内容についてオンラインサポートを提供いたします`}
             </div>
             <div className='service-action-wrapper'>
               <Link href='https://hirukuru.com/search/map' className='service-action-btn search' target='_blank'>
                 近くの店舗を探す
               </Link>
-              <Link href='https://hirukuru.com/service/partner' className='service-action-btn partner' target='_blank'>
+              <Link href='https://hirukuru.com/service' className='service-action-btn partner' target='_blank'>
                 導入を検討・申請
               </Link>
             </div>
           </div>
+        </div>
+        <div className='contact-btn-wrapper'>
+          <Button
+            className='contact-btn'
+            sx={{ backgroundColor: '#06c705', color: 'var(--bg-color)' }}
+            onClick={() => window.open('https://line.me/R/ti/p/@879wlklg', "_blank")}
+          >
+            <Image src="/assets/icon/line-simple.svg" alt="line" width={28} height={28} />
+            <span className='description'>お問い合わせ</span>
+          </Button>
         </div>
       </div>
     </article>

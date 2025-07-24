@@ -34,10 +34,12 @@ const NavMenu = styled('nav')(() => ({
     position: 'absolute',
     top: 'calc(125% + 12px)',
     left: '0',
+    right: 'auto',
     background: 'var(--bg-color)',
     borderRadius: '0.5rem',
     padding: '8px',
     minWidth: '180px',
+    maxWidth: '200px',
     opacity: 0,
     visibility: 'hidden',
     transform: 'translateY(-10px)',
@@ -75,6 +77,18 @@ const NavMenu = styled('nav')(() => ({
       '&:hover': {
         backgroundColor: 'var(--bg-sub-color)',
       }
+    }
+  },
+  '.menu-item:last-child .submenu': {
+    left: 'auto',
+    right: '0',
+    '&::before': {
+      left: 'auto',
+      right: '24px',
+    },
+    '&::after': {
+      left: 'auto',
+      right: '18px',
     }
   }
 }));
@@ -140,7 +154,7 @@ export default function Header (
 
   return (
     <header className={isTop && currentPath === '' ? 'top' : ''}>
-      <div className='container header-group'>
+      <div className='header-group'>
         <div className='left-area'>
           <div className='logo'>
             <Link href={getLocalizedPath('/', lng)}>

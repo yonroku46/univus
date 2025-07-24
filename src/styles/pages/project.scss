@@ -76,45 +76,40 @@
           }
         }
       }
-      .service-step {
+      .usage-menu {
+        position: relative;
+        display: flex;
+        gap: 0.5rem;
+        padding: 0.5rem;
+        margin-top: 0.5rem;
+        background-color: var(--gray-alpha-200);
+        border-radius: 1rem;
         width: 100%;
-        margin-top: 2rem;
-        .service-step-table {
-          width: 100%;
-          th {
-            padding: 0.75rem;
-            font-weight: normal;
-            background-color: lightgray;
+        box-shadow: var(--info-shadow);
+        .usage-btn {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          position: relative;
+          flex: 1;
+          padding: 0.75rem 1.5rem;
+          border: none;
+          text-align: center;
+          color: var(--gray-alpha-500);
+          font-size: 1rem;
+          font-weight: 600;
+          border-radius: 0.75rem;
+          cursor: pointer;
+          text-decoration: none;
+          transition: all 0.2s ease;
+          &:hover {
             color: var(--bg-color);
-            &.prev {
-              background-color: lightgray;
-            }
-            &.now {
-              width: 40%;
-              background-color: var(--accent-color);
-            }
+            background-color: var(--accent-color);
           }
-          tr {
-            &:last-child {
-              td {
-                border-bottom: none;
-                font-weight: bold;
-                font-size: 1.25rem;
-              }
-            }
-            td {
-              padding: 0.75rem;
-              font-size: 1rem;
-              line-height: 1.2;
-              font-weight: normal;
-              text-align: center;
-              white-space: break-spaces;
-              height: 4rem;
-              border-bottom: 1px solid var(--border-color);
-              &.now {
-                color: var(--accent-color);
-              }
-            }
+          &.active {
+            color: var(--bg-color);
+            background-color: var(--accent-color);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
           }
         }
       }
@@ -124,6 +119,7 @@
         margin-top: 2rem;
         margin-left: 1rem;
         margin-right: 1rem;
+        margin-bottom: 2rem;
         .usage-card {
           flex: 1;
           display: flex;
@@ -135,13 +131,10 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            border: 1px solid var(--border-color);
             gap: 0.5rem;
-            background: radial-gradient(circle, var(--bg-color), var(--accent-color) 45%);
             border-radius: 50%;
             width: 200px;
             height: 200px;
-            padding: 1.5rem;
           }
           .title {
             font-size: 1.25rem;
@@ -156,11 +149,12 @@
             text-align: center;
             white-space: break-spaces;
             margin-bottom: 0.5rem;
+            height: 3rem;
           }
         }
         .usage-card-arrow {
           font-size: 2.75rem;
-          color: var(--accent-color);
+          color: var(--gray-alpha-500);
           margin-top: -2rem;
         }
       }
@@ -252,7 +246,7 @@
         display: flex;
         gap: 1rem;
         padding: 2rem 0;
-        margin-top: 2rem;
+        margin-top: 1.5rem;
         .function-card {
           flex: 1;
           display: flex;
@@ -262,18 +256,17 @@
           min-height: 290px;
           position: relative;
           overflow: hidden;
-          background: var(--card-background);
+          border-top: 0.5rem solid var(--gray-alpha-300);
           box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
           &:nth-child(odd) {
-            margin-top: -1rem;
+            margin-top: -1.5rem;
           }
           &:nth-child(even) {
-            margin-bottom: -1rem;
+            margin-bottom: -1.5rem;
           }
           .function-card-title {
             font-size: 1.25rem;
             font-weight: bold;
-            color: var(--accent-color);
           }
           .function-card-description {
             font-weight: normal;
@@ -323,7 +316,7 @@
           gap: 1rem;
           .title {
             font-size: 1.25rem;
-            font-weight: normal;
+            font-weight: bold;
             opacity: 0.7;
           }
           .price-card-wrapper {
@@ -482,6 +475,23 @@
             margin-bottom: 0;
           }
         }
+        .usage-menu {
+          flex-direction: column;
+        }
+        .service-usage {
+          flex-direction: column;
+          gap: 0.5rem;
+          .usage-card {
+            .img-wrapper {
+              height: fit-content;
+            }
+          }
+          .usage-card-arrow {
+            transform: rotate(90deg);
+            margin-top: 0.5rem;
+            margin-bottom: 0.5rem;
+          }
+        }
         .service-usage {
           flex-direction: column;
           gap: 0.5rem;
@@ -526,6 +536,27 @@
           margin: 1rem 0;
           flex-direction: column;
           align-items: stretch;
+        }
+      }
+    }
+    .contact-btn-wrapper {
+      z-index: 11;
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1rem;
+      .contact-btn {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.65rem;
+        border-radius: 0.5rem;
+        font-size: 1rem;
+        font-weight: bold;
+        white-space: pre-line;
+        min-width: unset;
+        box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+        .description {
+          margin-right: 0.25rem;
         }
       }
     }

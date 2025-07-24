@@ -24,6 +24,16 @@
   --scroller-hover-color: #9b9b9b;
   --red-color: #f34848;
   --blue-color: #4545eb;
+  --gray-rgb: 0, 0, 0;
+  --gray-alpha-500: rgba(var(--gray-rgb), 0.40);
+  --gray-alpha-400: rgba(var(--gray-rgb), 0.30);
+  --gray-alpha-300: rgba(var(--gray-rgb), 0.12);
+  --gray-alpha-200: rgba(var(--gray-rgb), 0.05);
+  --gray-alpha-100: rgba(var(--gray-rgb), 0.02);
+  // Shadow
+  --box-shadow: hsla(210, 8%, 62%, .2) 0px 8px 24px;
+  --card-shadow: hsla(210, 8%, 62%, .5) 0px 8px 24px;
+  --info-shadow: hsla(210, 8%, 62%, .2) 0px 1px 4px;
   // global variable
   --input-padding: 0.4rem 1rem;
   --header-height: 4rem;
