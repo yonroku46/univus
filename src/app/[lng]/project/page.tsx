@@ -501,7 +501,7 @@ export default function ProjectPage(
         <div className='contact-btn-wrapper'>
           <Button
             className='contact-btn'
-            sx={{ backgroundColor: '#06c705', color: 'var(--bg-color)' }}
+            sx={{ backgroundColor: '#06c705', color: 'var(--bg-color)', '&:hover': { backgroundColor: '#06c705' } }}
             onClick={() => window.open('https://line.me/R/ti/p/@879wlklg', "_blank")}
           >
             <Image src="/assets/icon/line-simple.svg" alt="line" width={28} height={28} />
