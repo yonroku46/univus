@@ -502,7 +502,7 @@ export default function ProjectPage(
           <Button
             className='contact-btn'
             sx={{ backgroundColor: '#06c705', color: 'var(--bg-color)', '&:hover': { backgroundColor: '#06c705' } }}
-            onClick={() => window.open('https://line.me/R/ti/p/@879wlklg', "_blank")}
+            onClick={() => window.open('https://lin.ee/ioEqwUM', "_blank")}
           >
             <Image src="/assets/icon/line-simple.svg" alt="line" width={28} height={28} />
             <span className='description'>お問い合わせ</span>
