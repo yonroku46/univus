@@ -1,4 +1,5 @@
 import { SpeedInsights } from '@vercel/speed-insights/next'
+import { Analytics } from '@vercel/analytics/next';
 import Head from 'next/head';
 import { dir } from 'i18next'
 import { AvailableLanguages, languages } from '@/i18n/settings'
@@ -61,6 +62,7 @@ export default function MainLayout(
         </main>
         <Footer lng={lng} />
         <SpeedInsights />
+        <Analytics />
       </body>
     </html>
   );

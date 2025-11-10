@@ -151,7 +151,7 @@ export default function Home(
           </div>
         </div>
         {/* Project2 */}
-        <div style={{ backgroundColor: '#f1f7ff', position: 'relative', padding: isSp ? '3rem 0' : '0' }}>
+        <div style={{ backgroundColor: '#f1f7ff', position: 'relative', padding: isSp ? '6rem 0 3rem 0' : '0' }}>
           <div className='container'>
             <div className='project-intro'>
               <div className='project-text' data-aos='fade-right'>
