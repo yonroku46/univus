@@ -1,7 +1,7 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef, use } from 'react';
 import { AvailableLanguages } from '@/i18n/settings';
 import Link from 'next/link';
 import '@/styles/pages/recruit.scss';
@@ -13,8 +13,9 @@ import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import MuiProvider from '@/styles/theme/MuiProvider';
 
 export default function RecruitPage(
-  { params: { lng } }: { params: { lng: AvailableLanguages } }
+  { params }: { params: Promise<{ lng: AvailableLanguages }> }
 ) {
+  const { lng } = use(params);
   const router = useRouter();
 
   const [positions, setPositions] = useState<Position[]>([]);
@@ -106,7 +107,7 @@ export default function RecruitPage(
             <Typography variant='h4' component='h1' sx={{ textAlign: 'center', mb: 1, fontWeight: 700 }}>
               採用情報
             </Typography>
-            <Typography sx={{ textAlign: 'center', mb: 4, color: 'text.secondary' }}>
+            <Typography sx={{ textAlign: 'center', mb: 6, color: 'text.secondary' }}>
               世界を変えるのは、あなたの「好き」から始まる
             </Typography>
             <div className='filter-wrapper'>

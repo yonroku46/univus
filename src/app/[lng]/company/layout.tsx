@@ -3,8 +3,9 @@ import { AvailableLanguages } from '@/i18n/settings';
 import { generatePageMetadata } from '@/common/utils/MetaUtils';
 import Loading from '@/app/[lng]/loading';
 
-export async function generateMetadata({ params }: { params: { lng: AvailableLanguages } }) {
-  return generatePageMetadata('company', params.lng);
+export async function generateMetadata({ params }: { params: Promise<{ lng: AvailableLanguages }> }) {
+  const { lng } = await params;
+  return generatePageMetadata('company', lng);
 }
 
 export default async function CompanyLayout(

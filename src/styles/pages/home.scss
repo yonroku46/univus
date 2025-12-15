@@ -35,8 +35,9 @@
           // background-image: linear-gradient(to right, var(--accent-color) 0%, #f880ec 100%);
         }
         .sub {
-          font-size: 5rem;
-          line-height: 5rem;
+          font-size: 6rem;
+          line-height: 6rem;
+          letter-spacing: -2px;
         }
         .btn-group {
           margin-top: 2rem;
@@ -172,7 +173,7 @@
     }
   }
   .contents-inquary {
-    background: linear-gradient(90deg, #000, transparent), linear-gradient(270deg, #000, transparent), url('/assets/img/inquary.png');
+    background: linear-gradient(90deg, #000, transparent), linear-gradient(270deg, #170720, transparent), url('/assets/img/inquary.png');
     background-size: cover;
     background-position: 50%;
     height: 250px;

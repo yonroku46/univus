@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, use } from 'react';
 import { AvailableLanguages } from '@/i18n/settings';
 import MuiProvider from '@/styles/theme/MuiProvider';
 import Loading from '@/app/[lng]/loading';
@@ -61,8 +61,9 @@ const StyledListItem = styled(ListItem)(({ theme }) => ({
 }));
 
 export default function NoticePage(
-  { params: { lng } }: { params: { lng: AvailableLanguages } }
+  { params }: { params: Promise<{ lng: AvailableLanguages }> }
 ) {
+  const { lng } = use(params);
   const [selectedNotice, setSelectedNotice] = useState<number | null>(null);
   const [noticesList, setNoticesList] = useState<Notice[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);

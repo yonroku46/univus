@@ -1,5 +1,6 @@
 'use client'
 
+import { use } from 'react';
 import { AvailableLanguages } from '@/i18n/settings';
 import { getLocalizedPath } from '@/common/utils/LngUtils';
 import { TabMenu } from '@/components/layout/TabMenu';
@@ -99,10 +100,11 @@ const LocationSection = styled('section')(({ theme }) => ({
 }));
 
 export default function LocationPage({
-  params: { lng }
+  params
 }: {
-  params: { lng: AvailableLanguages }
+  params: Promise<{ lng: AvailableLanguages }>
 }) {
+  const { lng } = use(params);
   const tabItems = [
     { title: '会社概要', href: getLocalizedPath('/company', lng) },
     { title: '企業理念', href: getLocalizedPath('/company/ideology', lng) },

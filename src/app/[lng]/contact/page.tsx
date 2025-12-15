@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react';
+import { useState, use } from 'react';
 import { AvailableLanguages } from '@/i18n/settings';
 import MuiProvider from '@/styles/theme/MuiProvider';
 
@@ -44,8 +44,9 @@ const initialForm: ContactForm = {
 };
 
 export default function ContactPage(
-  { params: { lng } }: { params: { lng: AvailableLanguages } }
+  { params }: { params: Promise<{ lng: AvailableLanguages }> }
 ) {
+  const { lng } = use(params);
   const [form, setForm] = useState<ContactForm>(initialForm);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);

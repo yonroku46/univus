@@ -10,9 +10,9 @@ const staticPaths = [
 
 export async function GET(
   request: Request,
-  { params }: { params: { lng: string } }
+  { params }: { params: Promise<{ lng: string }> }
 ) {
-  const { lng } = params;
+  const { lng } = await params;
   const baseUrl = process.env.NEXT_PUBLIC_APP_ADDRESS;
 
   const staticUrls: ISitemapField[] = staticPaths.map(({ path, priority, changefreq }) => ({

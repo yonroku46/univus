@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect } from 'react';
+import { useEffect, use, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { AvailableLanguages } from '@/i18n/settings';
@@ -11,10 +11,16 @@ import { useMediaQuery } from 'react-responsive';
 // import { useTranslation } from '@/i18n/client';
 
 export default function Home(
-  { params: { lng } }: { params: { lng: AvailableLanguages } }
+  { params }: { params: Promise<{ lng: AvailableLanguages }> }
 ) {
+  const { lng } = use(params);
   // const { t } = useTranslation(lng, 'home');
-  const isSp = useMediaQuery({ query: '(max-width: 1179px)' });
+  const mediaQueryResult = useMediaQuery({ query: '(max-width: 1179px)' });
+  const [isSp, setIsSp] = useState(false);
+
+  useEffect(() => {
+    setIsSp(mediaQueryResult);
+  }, [mediaQueryResult]);
 
   const aboutCardList = [
     { img: '/assets/img/home1.avif', title: 'Explore', description: '好きを見つける' },

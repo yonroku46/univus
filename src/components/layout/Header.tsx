@@ -13,6 +13,7 @@ import Drawer from '@mui/material/Drawer';
 import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
 import { Box, styled } from '@mui/material';
+import KeyboardArrowDownSharpIcon from '@mui/icons-material/KeyboardArrowDownSharp';
 // import PublicSharpIcon from '@mui/icons-material/PublicSharp';
 
 const NavMenu = styled('nav')(() => ({
@@ -28,6 +29,12 @@ const NavMenu = styled('nav')(() => ({
         visibility: 'visible',
         transform: 'translateY(0)',
       }
+    },
+    '.menu-item-link': {
+      display: 'flex',
+      alignItems: 'center',
+      gap: '0.25rem',
+      opacity: 0.8,
     }
   },
   '.submenu': {
@@ -161,8 +168,8 @@ export default function Header (
               <Image
                 src={'/assets/icon/logo.svg'}
                 alt='logo'
-                width={100}
-                height={40}
+                width={104}
+                height={46}
                 priority
               />
             </Link>
@@ -182,8 +189,9 @@ export default function Header (
           <NavMenu className='pc-only pc-nav'>
             {menuList.map((menu, idx) => (
               <div key={idx} className='menu-item'>
-                <Link href={menu.groupHref}>
+                <Link href={menu.groupHref} className='menu-item-link'>
                   {menu.groupName}
+                  <KeyboardArrowDownSharpIcon className='arrow-icon' />
                 </Link>
                 <Box className='submenu'>
                   {menu.unit.map((subMenu, subIdx) => (
@@ -198,7 +206,18 @@ export default function Header (
           <button className='sp-only menu-btn' onClick={() => setOpen(true)}>
             <MenuRoundedIcon className='menu-icon' />
           </button>
-          <Drawer PaperProps={{sx: {minWidth: '250px', borderRadius: '0.5rem 0 0 0.5rem' }}} anchor={'right'} open={open} onClose={() => setOpen(false)}>
+          <Drawer
+            anchor={'top'}
+            open={open}
+            onClose={() => setOpen(false)}
+            sx={{
+              '& .MuiPaper-root': {
+                borderRadius: '0 0 0.5rem 0.5rem',
+                backgroundColor: 'rgba(0, 0, 0, 0.4)',
+                backdropFilter: 'blur(20px)'
+              }
+            }}
+          >
             <nav>
               <div className='menu-group top-area'>
                 <CloseRoundedIcon className='close-icon' onClick={() => setOpen(false)} />

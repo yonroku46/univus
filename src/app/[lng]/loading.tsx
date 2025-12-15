@@ -16,7 +16,7 @@ export default function Loading(
   }
   return (
     <Box sx={{ position: 'absolute', top: 0, left: 0, zIndex: 1100, width: '100%', color: 'var(--accent-color)' }}>
-      <LinearProgress color='inherit' />
+      <LinearProgress color='inherit' sx={{ opacity: '0.4' }} />
     </Box>
   )
 }

@@ -50,9 +50,9 @@ export default function Footer (
           {menuList.map((menu, idx) => {
             return (
               <div key={idx} className='menu-group'>
-                <div className='group-name'>
+                <Link href={menu.groupHref} className='group-name'>
                   {menu.groupName}
-                </div>
+                </Link>
                 <div className='subnav'>
                   <div className='menu-box'>
                     {menu.unit.map((subMenu, idx) => (

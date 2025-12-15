@@ -1,7 +1,7 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, use } from 'react';
 import { AvailableLanguages } from '@/i18n/settings';
 import Loading from '@/app/[lng]/loading';
 import '@/styles/pages/recruit.scss';
@@ -13,8 +13,9 @@ import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import DateRangeIcon from '@mui/icons-material/DateRange';
 
 export default function RecruitInfoPage(
-  { params: { lng, positionId } }: { params: { lng: AvailableLanguages, positionId: string } }
+  { params }: { params: Promise<{ lng: AvailableLanguages, positionId: string }> }
 ) {
+  const { lng, positionId } = use(params);
   const router = useRouter();
   const [showSuccess, setShowSuccess] = useState(false);
   const [position, setPosition] = useState<Position | null>(null);

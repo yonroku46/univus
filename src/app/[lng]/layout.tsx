@@ -23,17 +23,19 @@ const notoSansEn = Noto_Sans ({
   weight: ['300', '400', '700','900'],
 })
 
-export async function generateMetadata({ params }: { params: { lng: AvailableLanguages } }) {
-  return generatePageMetadata('home', params.lng);
+export async function generateMetadata({ params }: { params: Promise<{ lng: AvailableLanguages }> }) {
+  const { lng } = await params;
+  return generatePageMetadata('home', lng);
 }
 
 export async function generateStaticParams() {
   return languages.map((lng: AvailableLanguages) => ({ lng }))
 }
 
-export default function MainLayout(
-  { children, params: { lng } }: { children: React.ReactNode, params: { lng: AvailableLanguages } }
+export default async function MainLayout(
+  { children, params }: { children: React.ReactNode, params: Promise<{ lng: AvailableLanguages }> }
 ) {
+  const { lng } = await params;
   const bodyClassName =
     lng === 'ja' ? notoSansJP.className :
     lng === 'ko' ? notoSansKR.className :

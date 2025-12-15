@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from 'react';
+import { useRef, useState, use } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import Slider, { Settings } from "react-slick";
@@ -22,8 +22,9 @@ import StarRoundedIcon from '@mui/icons-material/StarRounded';
 import Button from '@mui/material/Button';
 
 export default function ProjectPage(
-  { params: { lng } }: { params: { lng: AvailableLanguages } }
+  { params }: { params: Promise<{ lng: AvailableLanguages }> }
 ) {
+  const { lng } = use(params);
   const settingsTop: Settings = {
     infinite: true,
     draggable: false,
