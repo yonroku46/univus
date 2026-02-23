@@ -3,6 +3,7 @@
 import { useRouter } from 'next/navigation';
 import { useEffect, useState, useRef, use } from 'react';
 import { AvailableLanguages } from '@/i18n/settings';
+import Breadcrumbs from '@/components/layout/Breadcrumbs';
 import Link from 'next/link';
 import '@/styles/pages/recruit.scss';
 
@@ -11,6 +12,10 @@ import { Box, Typography } from '@mui/material';
 import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import MuiProvider from '@/styles/theme/MuiProvider';
+
+const breadcrumbs: Breadcrumb[] = [
+  { label: '採用情報', href: '/recruit', active: true },
+];
 
 export default function RecruitPage(
   { params }: { params: Promise<{ lng: AvailableLanguages }> }
@@ -101,6 +106,7 @@ export default function RecruitPage(
 
   return (
     <article className='bg-sub'>
+      <Breadcrumbs breadcrumbs={breadcrumbs} />
       <div className='container recruit'>
         <MuiProvider>
           <Box sx={{ py: 4,  width: '100%' }}>

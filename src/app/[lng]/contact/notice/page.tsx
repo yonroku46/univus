@@ -2,6 +2,7 @@
 
 import { useEffect, useState, use } from 'react';
 import { AvailableLanguages } from '@/i18n/settings';
+import Breadcrumbs from '@/components/layout/Breadcrumbs';
 import MuiProvider from '@/styles/theme/MuiProvider';
 import Loading from '@/app/[lng]/loading';
 
@@ -59,6 +60,10 @@ const StyledListItem = styled(ListItem)(({ theme }) => ({
     transform: 'rotateX(180deg)',
   }
 }));
+
+const breadcrumbs: Breadcrumb[] = [
+  { label: 'ニュース', href: '/contact/notice', active: true },
+];
 
 export default function NoticePage(
   { params }: { params: Promise<{ lng: AvailableLanguages }> }
@@ -120,6 +125,7 @@ export default function NoticePage(
 
   return (
     <article className='bg-sub'>
+      <Breadcrumbs breadcrumbs={breadcrumbs} />
       <div className='container center content-top'>
         <MuiProvider>
           <Box sx={{ py: 4, width: '100%' }}>

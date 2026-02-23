@@ -15,10 +15,9 @@ export default function Footer (
   // const { t } = useTranslation(lng, 'navigation');
 
   const menuList: Array<MenuItem> = [
-    { groupName: '会社紹介', groupHref: getLocalizedPath('/company', lng), unit: [
+    { groupName: '企業情報', groupHref: getLocalizedPath('/company', lng), unit: [
       { name: '会社概要', href: getLocalizedPath('/company', lng) },
       { name: '企業理念', href: getLocalizedPath('/company/ideology', lng) },
-      { name: 'アクセス', href: getLocalizedPath('/company/location', lng) }
     ]},
     { groupName: '事業内容', groupHref: getLocalizedPath('/project', lng), unit: [
       { name: 'プロジェクト', href: getLocalizedPath('/project', lng) }

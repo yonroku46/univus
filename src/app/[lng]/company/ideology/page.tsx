@@ -3,26 +3,25 @@
 import { use } from 'react';
 import Image from 'next/image';
 import { AvailableLanguages } from '@/i18n/settings';
-import { getLocalizedPath } from '@/common/utils/LngUtils';
-import { TabMenu } from '@/components/layout/TabMenu';
+import Breadcrumbs from '@/components/layout/Breadcrumbs';
 
 import { styled } from '@mui/material';
 
 const IdeologySection = styled('section')(({ theme }) => ({
-  padding: '1rem 0',
+  padding: '4rem 0',
   '.ideology-intro': {
     textAlign: 'center',
     marginBottom: '3rem',
     width: '100%',
     '.main-title': {
-      fontSize: '3rem',
+      fontSize: '2.25rem',
       fontWeight: 700,
       color: 'var(--main-color)',
       marginBottom: '1.5rem',
       marginTop: '0',
     },
     '.sub-title': {
-      fontSize: '1.25rem',
+      fontSize: '1.125rem',
       color: 'var(--text-sub-color)',
       lineHeight: 1.6,
     }
@@ -30,15 +29,15 @@ const IdeologySection = styled('section')(({ theme }) => ({
   '.value-grid': {
     display: 'grid',
     gridTemplateColumns: 'repeat(3, 1fr)',
-    gap: '2rem',
+    gap: '1.5rem',
     marginBottom: '6rem',
     width: '100%',
     '@media (max-width: 768px)': {
       gridTemplateColumns: '1fr',
-      gap: '1.5rem',
+      gap: '1rem',
     },
     '.value-card': {
-      padding: '2.5rem',
+      padding: '2rem 2.5rem',
       borderRadius: '1.5rem',
       backgroundColor: '#fff',
       boxShadow: '0 4px 24px rgba(0,0,0,0.06)',
@@ -77,61 +76,108 @@ const IdeologySection = styled('section')(({ theme }) => ({
       }
     }
   },
+  '.section-content': {
+    display: 'flex',
+    gap: '4rem',
+    alignItems: 'center',
+    marginBottom: '4rem',
+    padding: '0 1rem',
+    '@media (max-width: 768px)': {
+      textAlign: 'center',
+      flexDirection: 'column',
+      alignItems: 'stretch',
+      gap: '2rem',
+      '&.reverse': {
+        flexDirection: 'column-reverse',
+      },
+    },
+    '.text-content': {
+      flex: 1,
+      '.section-title': {
+        fontSize: '2.25rem',
+        fontWeight: 700,
+        lineHeight: 1.15,
+        marginBottom: '1.5rem',
+      },
+      '.description': {
+        fontSize: '1.1rem',
+        lineHeight: 1.6,
+        color: 'var(--text-sub-color)',
+      }
+    },
+    '.img-content': {
+      flex: 1,
+      display: 'flex',
+      borderRadius: '1rem',
+      overflow: 'hidden',
+      '& img': {
+        width: '100%',
+        height: '100%',
+        objectFit: 'cover',
+      }
+    }
+  },
   '.vision-section': {
-    backgroundColor: '#f8f9fa',
+    position: 'relative',
     padding: '4rem 0',
     borderRadius: '2rem',
-    marginBottom: '2rem',
-    boxShadow: 'rgba(0, 0, 0, 0.05) 0px 0px 0px 1px',
+    marginTop: '2rem',
+    marginBottom: '4rem',
+    width: '100%',
+    overflow: 'hidden',
+    '&::before': {
+      content: '""',
+      position: 'absolute',
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0,
+      background: 'linear-gradient(45deg, var(--main-color) 15%, rgba(35, 49, 66, 0.6) 80%, rgba(248, 249, 250, 0.25) 100%)',
+      zIndex: 1,
+    },
+    '.bg-image': {
+      position: 'absolute',
+      top: 0,
+      right: 0,
+      bottom: 0,
+      width: '60%',
+      height: '100%',
+      zIndex: 0,
+      '@media (max-width: 768px)': {
+        width: '100%',
+        height: '50%',
+        top: 'auto',
+        bottom: 0,
+      },
+      '& img': {
+        width: '100%',
+        height: '100%',
+        objectFit: 'cover',
+        objectPosition: 'right center',
+      }
+    },
     '.vision-content': {
+      position: 'relative',
+      zIndex: 2,
       display: 'flex',
       alignItems: 'center',
       gap: '3rem',
       maxWidth: '1200px',
       margin: '0 auto',
       padding: '0 2rem',
-      '@media (max-width: 768px)': {
-        flexDirection: 'column',
-        gap: '2rem',
-        padding: '0 1.5rem',
-        '.text-content': {
-          order: -1,
-        }
-      },
-      '.text-content': {
-        flex: 1,
-        paddingLeft: '1rem',
-        '@media (max-width: 768px)': {
-          paddingLeft: '0'
-        },
-        '.section-title': {
-          fontSize: '2.25rem',
-          fontWeight: 700,
-          marginBottom: '1.5rem',
-          color: 'var(--main-color)',
-          lineHeight: 1.3,
-        },
-        '.description': {
-          fontSize: '1.1rem',
-          lineHeight: 1.6,
-          color: 'var(--text-sub-color)',
-          whiteSpace: 'pre-line',
-        }
-      },
-      '.img-content': {
-        flex: 1,
-        display: 'flex',
-        borderRadius: '1rem',
-        overflow: 'hidden',
-        '& img': {
-          width: '100%',
-          height: '100%',
-          objectFit: 'cover',
-        }
+      '.section-title': {
+        fontSize: '2.25rem',
+        fontWeight: 700,
+        color: 'var(--bg-color)',
+        lineHeight: 1.15,
       }
     }
   }
 }));
+
+const breadcrumbs: Breadcrumb[] = [
+  { label: '企業理念', href: '/company/ideology', active: true },
+];
 
 export default function IdeologyPage({
   params
@@ -139,23 +185,16 @@ export default function IdeologyPage({
   params: Promise<{ lng: AvailableLanguages }>
 }) {
   const { lng } = use(params);
-  const tabItems = [
-    { title: '会社概要', href: getLocalizedPath('/company', lng) },
-    { title: '企業理念', href: getLocalizedPath('/company/ideology', lng) },
-    { title: 'アクセス', href: getLocalizedPath('/company/location', lng) }
-  ];
 
   const values = [
-    { title: 'Innovation', description: `絶え間ないイノベーションで\n新しい価値を創造します。\n技術とサービスの発展を通じて\nより良い未来を築きます。` },
-    { title: 'Trust', description: `信頼を基盤として\n持続可能な関係を構築します。\n誠実さと透明性に基づいて\n社会的責任を果たします。` },
-    { title: 'Collaboration', description: `協力を通じてより大きなシナジーを生み出します。\n共に成長し発展する\n共生の価値を追求します。` }
+    { title: 'Individuality', description: `一人ひとりの違いを力に変える。\nお互いの専門性と個性を尊重し\n最大限に発揮できる環境を作ります。` },
+    { title: 'Synergy', description: `得意を掛け合わせ、限界を超える。\n個人の力だけでは到達できない圧倒的なクオリティと価値を共創します。` },
+    { title: 'Excellence', description: `常にユーザーの期待の一歩先へ。\n現状に満足することなく、最適な体験とより良い未来を追求し続けます。` }
   ];
 
   return (
     <article>
-      <div className='container'>
-        <TabMenu items={tabItems} />
-      </div>
+      <Breadcrumbs breadcrumbs={breadcrumbs} />
       <IdeologySection>
         <div className='container'>
           <div className='ideology-intro'>
@@ -179,25 +218,58 @@ export default function IdeologyPage({
             ))}
           </div>
 
+          <div className='section-content reverse'>
+            <div className='text-content'>
+              <h2 className='section-title'>
+                {`サービスを通じて\n社会貢献を実現`}
+              </h2>
+              <p className='description'>
+                {`ユニバスは、革新的なサービスでより良い世界を創り出します。\n小さな余裕と便利さを提供することから始めて、徐々により多くの分野で肯定的な変化を引き起こしたいと考えています。\n私たちのサービスが社会貢献できるという信念により、続々と革新と発展を追求します。`}
+              </p>
+            </div>
+            <div className='img-content'>
+              <Image
+                src='/assets/img/company1.jpeg'
+                alt='company vision'
+                width={500}
+                height={350}
+                priority
+              />
+            </div>
+          </div>
+
+          <div className='section-content'>
+            <div className='img-content'>
+              <Image
+                src='/assets/img/company2.jpg'
+                alt='company mission'
+                width={500}
+                height={350}
+                priority
+              />
+            </div>
+            <div className='text-content'>
+              <h2 className='section-title'>
+                {`技術で繋がる\nより良い未来`}
+              </h2>
+              <p className='description'>
+                {`ユニバスは、技術を通じて人と人、サービスと価値を繋ぎ合うことで、新しい価値を生み出します。\nヒルクルを始め、より多くの革新的なサービスを提供する予定です。\n私たちの挑戦が創り出す未来を期待しています。`}
+              </p>
+            </div>
+          </div>
+
           <div className='vision-section'>
+            <Image
+              className='bg-image'
+              src='/assets/img/ideology.jpg'
+              alt='company vision'
+              fill
+              priority
+            />
             <div className='vision-content'>
-              <div className='text-content'>
-                <h2 className='section-title'>
-                  {'Our Vision\nInnovate for Better Tomorrow'}
-                </h2>
-                <p className='description'>
-                  {`ユニバスは技術とサービスのイノベーションを通じて\nより良い未来を創造します。\n\nユーザー中心のサービスで日常の不便を解消し、\n新しい価値を創造することで社会の発展に貢献することが\n私たちのビジョンです。`}
-                </p>
-              </div>
-              <div className='img-content'>
-                <Image
-                  src='/assets/img/ideology.jpg'
-                  alt='company vision'
-                  width={500}
-                  height={350}
-                  priority
-                />
-              </div>
+              <h2 className='section-title'>
+                Innovate for Better <br />Tomorrow
+              </h2>
             </div>
           </div>
         </div>

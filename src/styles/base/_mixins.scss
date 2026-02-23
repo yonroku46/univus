@@ -58,3 +58,19 @@
   border-radius: 50%;
   border: 1px solid var(--gray-alpha-300);
 }
+
+@mixin shimmer($border-radius: 0.5rem) {
+  position: relative;
+  overflow: hidden;
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: $border-radius;
+    background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.2) 50%, transparent 70%);
+    animation: shimmer 2s ease-in-out infinite;
+  }
+}

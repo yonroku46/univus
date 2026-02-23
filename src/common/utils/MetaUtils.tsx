@@ -4,7 +4,7 @@ import { createInstance } from 'i18next';
 import { initReactI18next } from 'react-i18next/initReactI18next';
 import resourcesToBackend from 'i18next-resources-to-backend';
 
-type MetadataType = 'home' | 'company' | 'project' | 'recruit' | 'contact' | 'contact/notice';
+type MetadataType = 'home' | 'company' | 'project' | 'project/hirukuru' | 'project/regizero' | 'recruit' | 'contact' | 'contact/notice';
 
 async function initI18next(lng: AvailableLanguages, ns: string) {
   const i18nInstance = createInstance();
@@ -111,6 +111,14 @@ export async function generatePageMetadata(type: MetadataType, lng: AvailableLan
     'project': {
       ...baseMetadata,
       title: t('project.title'),
+    },
+    'project/hirukuru': {
+      ...baseMetadata,
+      title: t('project.hirukuru.title'),
+    },
+    'project/regizero': {
+      ...baseMetadata,
+      title: t('project.regizero.title'),
     },
     'recruit': {
       ...baseMetadata,

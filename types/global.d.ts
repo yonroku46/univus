@@ -46,6 +46,20 @@ declare global {
     category: string;
     employmentType: string;
   }
+  interface Project {
+    id: string;
+    title: string;
+    subtitle: string;
+    description: string;
+    image: string;
+    bgColor: string;
+    href: string;
+  }
+  interface Breadcrumb {
+    label: string;
+    href: string;
+    active?: boolean;
+  }
 }
 
 export {};

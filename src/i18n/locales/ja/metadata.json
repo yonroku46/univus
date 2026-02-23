@@ -9,14 +9,24 @@
     "ogImageAlt": "Univusメイン"
   },
   "company": {
-    "title": "会社紹介",
+    "title": "企業情報",
     "description": "Univusはサービスではなく、経験を提供します",
-    "ogImageAlt": "Univus会社紹介"
+    "ogImageAlt": "Univus企業情報"
   },
   "project": {
     "title": "プロジェクト",
     "description": "Univusの革新的なプロジェクトを紹介します",
-    "ogImageAlt": "Univusプロジェクト"
+    "ogImageAlt": "Univusプロジェクト",
+    "hirukuru": {
+      "title": "プロジェクト - ヒルクル",
+      "description": "待たず迷わずテイクアウト、ヒルクル",
+      "ogImageAlt": "ヒルクル"
+    },
+    "regizero": {
+      "title": "プロジェクト - レジゼロ",
+      "description": "レジはもっとシンプルでいい、レジゼロ",
+      "ogImageAlt": "レジゼロ"
+    }
   },
   "recruit": {
     "title": "採用情報",

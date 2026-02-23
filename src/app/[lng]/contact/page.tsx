@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, use } from 'react';
+import Breadcrumbs from '@/components/layout/Breadcrumbs';
 import { AvailableLanguages } from '@/i18n/settings';
 import MuiProvider from '@/styles/theme/MuiProvider';
 
@@ -42,6 +43,10 @@ const initialForm: ContactForm = {
   phone: '',
   message: '',
 };
+
+const breadcrumbs: Breadcrumb[] = [
+  { label: '問い合わせ', href: '/contact', active: true },
+];
 
 export default function ContactPage(
   { params }: { params: Promise<{ lng: AvailableLanguages }> }
@@ -92,6 +97,7 @@ export default function ContactPage(
 
   return (
     <article className='bg-sub'>
+      <Breadcrumbs breadcrumbs={breadcrumbs} />
       <div className='container center'>
         <MuiProvider>
           <Box sx={{ py: 4,  width: { xs: '100%', sm: 'auto' } }}>

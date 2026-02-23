@@ -2,6 +2,7 @@
 
 import { useRouter } from 'next/navigation';
 import { useEffect, useState, use } from 'react';
+import Breadcrumbs from '@/components/layout/Breadcrumbs';
 import { AvailableLanguages } from '@/i18n/settings';
 import Loading from '@/app/[lng]/loading';
 import '@/styles/pages/recruit.scss';
@@ -20,6 +21,11 @@ export default function RecruitInfoPage(
   const [showSuccess, setShowSuccess] = useState(false);
   const [position, setPosition] = useState<Position | null>(null);
   const [isLoading, setIsLoading] = useState(true);
+
+  const breadcrumbs: Breadcrumb[] = [
+    { label: '採用情報', href: '/recruit' },
+    { label: position?.title || '求人詳細', href: `/recruit/${positionId}`, active: true },
+  ];
 
   const mail = 'support@univus.jp';
   const benefitList = [
@@ -66,6 +72,7 @@ export default function RecruitInfoPage(
   if (!position) {
     return (
       <article className='bg-sub'>
+        <Breadcrumbs breadcrumbs={breadcrumbs} />
         <div className="container center">
           <h1 style={{ fontSize: '2rem', fontWeight: 'bold' }}>
             {`求人情報が\n見つかりませんでした`}
@@ -104,6 +111,7 @@ export default function RecruitInfoPage(
 
   return (
     <article className='bg-sub'>
+      <Breadcrumbs breadcrumbs={breadcrumbs} />
       <div className='container recruit'>
         <MuiProvider>
           <Box sx={{ py: 4, width: '100%' }}>
