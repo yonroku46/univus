@@ -69,7 +69,6 @@ export interface RegizeroLandingContent {
 
 export function getRegizeroLandingNavItems(): RegizeroNavItem[] {
   return [
-    { id: 'vision', targetId: 'vision', label: 'ビジョン' },
     { id: 'experience', targetId: 'experience', label: '体験' },
     { id: 'benefits', targetId: 'benefits', label: '導入効果' },
     { id: 'features', targetId: 'features', label: '機能' },

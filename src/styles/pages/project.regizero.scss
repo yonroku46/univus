@@ -52,7 +52,6 @@
     box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
     transform: translateZ(0);
     will-change: transform;
-
     .landing-container {
       padding-top: 0.85rem;
       padding-bottom: 0.85rem;
@@ -61,23 +60,12 @@
       padding-left: 5%;
       padding-right: 5%;
     }
-
     .section-nav-list {
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 1.5rem;
       position: relative;
-      @include mobile {
-        justify-content: flex-start;
-        overflow-x: auto;
-        padding-bottom: 0.5rem;
-        -webkit-overflow-scrolling: touch;
-        &::-webkit-scrollbar {
-          display: none;
-        }
-      }
-
       &::before {
         content: "";
         position: absolute;
@@ -89,7 +77,6 @@
         border-radius: 999px;
       }
     }
-
     // specific regizero nav item
     .section-nav-item {
       position: relative;
@@ -105,7 +92,6 @@
       white-space: nowrap;
       transition: color 200ms var(--ease-out, cubic-bezier(0.16, 1, 0.3, 1));
       border: none !important;
-
       &::after {
         content: "";
         position: absolute;
@@ -120,16 +106,34 @@
           var(--ease-out, cubic-bezier(0.16, 1, 0.3, 1));
         transform-origin: center;
       }
-
-      &:hover {
-        color: var(--text-secondary);
-      }
-
       &.active {
         color: var(--text-primary);
         background: transparent !important;
         &::after {
           transform: translateX(-50%) scaleX(1);
+        }
+      }
+    }
+    @include mobile {
+      background: rgba(255, 255, 255, 1);
+      .landing-container {
+        padding-top: 0.75rem;
+        padding-bottom: 0.75rem;
+      }
+      .section-nav-list {
+        gap: 0.5rem;
+        justify-content: center;
+        &::before {
+          bottom: -0.75rem;
+        }
+      }
+      .section-nav-item {
+        padding: 0.6rem 0.85rem;
+        flex: 1 1 0;
+        min-width: 0;
+        &::after {
+          bottom: -0.75rem;
+          width: calc(100% - 0.5rem);
         }
       }
     }
@@ -142,21 +146,18 @@
     padding: 0 5%;
     width: 100%;
   }
-
   .rz-section {
     padding: 8rem 0;
     @include mobile {
       padding: 5rem 0;
     }
   }
-
   .rz-section-header {
     margin-bottom: 4rem;
     &.rz-center {
       text-align: center;
     }
   }
-
   .rz-eyebrow {
     display: inline-block;
     font-size: 0.85rem;
@@ -167,7 +168,6 @@
     margin-bottom: 1rem;
     position: relative;
     padding-left: 1.5rem;
-
     &::before {
       content: "";
       position: absolute;
@@ -179,7 +179,6 @@
       background: var(--text-primary);
     }
   }
-
   .rz-heading {
     font-size: clamp(2rem, 4vw, 3.5rem);
     font-weight: 900;
@@ -187,7 +186,6 @@
     letter-spacing: -0.02em;
     color: var(--text-primary);
   }
-
   // Buttons
   .rz-btn-primary,
   .rz-btn-secondary {
@@ -200,39 +198,24 @@
     font-size: 1rem;
     transition: var(--transition);
     cursor: pointer;
-
     svg {
       font-size: 1.2rem;
       transition: transform var(--transition);
     }
-    &:hover svg {
-      transform: translateX(4px);
-    }
   }
-
   .rz-btn-primary {
     background: var(--black);
     color: var(--white);
     border: 1px solid var(--black);
-
-    &:hover {
-      background: var(--gray-800);
-    }
     &.rz-btn-large {
       padding: 1.25rem 3rem;
       font-size: 1.1rem;
     }
   }
-
   .rz-btn-secondary {
     background: transparent;
     color: var(--black);
     border: 1px solid var(--gray-200);
-
-    &:hover {
-      border-color: var(--black);
-      background: var(--gray-100);
-    }
   }
 
   // Hero Section
@@ -273,6 +256,7 @@
         grid-template-columns: 1fr;
         gap: 2rem;
         padding-top: 2rem;
+        padding-bottom: 2rem;
       }
     }
 
@@ -331,7 +315,7 @@
       height: 600px;
       width: 100%;
       @include mobile {
-        height: 400px;
+        height: 360px;
       }
       .rz-visual-wrapper {
         position: absolute;
@@ -342,9 +326,6 @@
         box-shadow: -20px 20px 60px rgba(0, 0, 0, 0.05);
         transition: transform var(--transition);
         overflow: hidden;
-        &:hover {
-          transform: perspective(1000px) rotateY(0deg) rotateX(0deg);
-        }
         .rz-visual-img {
           object-fit: cover;
           object-position: center top;
@@ -382,10 +363,6 @@
       background: var(--gray-800);
       border-radius: var(--radius-md);
       transition: var(--transition);
-      &:hover {
-        transform: translateY(-8px);
-        background: #222;
-      }
       .rz-problem-icon {
         width: 64px;
         height: 64px;
@@ -546,10 +523,6 @@
       align-items: center;
       text-align: center;
       transition: var(--transition);
-      &:hover {
-        background: var(--gray-200);
-        transform: translateY(-4px);
-      }
       .rz-benefit-stats {
         font-size: 2rem;
         font-weight: 900;
@@ -595,10 +568,6 @@
       border-radius: var(--radius-md);
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
       transition: transform var(--transition);
-      &:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-      }
       .rz-feature-icon {
         flex-shrink: 0;
         width: 56px;
@@ -677,10 +646,6 @@
       border: 1px solid rgba(255, 255, 255, 0.05);
       @include mobile {
         padding: 2rem 1.5rem;
-      }
-      &:hover {
-        transform: translateY(-8px);
-        background: #222;
       }
       .rz-plan-name {
         font-size: 1.1rem;
@@ -775,9 +740,6 @@
             &.Mui-focused fieldset {
               border-color: var(--black);
             }
-            &:hover fieldset {
-              border-color: var(--gray-400);
-            }
           }
           .MuiInputAdornment-root {
             .MuiTypography-root {
@@ -795,7 +757,7 @@
           display: flex;
           gap: 0.5rem;
           flex-wrap: wrap;
-          justify-content: center;
+          justify-content: flex-start;
         }
         .rz-chip {
           padding: 0.5rem 1rem;
@@ -806,9 +768,6 @@
           font-size: 0.9rem;
           cursor: pointer;
           transition: var(--transition);
-          &:hover {
-            border-color: var(--black);
-          }
           &.active {
             background: var(--black);
             color: var(--white);
@@ -833,7 +792,6 @@
               display: none;
             }
             > * {
-              min-width: 80vw;
               scroll-snap-align: center;
               flex-shrink: 0;
             }
@@ -903,6 +861,7 @@
               display: flex;
               justify-content: space-between;
               font-size: 0.85rem;
+              gap: 2rem;
               span {
                 color: var(--text-secondary);
               }
@@ -923,11 +882,9 @@
       }
     }
   }
-
   // Rollout & FAQ
   .rz-rollout {
     background: var(--bg-secondary);
-
     .rz-rollout-layout {
       display: grid;
       grid-template-columns: 1fr;
@@ -936,18 +893,15 @@
         gap: 4rem;
       }
     }
-
     .rz-steps-list {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 3rem;
       position: relative;
-
       @include mobile {
         display: flex;
         flex-direction: column;
       }
-
       &::before {
         content: "";
         position: absolute;
@@ -958,7 +912,6 @@
         width: auto;
         bottom: auto;
         background: var(--gray-200);
-
         @include mobile {
           top: 0;
           bottom: 0;
@@ -969,19 +922,16 @@
         }
       }
     }
-
     .rz-step-item {
       display: flex;
       flex-direction: column;
       gap: 1.5rem;
       position: relative;
       z-index: 1;
-
       @include mobile {
         flex-direction: row;
         gap: 2rem;
       }
-
       .rz-step-indicator {
         width: 50px;
         height: 50px;
@@ -996,7 +946,6 @@
         font-size: 1.1rem;
         border: 4px solid var(--bg-secondary);
       }
-
       .rz-step-title {
         font-size: 1.25rem;
         font-weight: 800;
@@ -1009,7 +958,6 @@
         color: var(--text-secondary);
         margin-bottom: 1rem;
       }
-
       .rz-step-bullets {
         display: flex;
         flex-direction: column;
@@ -1033,19 +981,16 @@
         }
       }
     }
-
     .rz-faq-wrapper {
       display: flex;
       flex-direction: column;
       gap: 1rem;
     }
-
     .rz-faq-item {
       background: var(--white);
       border-radius: var(--radius-sm);
       overflow: hidden;
       border: 1px solid var(--gray-200);
-
       &[open] {
         .ico-plus {
           display: none;
@@ -1057,7 +1002,6 @@
           background: var(--gray-100);
         }
       }
-
       .rz-faq-trigger {
         display: flex;
         justify-content: space-between;
@@ -1068,14 +1012,12 @@
         &::-webkit-details-marker {
           display: none;
         }
-
         .rz-faq-q {
           font-weight: 700;
           font-size: 1.05rem;
           color: var(--black);
           line-height: 1.5;
         }
-
         .rz-faq-icon {
           display: flex;
           align-items: center;
@@ -1087,12 +1029,7 @@
             display: none;
           }
         }
-
-        &:hover {
-          background: var(--gray-100);
-        }
       }
-
       .rz-faq-answer {
         padding: 0 1.5rem 1.5rem;
         p {
@@ -1111,7 +1048,6 @@
     background: var(--white);
     padding: 8rem 0;
     text-align: center;
-
     .rz-cta-title {
       font-size: clamp(2.5rem, 5vw, 4rem);
       font-weight: 900;
@@ -1120,10 +1056,104 @@
       color: var(--black);
       line-height: 1.2;
     }
-
     .rz-cta-actions {
       display: flex;
       justify-content: center;
+    }
+  }
+}
+
+@include hover {
+  .rz-landing-v2 {
+    .section-nav {
+      .section-nav-item {
+        &:hover {
+          color: var(--text-secondary);
+        }
+      }
+    }
+    .rz-btn-primary,
+    .rz-btn-secondary {
+      &:hover svg {
+        transform: translateX(4px);
+      }
+    }
+    .rz-btn-primary {
+      &:hover {
+        background: var(--gray-800);
+      }
+    }
+    .rz-btn-secondary {
+      &:hover {
+        border-color: var(--black);
+        background: var(--gray-100);
+      }
+    }
+    .rz-hero {
+      .rz-hero-visual {
+        .rz-visual-wrapper {
+          &:hover {
+            transform: perspective(1000px) rotateY(0deg) rotateX(0deg);
+          }
+        }
+      }
+    }
+    .rz-vision {
+      .rz-problem-card {
+        &:hover {
+          transform: translateY(-8px);
+          background: #222;
+        }
+      }
+    }
+    .rz-benefits {
+      .rz-benefit-card {
+        &:hover {
+          background: var(--gray-200);
+          transform: translateY(-4px);
+        }
+      }
+    }
+    .rz-features {
+      .rz-feature-box {
+        &:hover {
+          transform: translateY(-4px);
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+      }
+    }
+    .rz-pricing {
+      .rz-plan-card {
+        &:hover {
+          transform: translateY(-8px);
+          background: #222;
+        }
+      }
+      .rz-pricing-estimator-wrapper {
+        .rz-estimator-v2 {
+          .rz-estimator-input {
+            .MuiOutlinedInput-root {
+              &:hover fieldset {
+                border-color: var(--gray-400);
+              }
+            }
+          }
+          .rz-chip {
+            &:hover {
+              border-color: var(--black);
+            }
+          }
+        }
+      }
+    }
+    .rz-rollout {
+      .rz-faq-item {
+        .rz-faq-trigger {
+          &:hover {
+            background: var(--gray-100);
+          }
+        }
+      }
     }
   }
 }

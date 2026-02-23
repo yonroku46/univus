@@ -143,15 +143,6 @@
         &:first-child {
           border-top: 2px solid var(--main-color);
         }
-        &:hover {
-          background-color: var(--bg-sub-color);
-          padding-left: 1rem;
-          padding-right: 1rem;
-          border-bottom-color: transparent;
-          .item-number {
-            color: var(--accent-color);
-          }
-        }
         .item-number {
           font-size: 1.5rem;
           font-weight: 600;
@@ -221,9 +212,6 @@
           rotate: 320deg;
           border-right: 1px solid var(--bg-color);
         }
-        &:hover {
-          transform: translateX(8px);
-        }
       }
     }
   }
@@ -270,13 +258,6 @@
         border-radius: 2rem;
         font-weight: 600;
         transition: transform 0.3s ease, background-color 0.3s ease;
-        &:hover {
-          background-color: var(--sub-color);
-          transform: translateY(-2px);
-          .arrow {
-            transform: translateX(4px);
-          }
-        }
         .arrow {
           transition: transform 0.3s ease;
         }
@@ -318,16 +299,6 @@
         border: 2px solid #eeeeee;
         box-shadow: 0 4px 12px rgba(0,0,0,0.03);
         transition: transform 0.4s ease, box-shadow 0.4s ease;
-        &:hover {
-          transform: translateY(-8px);
-          box-shadow: 0 16px 32px rgba(0,0,0,0.06);
-          .link-btn {
-            color: var(--accent-color);
-            .arrow {
-              transform: translateX(8px);
-            }
-          }
-        }
 
         .title {
           font-size: 1.5rem;
@@ -441,18 +412,10 @@
             z-index: 1;
           }
         }
-        &:hover {
-          .visual-bg {
-            transform: translate(-15px, -15px);
-          }
-        }
       }
       &.reverse .project-visual .visual-bg {
         left: unset;
         right: -8%;
-      }
-      &.reverse .project-visual:hover .visual-bg {
-        transform: translate(15px, -15px);
       }
       .project-content {
         flex: 1;
@@ -522,12 +485,88 @@
             background-color: var(--bg-sub-color);
             transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
           }
+        }
+      }
+    }
+  }
+}
+
+@include hover {
+  .home-wrapper {
+    .modern-values {
+      .value-list {
+        .value-item {
           &:hover {
-            color: var(--accent-color);
+            background-color: var(--bg-sub-color);
+            padding-left: 1rem;
+            padding-right: 1rem;
+            border-bottom-color: transparent;
+            .item-number {
+              color: var(--accent-color);
+            }
+          }
+        }
+      }
+    }
+    .contents-inquary {
+      .inquary {
+        .more-btn {
+          &:hover {
+            transform: translateX(8px);
+          }
+        }
+      }
+    }
+    .project-intro {
+      .project-text {
+        .service-btn {
+          &:hover {
+            background-color: var(--sub-color);
+            transform: translateY(-2px);
             .arrow {
-              background-color: var(--accent-color);
-              color: white;
-              transform: translateX(5px);
+              transform: translateX(4px);
+            }
+          }
+        }
+      }
+    }
+    .modern-services {
+      .service-box {
+        .service-card {
+          &:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 16px 32px rgba(0,0,0,0.06);
+            .link-btn {
+              color: var(--accent-color);
+              .arrow {
+                transform: translateX(8px);
+              }
+            }
+          }
+        }
+      }
+    }
+    .modern-projects {
+      .project-item {
+        .project-visual {
+          &:hover {
+            .visual-bg {
+              transform: translate(-15px, -15px);
+            }
+          }
+        }
+        &.reverse .project-visual:hover .visual-bg {
+          transform: translate(15px, -15px);
+        }
+        .project-content {
+          .explore-btn {
+            &:hover {
+              color: var(--accent-color);
+              .arrow {
+                background-color: var(--accent-color);
+                color: white;
+                transform: translateX(5px);
+              }
             }
           }
         }
@@ -559,10 +598,6 @@
           align-items: flex-start;
           padding: 2.5rem 0;
           position: relative;
-          &:hover {
-            padding-left: 1rem;
-            padding-right: 1rem;
-          }
           .item-number {
             margin-bottom: 1rem;
           }

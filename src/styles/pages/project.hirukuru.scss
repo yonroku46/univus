@@ -82,7 +82,7 @@
   // === Shared section header ===
   .section-header {
     text-align: center;
-    margin-bottom: clamp(2.25rem, 4vw, 3.75rem);
+    margin-bottom: clamp(3rem, 4vw, 3.75rem);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -348,7 +348,7 @@
       justify-content: center;
       gap: 1.25rem;
       max-width: 800px;
-      margin: 0 auto 3.5rem auto;
+      margin: 0 auto 2.5rem auto;
       .intro-quote {
         position: relative;
         background: #ffffff;
@@ -469,7 +469,8 @@
       }
     }
     .problem-solution {
-      margin-top: clamp(1.5rem, 3vw, 2.25rem);
+      margin-top: clamp(2rem, 3vw, 2.25rem);
+      margin-bottom: calc(clamp(2rem, 3vw, 2.25rem) * 0.75);
       padding: clamp(1.6rem, 3vw, 2.4rem);
       text-align: center;
       .solution-badge {
@@ -796,7 +797,7 @@
       max-width: 28ch;
     }
     .solution-result {
-      margin-top: 1.5rem;
+      margin-top: calc(clamp(2rem, 3vw, 2.25rem) * 1.75);
       padding: clamp(1.25rem, 2.6vw, 1.8rem);
       text-align: center;
       .result-badge {
@@ -833,8 +834,7 @@
   }
   // === Stats section ===
   .stats-section {
-    padding: calc(clamp(3.25rem, 6vw, 5.5rem) * 1.5) 0 clamp(3.25rem, 6vw, 5.5rem) 0;
-    padding-bottom: 1rem;
+    padding: calc(clamp(3.25rem, 6vw, 5.5rem) * 1.5) 0 calc(clamp(3.25rem, 6vw, 5.5rem) * 0.75) 0;
     background: linear-gradient(180deg, rgba(15, 23, 42, 0.02) 0%, rgba(255, 255, 255, 0) 60%);
     .stats-intro {
       display: flex;
@@ -1017,7 +1017,7 @@
         flex-shrink: 0;
       }
       .usecase-comparison {
-        padding: 0.75rem 1.15rem;
+        padding: 0.75rem 0.75rem;
         display: flex;
         flex-direction: column;
         gap: 0.5rem;
@@ -1735,6 +1735,7 @@
         box-shadow: none;
         border: none;
         border-radius: 0;
+        padding: 0 1rem;
       }
       .comparison-header {
         display: none;

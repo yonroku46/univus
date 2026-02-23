@@ -44,23 +44,6 @@
     color: inherit;
     height: 100%;
     border: 1px solid rgba(0, 0, 0, 0.04);
-    &:hover {
-      transform: translateY(-12px);
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12), 0 8px 24px rgba(0, 0, 0, 0.08);
-      border-color: rgba(0, 0, 0, 0.08);
-      .card-image-wrapper {
-        .card-overlay {
-          opacity: 0.4;
-        }
-      }
-      .card-link {
-        transform: translateX(6px);
-        color: var(--main-color);
-        .arrow {
-          transform: translateX(6px);
-        }
-      }
-    }
     .card-image-wrapper {
       position: relative;
       width: 100%;
@@ -101,14 +84,6 @@
         z-index: 2;
         opacity: 0.25;
         transition: opacity 0.4s ease;
-      }
-    }
-    &:hover .card-image-wrapper {
-      .card-bg {
-        transform: scale(1.08);
-      }
-      .card-image img {
-        transform: scale(1.12);
       }
     }
     .card-content {
@@ -173,6 +148,36 @@
           }
         }
       }
+    }
+  }
+}
+
+@include hover {
+  .project-list-page {
+    .project-card {
+      &:hover {
+        transform: translateY(-12px);
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12), 0 8px 24px rgba(0, 0, 0, 0.08);
+        border-color: rgba(0, 0, 0, 0.08);
+        .card-image-wrapper {
+          .card-overlay {
+            opacity: 0.4;
+          }
+          .card-bg {
+            transform: scale(1.08);
+          }
+          .card-image img {
+            transform: scale(1.12);
+          }
+        }
+        .card-link {
+          transform: translateX(6px);
+          color: var(--main-color);
+          .arrow {
+            transform: translateX(6px);
+          }
+        }
+      } 
     }
   }
 }

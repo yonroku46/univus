@@ -63,9 +63,6 @@
           cursor: pointer;
           width: max-content;
           height: 48px;
-          &:hover {
-            border-color: var(--text-color);
-          }
           &.active {
             border-color: var(--accent-color);
             color: var(--accent-color);
@@ -94,9 +91,6 @@
             padding: 0.7rem 1rem;
             cursor: pointer;
             border-radius: 0.3rem;
-            &:hover {
-              background: var(--bg-sub-color);
-            }
             &.active {
               color: var(--accent-color);
             }
@@ -109,9 +103,6 @@
         color: var(--bg-color);
         cursor: pointer;
         height: 48px;
-        &:hover {
-          color: var(--bg-sub-color);
-        }
         &:disabled {
           pointer-events: none;
         }
@@ -131,10 +122,6 @@
       border-radius: 1rem;
       cursor: pointer;
       transition: all 0.2s ease;
-      &:hover {
-        border-color: var(--accent-color);
-        transform: translateY(-2px);
-      }
       .position-info {
         display: flex;
         align-items: center;
@@ -187,9 +174,6 @@
       color: white;
       border-radius: 0.5rem;
       font-weight: 500;
-      &:hover {
-        opacity: 0.9;
-      }
     }
   }
 }
@@ -290,10 +274,6 @@
         border: 1px solid var(--text-sub-color);
         color: var(--text-sub-color);
         transition: all 0.2s;
-        &:hover {
-          border-color: var(--accent-color);
-          color: var(--accent-color);
-        }
       }
     }
     .submit-documents {
@@ -323,9 +303,68 @@
       border-radius: 4px;
       font-weight: 600;
       transition: all 0.3s ease;
-      &:hover {
-        background: var(--accent-color);
-        transform: translateY(-2px);
+    }
+  }
+}
+
+@include hover {
+  .recruit {
+    .filter-wrapper {
+      .filter-section {
+        .filter-group {
+          .filter-button {
+            &:hover {
+              border-color: var(--text-color);
+            }
+          }
+          .dropdown {
+            .option {
+              &:hover {
+                background: var(--bg-sub-color);
+              }
+            }
+          }
+        }
+        .reset-button {
+          &:hover {
+            color: var(--bg-sub-color);
+          }
+        }
+      }
+    }
+    .position-list {
+      .position-card {
+        &:hover {
+          border-color: var(--accent-color);
+          transform: translateY(-2px);
+        }
+      }
+    }
+    .empty-positions {
+      .contact-button {
+        &:hover {
+          opacity: 0.9;
+        }
+      }
+    }
+  }
+  .position-detail {
+    .position-section {
+      .mail {
+        .copy-button {
+          &:hover {
+            border-color: var(--accent-color);
+            color: var(--accent-color);
+          }
+        }
+      }
+    }
+    .apply-section {
+      .apply-button {
+        &:hover {
+          background: var(--accent-color);
+          transform: translateY(-2px);
+        }
       }
     }
   }

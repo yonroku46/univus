@@ -41,10 +41,6 @@ const IdeologySection = styled('section')(({ theme }) => ({
       borderRadius: '1.5rem',
       backgroundColor: '#fff',
       boxShadow: '0 4px 24px rgba(0,0,0,0.06)',
-      transition: 'transform 0.2s ease',
-      '&:hover': {
-        transform: 'translateY(-8px)',
-      },
       '.card-title': {
         display: 'flex',
         alignItems: 'center',
@@ -122,7 +118,6 @@ const IdeologySection = styled('section')(({ theme }) => ({
     padding: '4rem 0',
     borderRadius: '2rem',
     marginTop: '2rem',
-    marginBottom: '4rem',
     width: '100%',
     overflow: 'hidden',
     '&::before': {
