@@ -992,14 +992,16 @@
       overflow: hidden;
       border: 1px solid var(--gray-200);
       &[open] {
-        .ico-plus {
-          display: none;
-        }
-        .ico-minus {
-          display: block;
-        }
         .rz-faq-trigger {
-          background: var(--gray-100);
+          background: var(--white);
+          .rz-faq-icon {
+            .ico-plus {
+              display: none;
+            }
+            .ico-minus {
+              display: block;
+            }
+          }
         }
       }
       .rz-faq-trigger {
@@ -1009,6 +1011,7 @@
         padding: 1.5rem;
         cursor: pointer;
         list-style: none;
+        transition: background-color 0.2s ease;
         &::-webkit-details-marker {
           display: none;
         }
@@ -1150,7 +1153,7 @@
       .rz-faq-item {
         .rz-faq-trigger {
           &:hover {
-            background: var(--gray-100);
+            background: var(--gray-200);
           }
         }
       }

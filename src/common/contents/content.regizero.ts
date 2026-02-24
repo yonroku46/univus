@@ -99,7 +99,7 @@ export function getRegizeroLandingContent(): RegizeroLandingContent {
       {
         icon: AllInclusiveIcon,
         title: '点在するソリューションの統合',
-        description: 'バラバラのツールによる運用負荷を実質ゼロへ。一つのプラットフォームで業務の全てを完結させます。',
+        description: 'バラバラのツールによる運用負荷を実質ゼロへ。一つのシステムで業務のすべてを完結させます。',
       },
     ],
 
@@ -109,12 +109,12 @@ export function getRegizeroLandingContent(): RegizeroLandingContent {
         desc: 'LINEやGoogle Mapsから離脱させずにオーダー画面へ遷移。お客様のスマートフォンが、そのまま洗練されたレジ・注文端末へと進化します。' 
       },
       { 
-        title: 'フリクションレスな操作性', 
-        desc: '複雑な設定や学習コストは一切不要。現場の全スタッフが初日から迷わず即座に活用できる、究極のシンプルネスを追求しました。' 
+        title: 'ストレスのない操作性', 
+        desc: '複雑な設定や学習コストは一切不要。現場のスタッフ全員が初日から迷わず使える、究極のシンプルさを追求しました。' 
       },
       { 
-        title: 'スケーラブルな成長基盤', 
-        desc: '売上規模に完全に連動したフェアドリブンな料金体系。ビジネスの成長スピードを妨げず、システムがスケールアップをバックアップします。' 
+        title: '柔軟な成長基盤', 
+        desc: '売上規模に完全に連動した、フェアで合理的な料金体系。ビジネスの成長を妨げず、システムが規模拡大を強力にサポートします。' 
       }
     ],
 
@@ -126,7 +126,7 @@ export function getRegizeroLandingContent(): RegizeroLandingContent {
       },
       {
         title: 'オーダーミスの完全排除',
-        description: '口頭での注文伝達をなくし、デジタル化することで、言った言わないのトラブルやオーダーミスを根絶します。',
+        description: '注文をデジタルで正確に管理し、聞き間違いや伝え漏れによるオペレーションの停滞を解消します。',
         stats: 'ミス率ゼロへ'
       },
       {
@@ -144,7 +144,7 @@ export function getRegizeroLandingContent(): RegizeroLandingContent {
       },
       {
         icon: QrCode2Icon,
-        title: 'ダイレクトアクセス(NFC/QR)',
+        title: 'ダイレクトアクセス(NFCタッチ/QR)',
         description: 'アプリのインストール不要。かざすだけ、読み込むだけで即座に注文体験がスタート。',
       },
       {
@@ -160,7 +160,7 @@ export function getRegizeroLandingContent(): RegizeroLandingContent {
       {
         icon: AutoAwesomeIcon,
         title: 'オールインワン機能',
-        description: '上位プランへのアップセル制限なし。全ての機能が最初から解放された真のプラットフォーム。',
+        description: '追加料金による機能制限は一切なし。すべての機能を最初からフル活用できる、理想的なオールインワン・ソリューション。',
       },
       {
         icon: InsightsIcon,
@@ -179,7 +179,7 @@ export function getRegizeroLandingContent(): RegizeroLandingContent {
       {
         step: '01',
         title: 'ヒアリングと情報整理',
-        description: 'まずはオンラインで簡単なヒアリングを行い、専用フォーマットにて店舗の基本情報やメニューをご提出いただきます。',
+        description: 'まずはオンラインでかんたんなヒアリングを行い、専用フォーマットにて店舗の基本情報やメニューをご提出いただきます。',
         bullets: ['オンラインでのヒアリング', '専用フォーマットへの情報記入', 'メニュー画像の共有'],
       },
       {
@@ -191,15 +191,15 @@ export function getRegizeroLandingContent(): RegizeroLandingContent {
       {
         step: '03',
         title: '導入テストと運用サポート',
-        description: '情報のやり取りから最短3日でローンチ。導入時のテストから稼働後の運用に関するご相談までしっかりとサポートします。',
-        bullets: ['実稼働に向けたテスト検証', 'スタッフ様へのカンタンな操作レクチャー', '導入後の継続的なサポート'],
+        description: '情報のやり取りから最短3日で運用開始。導入時のテストから稼働後の運用に関するご相談までしっかりとサポートします。',
+        bullets: ['実稼働に向けたテスト検証', 'スタッフ様へのかんたんな操作レクチャー', '導入後の継続的なサポート'],
       },
     ],
 
     faqs: [
       {
         question: 'プランによって提供される機能に制限はありますか？',
-        answer: '一切ありません。我々は「機能の出し惜しみ」を理念として持ちません。最初から全てのプランで最高の体験と全機能をご提供します。',
+        answer: '一切ありません。最初から全ての機能をオープンにすることで、最高の体験を最初からお届けすることを目指しています。',
       },
       {
         question: '申し込みから本番稼働までの期間はどの程度ですか？',
@@ -207,11 +207,11 @@ export function getRegizeroLandingContent(): RegizeroLandingContent {
       },
       {
         question: 'LINE公式アカウントを持っていなくても導入できますか？',
-        answer: 'もちろん可能です。独自のWebブラウザベースの注文フローやNFCを活用したダイレクトな導線設計も用意しており、環境に依存しない構成を実現できます。',
+        answer: 'もちろん可能です。独自のWebブラウザベースの注文フローやNFCタッチを活用したダイレクトな導線設計も用意しており、環境に依存しない構成を実現できます。',
       },
       {
         question: '既存のPOSレジと連携することは可能ですか？',
-        answer: '本システムは独立したPOSシステムとして機能するため、既存のPOSレジとの直接的なAPI連携等は行っておりません。ただし、既存システムと併用して導入・運用していただくことは可能です。詳細な運用方法については、お気軽にお問い合わせください。',
+        answer: '本システムは独立したPOSシステムとして機能するため、既存のPOSレジとの直接的なAPI連携等は行っておりません。ただし、既存システムと併用して導入・運用いただくことは可能です。詳細な運用方法については、お気軽にお問い合わせください。',
       }
     ],
   };

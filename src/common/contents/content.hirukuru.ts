@@ -133,8 +133,8 @@ export function getLandingContent() {
       },
       {
         icon: TrendingUpIcon,
-        text: '並んだ割に回転率は上がらない',
-        detail: '待ち時間が長いのに、1時間あたりの処理件数は増えない。\nスタッフの負担だけが増える。',
+        text: '並んだ割に回転率が上がらない',
+        detail: '待ち時間が長いのに、1時間あたりの処理件数が増えない。\nスタッフの負担だけが増える。',
       },
       {
         icon: RestaurantIcon,
@@ -178,7 +178,7 @@ export function getLandingContent() {
       {
         step: '01',
         title: '登録と情報共有',
-        description: 'まずはWebからカンタンにアカウント登録。その後、専用のフォーマットにて店舗の基本情報やメニューをご提出いただきます。',
+        description: 'まずはWebからかんたんにアカウント登録。その後、専用のフォーマットにて店舗の基本情報やメニューをご提出いただきます。',
         details: ['Webからのアカウント登録', '専用フォーマットへの情報記入', 'メニュー画像の共有'],
       },
       {
@@ -191,7 +191,7 @@ export function getLandingContent() {
         step: '03',
         title: '導入テストと運用開始',
         description: '最短3日でローンチ可能。現場でのテスト運用やスタッフ様へのレクチャーを行い、スムーズな運用開始をサポートします。',
-        details: ['実稼働に向けたテスト運用', 'スタッフ様へのカンタンな操作レクチャー', '必要に応じたNFCタグ等の手配'],
+        details: ['実稼働に向けたテスト運用', 'スタッフ様へのかんたんな操作レクチャー', '必要に応じたNFCタッチ等の手配'],
       },
     ] satisfies LandingProcessStep[],
 

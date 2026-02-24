@@ -79,7 +79,7 @@ export default function ProjectRegizero() {
               <p className="rz-eyebrow">Vision</p>
               <h2 className="rz-heading">オペレーションの「摩擦」を排除する</h2>
               <p className="rz-lead" style={{ marginTop: '1rem', color: 'var(--gray-400)', maxWidth: '600px', fontSize: '1.125rem' }}>
-                飲食店やリテールでの会計業務は、これまで多くのムダとストレスを抱えてきました。私たちが目指すのは、ただシステムを導入することではなく、顧客体験そのものを変革することです。
+                飲食店やリテールでの会計業務は、これまで多くの無駄とストレスを抱えてきました。私たちが目指すのは、ただシステムを導入することではなく、顧客体験そのものを変革することです。
               </p>
             </div>
             
@@ -105,7 +105,7 @@ export default function ProjectRegizero() {
               <div className="rz-experience-sticky">
                 <p className="rz-eyebrow">Experience</p>
                 <h2 className="rz-heading">直感から生まれる<br/>至高の顧客体験</h2>
-                <p className="rz-lead">システムが主役ではなく、人と人との繋がりを最大化するためのテクノロジー。</p>
+                <p className="rz-lead">システムが主役ではなく、人と人との繋がりを最大化するためのテクノロジー</p>
               </div>
               <div className="rz-experience-list">
                 {systemFocus.map((focus, i) => (
@@ -285,7 +285,7 @@ export default function ProjectRegizero() {
         {/* Bottom CTA */}
         <section className="rz-bottom-cta">
           <div className="rz-container">
-            <h2 className="rz-cta-title">オペレーションを変革する準備はできましたか？</h2>
+            <h2 className="rz-cta-title">オペレーションを変革する準備は<br className='pc-only' />できましたか？</h2>
             <div className="rz-cta-actions">
                <a href={officialUrl} target="_blank" className="rz-btn-primary rz-btn-large">
                   <span>担当者へ相談する</span>
