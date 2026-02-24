@@ -76,9 +76,9 @@ export interface LandingNavItem {
 
 export function getLandingNavItems(): LandingNavItem[] {
   return [
-    { id: 'overview', targetId: 'problem', label: '統計・課題' },
-    { id: 'comparison', targetId: 'comparison', label: '比較・解決策' },
-    { id: 'usecases', targetId: 'usecases', label: '事例・特徴' },
+    { id: 'overview', targetId: 'problem', label: '課題' },
+    { id: 'comparison', targetId: 'comparison', label: '解決策' },
+    { id: 'usecases', targetId: 'usecases', label: '特徴' },
     { id: 'process', targetId: 'process', label: '導入・FAQ' },
   ];
 }

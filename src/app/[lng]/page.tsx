@@ -189,7 +189,7 @@ export default function Home(
               <div className='project-content'>
                 <span className='project-number'>RegiZERO</span>
                 <span className='tag'>レジゼロ</span>
-                <h3 className='project-title'>{'レジをもっと\nシンプルでいい'}</h3>
+                <h3 className='project-title'>{'レジはもっと\nシンプルでいい'}</h3>
                 <p className='project-desc'>
                   {'カウンター不要で簡単に決済\nレジゼロでより快適な店舗運営が可能に'}
                 </p>

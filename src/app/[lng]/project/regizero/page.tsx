@@ -73,7 +73,7 @@ export default function ProjectRegizero() {
         <SectionNav items={navItems} />
 
         {/* Vision / Problems */}
-        <section id="vision" className="rz-section rz-vision">
+        <section id="introduction" className="rz-section rz-vision">
           <div className="rz-container">
             <div className="rz-section-header">
               <p className="rz-eyebrow">Vision</p>

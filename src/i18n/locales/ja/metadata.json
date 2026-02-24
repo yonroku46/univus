@@ -36,11 +36,11 @@
   "contact": {
     "title": "お問い合わせ",
     "description": "ご不明な点がありましたら、いつでもお問い合わせください",
-    "ogImageAlt": "Univusお問い合わせ"
-  },
-  "notice": {
-    "title": "ニュース",
-    "description": "Univusのニュースを紹介します",
-    "ogImageAlt": "Univusニュース"
+    "ogImageAlt": "Univusお問い合わせ",
+    "notice": {
+      "title": "ニュース",
+      "description": "Univusのニュースを紹介します",
+      "ogImageAlt": "Univusニュース"
+    }
   }
 }

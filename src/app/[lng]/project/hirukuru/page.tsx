@@ -294,20 +294,22 @@ export default function ProjectHirukuru() {
                 return (
                   <div key={feature.title} className="feature-card">
                     <div className="feature-content">
-                      <div className="feature-icon-wrapper">
-                        <IconComponent className="feature-icon" />
-                      </div>
                       <h3 className="feature-title">{feature.title}</h3>
                       <p className="feature-description">{feature.description}</p>
                     </div>
                     <div className="feature-screenshot">
-                      <Image
-                        src={feature.screenshot}
-                        alt={feature.title}
-                        width={400}
-                        height={400}
-                        className="screenshot-image"
-                      />
+                      <div className="screenshot-wrapper">
+                        <div className="feature-icon-badge">
+                          <IconComponent className="feature-icon" />
+                        </div>
+                        <Image
+                          src={feature.screenshot}
+                          alt={feature.title}
+                          width={400}
+                          height={400}
+                          className="screenshot-image"
+                        />
+                      </div>
                     </div>
                   </div>
                 );

@@ -22,6 +22,7 @@ export async function generatePageMetadata(type: MetadataType, lng: AvailableLan
   const t = i18n.getFixedT(lng, 'metadata');
 
   const appName = process.env.NEXT_PUBLIC_APP_NAME || '';
+  const i18nKey = type.replace(/\//g, '.');
 
   const baseMetadata: Metadata = {
     metadataBase: new URL(process.env.NEXT_PUBLIC_APP_ADDRESS || ''),
@@ -29,7 +30,7 @@ export async function generatePageMetadata(type: MetadataType, lng: AvailableLan
       template: `${appName} | %s`,
       default: appName || '',
     },
-    description: t('common.description'),
+    description: t(`${i18nKey}.description`),
     keywords: t('common.keywords').split(','),
     authors: [{ name: 'Univus Inc.' }],
     creator: 'Univus Inc.',
@@ -42,8 +43,8 @@ export async function generatePageMetadata(type: MetadataType, lng: AvailableLan
     openGraph: {
       type: 'website',
       siteName: appName,
-      title: `${appName} | ${t(`${type}.title`)}`,
-      description: t(`${type}.description`),
+      title: `${appName} | ${t(`${i18nKey}.title`)}`,
+      description: t(`${i18nKey}.description`),
       url: `${process.env.NEXT_PUBLIC_APP_ADDRESS}/${lng}/${type !== 'home' ? type : ''}`,
       locale: lng,
       alternateLocale: languages,
@@ -52,14 +53,14 @@ export async function generatePageMetadata(type: MetadataType, lng: AvailableLan
           url: new URL('/assets/img/og-image.png', process.env.NEXT_PUBLIC_APP_ADDRESS).toString(),
           width: 1200,
           height: 630,
-          alt: t(`${type}.ogImageAlt`),
+          alt: t(`${i18nKey}.ogImageAlt`),
         }
       ],
     },
     twitter: {
       card: 'summary_large_image',
-      title: `${appName} | ${t(`${type}.title`)}`,
-      description: t(`${type}.description`),
+      title: `${appName} | ${t(`${i18nKey}.title`)}`,
+      description: t(`${i18nKey}.description`),
       images: [new URL('/assets/img/og-image.png', process.env.NEXT_PUBLIC_APP_ADDRESS).toString()],
       creator: '@univus',
     },
@@ -75,11 +76,11 @@ export async function generatePageMetadata(type: MetadataType, lng: AvailableLan
       },
     },
     alternates: {
-      canonical: `${process.env.NEXT_PUBLIC_APP_ADDRESS}/${lng}`,
+      canonical: `${process.env.NEXT_PUBLIC_APP_ADDRESS}/${lng}${type !== 'home' ? `/${type}` : ''}`,
       languages: {
-        'ja': `${process.env.NEXT_PUBLIC_APP_ADDRESS}/ja`,
-        'ko': `${process.env.NEXT_PUBLIC_APP_ADDRESS}/ko`,
-        'en': `${process.env.NEXT_PUBLIC_APP_ADDRESS}/en`,
+        'ja': `${process.env.NEXT_PUBLIC_APP_ADDRESS}/ja${type !== 'home' ? `/${type}` : ''}`,
+        'ko': `${process.env.NEXT_PUBLIC_APP_ADDRESS}/ko${type !== 'home' ? `/${type}` : ''}`,
+        'en': `${process.env.NEXT_PUBLIC_APP_ADDRESS}/en${type !== 'home' ? `/${type}` : ''}`,
       },
     },
     icons: {
@@ -130,7 +131,7 @@ export async function generatePageMetadata(type: MetadataType, lng: AvailableLan
     },
     'contact/notice': {
       ...baseMetadata,
-      title: t('notice.title'),
+      title: t('contact.notice.title'),
     },
   };
 
