@@ -6,60 +6,25 @@ import Breadcrumbs from '@/components/layout/Breadcrumbs';
 import MuiProvider from '@/styles/theme/MuiProvider';
 import Loading from '@/app/[lng]/loading';
 
-import { Box, Typography, Paper, List, ListItem, Chip, Divider, styled } from '@mui/material';
+import { Box, Typography, Chip, styled } from '@mui/material';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 
-const StyledPaper = styled(Paper)(({ theme }) => ({
-  borderRadius: '16px',
-  boxShadow: '0 2px 8px rgba(0, 0, 0, 0.08)',
+const StyledContainer = styled(Box)(({ theme }) => ({
   maxWidth: '800px',
   margin: '0 auto',
-  overflow: 'hidden',
-}));
-
-const StyledListItem = styled(ListItem)(({ theme }) => ({
-  padding: 0,
-  '& .notice-wrapper': {
-    padding: theme.spacing(3),
-    transition: 'all 0.2s ease',
-    '&:hover': {
-      backgroundColor: 'var(--bg-color)',
-    }
-  },
-  '& .notice-header': {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    gap: theme.spacing(1),
-    marginBottom: theme.spacing(1),
-  },
-  '& .chips': {
-    display: 'flex',
-    alignItems: 'center',
-    gap: theme.spacing(1),
-  },
-  '& .notice-date': {
-    color: theme.palette.text.secondary,
-    fontSize: '0.875rem',
-  },
-  '& .notice-content': {
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'flex-start',
-    width: '100%',
-  },
-  '& .clickable-area': {
-    cursor: 'pointer'
-  },
-  '& .arrow-icon': {
-    transition: 'transform 0.2s ease',
-    marginLeft: theme.spacing(2),
-    color: theme.palette.text.secondary,
-  },
-  '& .arrow-icon.open': {
-    transform: 'rotateX(180deg)',
+  width: '100%',
+  '& @keyframes fadeIn': {
+    from: { opacity: 0, transform: 'translateY(10px)' },
+    to: { opacity: 1, transform: 'translateY(0)' }
   }
 }));
+
+const fadeInStyle = {
+  '@keyframes fadeIn': {
+    '0%': { opacity: 0, transform: 'translateY(10px)' },
+    '100%': { opacity: 1, transform: 'translateY(0)' }
+  }
+};
 
 const breadcrumbs: Breadcrumb[] = [
   { label: 'ニュース', href: '/contact/notice', active: true },
@@ -135,116 +100,150 @@ export default function NoticePage(
             <Box sx={{ textAlign: 'center', mb: 4, color: 'text.secondary' }}>
               {`Univusの新しいニュースをご確認ください`}
             </Box>
-            <StyledPaper>
-              <List disablePadding>
+            <StyledContainer sx={fadeInStyle}>
+              <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
                 {noticesList.length > 0 ?
-                  noticesList.map((notice, idx) => (
-                    <div key={notice.id}>
-                      {idx > 0 && <Divider />}
-                      <StyledListItem disablePadding>
-                        <div className='notice-wrapper'
-                          style={{
-                            backgroundColor: selectedNotice === notice.id ? 'var(--bg-color)' : 'transparent',
-                            width: '100%'
-                          }}
-                        >
-                          <Box sx={{ width: '100%' }}>
-                            <Box className='notice-header'>
-                              <Box className='chips'>
-                                <Chip
-                                  label={`${noticeTypes[notice.type]}`}
-                                  size='small'
-                                  sx={{
-                                    backgroundColor: 'var(--main-color)',
-                                    color: 'white',
-                                    fontWeight: 600,
-                                    px: 1
-                                  }}
-                                />
-                                {notice.isNew && (
-                                  <Chip
-                                    label='NEW'
-                                    size='small'
-                                    sx={{
-                                      backgroundColor: '#FF4E4E',
-                                      color: 'white',
-                                      fontWeight: 600,
-                                      px: 1
-                                    }}
-                                  />
-                                )}
-                              </Box>
-                              <Typography
-                                component="span"
-                                variant='body2'
-                                className='notice-date'
-                              >
-                                {notice.date}
-                              </Typography>
-                            </Box>
-                            <Box className='notice-content'>
-                              <div>
-                                <Typography
-                                  component="div"
-                                  variant='subtitle1'
-                                  onClick={(e) => {
-                                    e.stopPropagation();
-                                    handleNoticeClick(notice.id);
-                                  }}
-                                  className="clickable-area"
-                                  sx={{
-                                    color: 'text.primary',
-                                    mb: selectedNotice === notice.id ? 1 : 0,
-                                  }}
-                                >
-                                  {notice.title}
-                                </Typography>
-                                {selectedNotice === notice.id && (
-                                  <Typography
-                                    component="div"
-                                    variant='body2'
-                                    onClick={(e) => e.stopPropagation()}
-                                    sx={{
-                                      color: 'text.secondary',
-                                      whiteSpace: 'pre-line',
-                                      mt: 2,
-                                      pb: 1,
-                                      userSelect: 'text',
-                                      '& a': {
-                                        color: 'primary.main',
-                                        textDecoration: 'underline',
-                                        '&:hover': {
-                                          textDecoration: 'none'
-                                        }
-                                      }
-                                    }}
-                                  >
-                                    {convertLinksToJSX(notice.content)}
-                                  </Typography>
-                                )}
-                              </div>
-                              <KeyboardArrowDownIcon
-                                onClick={(e) => {
-                                  e.stopPropagation();
-                                  handleNoticeClick(notice.id);
+                  noticesList.map((notice) => (
+                    <Box
+                      key={notice.id}
+                      sx={{
+                        backgroundColor: 'white',
+                        borderRadius: '20px',
+                        border: '1px solid',
+                        borderColor: selectedNotice === notice.id ? 'var(--main-color)' : 'rgba(0,0,0,0.06)',
+                        transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                        overflow: 'hidden',
+                        boxShadow: selectedNotice === notice.id 
+                          ? '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)' 
+                          : '0 4px 6px -1px rgba(0, 0, 0, 0.05)',
+                        '&:hover': {
+                          borderColor: 'var(--main-color)',
+                          transform: 'translateY(-2px)',
+                          boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1)',
+                        }
+                      }}
+                    >
+                      <Box
+                        className="clickable-area"
+                        onClick={() => handleNoticeClick(notice.id)}
+                        sx={{
+                          padding: { xs: 2.5, sm: 3 },
+                          cursor: 'pointer',
+                        }}
+                      >
+                        <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', mb: 2 }}>
+                          <Box className='chips' sx={{ display: 'flex', gap: 1 }}>
+                            <Chip
+                              label={noticeTypes[notice.type]}
+                              size='small'
+                              sx={{
+                                backgroundColor: selectedNotice === notice.id ? 'var(--main-color)' : 'rgba(0,0,0,0.05)',
+                                color: selectedNotice === notice.id ? 'white' : 'text.primary',
+                                fontWeight: 700,
+                                fontSize: '0.75rem',
+                                height: '24px',
+                                transition: 'all 0.3s'
+                              }}
+                            />
+                            {notice.isNew && (
+                              <Chip
+                                label='NEW'
+                                size='small'
+                                sx={{
+                                  backgroundColor: '#FFEBEE',
+                                  color: '#FF4E4E',
+                                  fontWeight: 800,
+                                  fontSize: '0.7rem',
+                                  height: '24px',
                                 }}
-                                className={`arrow-icon clickable-area ${selectedNotice === notice.id ? 'open' : ''}`}
                               />
-                            </Box>
+                            )}
                           </Box>
-                        </div>
-                      </StyledListItem>
-                    </div>
+                          <Typography
+                            variant='body2'
+                            sx={{
+                              color: 'text.secondary',
+                              fontSize: '0.875rem',
+                              fontWeight: 500
+                            }}
+                          >
+                            {notice.date}
+                          </Typography>
+                        </Box>
+
+                        <Box sx={{ display: 'flex', justifyContent: 'space-between', textAlign: 'left' }}>
+                          <Typography
+                            variant='h6'
+                            component="div"
+                            sx={{
+                              fontSize: { xs: '1rem', sm: '1.125rem' },
+                              fontWeight: 700,
+                              lineHeight: 1.4,
+                              color: 'text.primary',
+                              flex: 1
+                            }}
+                          >
+                            {notice.title}
+                          </Typography>
+                          <KeyboardArrowDownIcon
+                            sx={{
+                              ml: 2,
+                              color: 'text.secondary',
+                              transition: 'transform 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                              transform: selectedNotice === notice.id ? 'rotate(180deg)' : 'rotate(0deg)',
+                              opacity: 0.6
+                            }}
+                          />
+                        </Box>
+
+                        {selectedNotice === notice.id && (
+                          <Box
+                            sx={{
+                              mt: 3,
+                              pt: 3,
+                              borderTop: '1px solid rgba(0,0,0,0.06)',
+                              animation: 'fadeIn 0.4s ease-out'
+                            }}
+                          >
+                            <Typography
+                              component="div"
+                              variant='body1'
+                              onClick={(e) => e.stopPropagation()}
+                              sx={{
+                                color: 'text.secondary',
+                                whiteSpace: 'pre-line',
+                                lineHeight: 1.7,
+                                fontSize: '0.95rem',
+                                userSelect: 'text',
+                                textAlign: 'left',
+                                '& a': {
+                                  color: 'primary.main',
+                                  fontWeight: 600,
+                                  textDecoration: 'none',
+                                  borderBottom: '2px solid rgba(0,0,0,0.1)',
+                                  transition: 'all 0.2s',
+                                  '&:hover': {
+                                    borderBottomColor: 'primary.main',
+                                  }
+                                }
+                              }}
+                            >
+                              {convertLinksToJSX(notice.content)}
+                            </Typography>
+                          </Box>
+                        )}
+                      </Box>
+                    </Box>
                   ))
                   :
-                  <div className='center'>
-                    <Typography variant='body1' sx={{ textAlign: 'center', padding: "1rem 0" }}>
+                  <Box sx={{ py: 8, textAlign: 'center', backgroundColor: 'rgba(0,0,0,0.02)', borderRadius: '20px' }}>
+                    <Typography variant='body1' sx={{ color: 'text.secondary', fontWeight: 500 }}>
                       {`表示するニュースがありません`}
                     </Typography>
-                  </div>
+                  </Box>
                 }
-              </List>
-            </StyledPaper>
+              </Box>
+            </StyledContainer>
           </Box>
         </MuiProvider>
       </div>
