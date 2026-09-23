@@ -20,7 +20,8 @@ export default function Footer (
       { name: '企業理念', href: getLocalizedPath('/company/ideology', lng) },
     ]},
     { groupName: '事業内容', groupHref: getLocalizedPath('/project', lng), unit: [
-      { name: 'プロジェクト', href: getLocalizedPath('/project', lng) }
+      { name: 'Web開発・DX支援', href: getLocalizedPath('/project', lng) },
+      { name: '自社プロダクト', href: getLocalizedPath('/project/products', lng) }
     ]},
     { groupName: '採用', groupHref: getLocalizedPath('/recruit', lng), unit: [
       { name: '採用情報', href: getLocalizedPath('/recruit', lng) },

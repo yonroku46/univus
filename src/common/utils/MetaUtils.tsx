@@ -4,7 +4,7 @@ import { createInstance } from 'i18next';
 import { initReactI18next } from 'react-i18next/initReactI18next';
 import resourcesToBackend from 'i18next-resources-to-backend';
 
-type MetadataType = 'home' | 'company' | 'project' | 'project/hirukuru' | 'project/regizero' | 'recruit' | 'contact' | 'contact/notice';
+type MetadataType = 'home' | 'company' | 'project' | 'project/products' | 'project/hirukuru' | 'project/regizero' | 'recruit' | 'contact' | 'contact/notice';
 
 async function initI18next(lng: AvailableLanguages, ns: string) {
   const i18nInstance = createInstance();
@@ -27,8 +27,8 @@ export async function generatePageMetadata(type: MetadataType, lng: AvailableLan
   const baseMetadata: Metadata = {
     metadataBase: new URL(process.env.NEXT_PUBLIC_APP_ADDRESS || ''),
     title: {
-      template: `${appName} | %s`,
-      default: appName || '',
+      template: `%s | ${appName}`,
+      default: t('home.title') || appName,
     },
     description: t(`${i18nKey}.description`),
     keywords: t('common.keywords').split(','),
@@ -43,7 +43,7 @@ export async function generatePageMetadata(type: MetadataType, lng: AvailableLan
     openGraph: {
       type: 'website',
       siteName: appName,
-      title: `${appName} | ${t(`${i18nKey}.title`)}`,
+      title: type === 'home' ? t('home.title') : `${t(`${i18nKey}.title`)} | ${appName}`,
       description: t(`${i18nKey}.description`),
       url: `${process.env.NEXT_PUBLIC_APP_ADDRESS}/${lng}/${type !== 'home' ? type : ''}`,
       locale: lng,
@@ -59,7 +59,7 @@ export async function generatePageMetadata(type: MetadataType, lng: AvailableLan
     },
     twitter: {
       card: 'summary_large_image',
-      title: `${appName} | ${t(`${i18nKey}.title`)}`,
+      title: type === 'home' ? t('home.title') : `${t(`${i18nKey}.title`)} | ${appName}`,
       description: t(`${i18nKey}.description`),
       images: [new URL('/assets/img/og-image.png', process.env.NEXT_PUBLIC_APP_ADDRESS).toString()],
       creator: '@univus',
@@ -103,7 +103,10 @@ export async function generatePageMetadata(type: MetadataType, lng: AvailableLan
   const pageMetadata: Record<MetadataType, Metadata> = {
     'home': {
       ...baseMetadata,
-      title: appName,
+      title: {
+        default: t('home.title'),
+        template: `%s | ${appName}`,
+      },
     },
     'company': {
       ...baseMetadata,
@@ -112,6 +115,10 @@ export async function generatePageMetadata(type: MetadataType, lng: AvailableLan
     'project': {
       ...baseMetadata,
       title: t('project.title'),
+    },
+    'project/products': {
+      ...baseMetadata,
+      title: t('project.products.title'),
     },
     'project/hirukuru': {
       ...baseMetadata,

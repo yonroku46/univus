@@ -15,12 +15,18 @@
 // Responsive Mixins
 @mixin pc {
   @media (min-width: 1180px) {
-      @content;
-    }
+    @content;
+  }
 }
 
 @mixin mobile {
   @media (max-width: 1179px) {
+    @content;
+  }
+}
+
+@mixin sm-mobile {
+  @media (max-width: 640px) {
     @content;
   }
 }

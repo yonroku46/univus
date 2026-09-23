@@ -115,7 +115,8 @@ export default function Header (
       { name: '企業理念', href: getLocalizedPath('/company/ideology', lng) },
     ]},
     { groupName: '事業内容', groupHref: getLocalizedPath('/project', lng), unit: [
-      { name: 'プロジェクト', href: getLocalizedPath('/project', lng) }
+      { name: 'Web開発・DX支援', href: getLocalizedPath('/project', lng) },
+      { name: '自社プロダクト', href: getLocalizedPath('/project/products', lng) }
     ]},
     { groupName: '採用', groupHref: getLocalizedPath('/recruit', lng), unit: [
       { name: '採用情報', href: getLocalizedPath('/recruit', lng) },
@@ -137,24 +138,18 @@ export default function Header (
   // }
 
   const handleScroll = () => {
-    if (window.scrollY < 5) {
-      setIsTop(true);
-    } else {
-      setIsTop(false);
-    }
+    const atTop = window.scrollY < 10;
+    setIsTop((prev) => (prev !== atTop ? atTop : prev));
   };
 
   useEffect(() => {
-    window.scrollTo(0, 0);
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     if (!currentPath.startsWith('/login')) {
       sessionStorage.setItem('redirect', currentPath);
     }
     setOpen(false);
     return () => {
-      if (currentPath === '') {
-        window.removeEventListener('scroll', handleScroll);
-      }
+      window.removeEventListener('scroll', handleScroll);
     };
   }, [currentPath]);
 

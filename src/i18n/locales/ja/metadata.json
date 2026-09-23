@@ -1,46 +1,51 @@
 {
   "common": {
-    "description": "Univusはサービスを通じて社会的貢献を実現したいと思います",
-    "keywords": "Univus,ユニバス,福岡,IT,ソフトウェア,開発,技術,ソリューション"
+    "description": "福岡市博多区のIT企業・株式会社Univus（ユニバス）。「IT専任がいない」「仕様書が書けない」中小企業やスタートアップの頼れる開発パートナーとして、Webシステム受託開発、伴走型DX推進支援、自社プロダクト（ヒルクル・レジゼロ）を提供します。",
+    "keywords": "福岡 IT企業,福岡 Web開発,福岡 システム開発,福岡 DX支援,福岡 アプリ開発,中小企業 ITパートナー,受託開発 福岡,業務システム開発,伴走型DX,株式会社Univus,ユニバス,博多 IT企業"
   },
   "home": {
-    "title": "Univus",
-    "description": "人々を繋げる",
-    "ogImageAlt": "Univusメイン"
+    "title": "福岡のIT企業・Webシステム開発・DX伴走支援 | 株式会社Univus",
+    "description": "株式会社Univus（ユニバス）は、福岡市博多区を拠点とするWeb・システム開発＆DX支援IT企業です。中小企業やスタートアップの課題に寄り添い、オーダーメイドのWebシステム受託開発、業務デジタル化、自社プロダクト企画運営までワンストップで伴走します。無料相談受付中。",
+    "ogImageAlt": "株式会社Univus | 福岡のWebシステム開発・DX支援IT企業"
   },
   "company": {
-    "title": "企業情報",
-    "description": "Univusはサービスではなく、経験を提供します",
-    "ogImageAlt": "Univus企業情報"
+    "title": "会社概要・アクセス（福岡市博多区）",
+    "description": "株式会社Univus（ユニバス）の会社概要、代表挨拶、博多本社へのアクセス情報をご案内します。福岡を拠点に、人々の日常とビジネスを心地よく変えるテクノロジーとサービスを提供しています。",
+    "ogImageAlt": "株式会社Univus 会社概要・アクセス"
   },
   "project": {
-    "title": "プロジェクト",
-    "description": "Univusの革新的なプロジェクトを紹介します",
-    "ogImageAlt": "Univusプロジェクト",
+    "title": "事業内容・開発事例（Web開発・DX支援）",
+    "description": "福岡のIT企業・株式会社Univusの事業内容をご紹介。中小企業のお悩みに応えるWeb受託開発、業務システム構築、伴走型DX支援、自社プロダクト企画運営など、要件定義からデザイン・開発・保守まで一気通貫でサポートします。",
+    "ogImageAlt": "Univus 事業内容・Web開発・DX支援",
+    "products": {
+      "title": "自社プロダクト一覧（ヒルクル・レジゼロ）",
+      "description": "日々の暮らしや街の店舗を豊かにするUnivusの自社企画・運営プロダクト。スマートテイクアウト「Hirukuru（ヒルクル）」とスマート店舗決済「RegiZERO（レジゼロ）」をご紹介します。",
+      "ogImageAlt": "Univus 自社プロダクト一覧"
+    },
     "hirukuru": {
-      "title": "プロジェクト - ヒルクル",
-      "description": "待たず迷わずテイクアウト、ヒルクル",
-      "ogImageAlt": "ヒルクル"
+      "title": "Hirukuru（ヒルクル）| スマートテイクアウトサービス",
+      "description": "待たず、迷わず、できたての食事を。オフィス街の飲食店と働く人を心地よくつなぐスマートテイクアウトサービス「Hirukuru（ヒルクル）」の機能・導入メリットをご紹介します。",
+      "ogImageAlt": "ヒルクル - スマートテイクアウトサービス"
     },
     "regizero": {
-      "title": "プロジェクト - レジゼロ",
-      "description": "レジはもっとシンプルでいい、レジゼロ",
-      "ogImageAlt": "レジゼロ"
+      "title": "RegiZERO（レジゼロ）| 次世代型スマート店舗決済",
+      "description": "レジはもっとシンプルでいい。専用端末不要・スマホひとつでスマート会計を実現する次世代型店舗決済「RegiZERO（レジゼロ）」の料金シミュレーションと導入事例。",
+      "ogImageAlt": "レジゼロ - 次世代型スマート店舗決済"
     }
   },
   "recruit": {
-    "title": "採用情報",
-    "description": "Univusの採用情報を紹介します",
-    "ogImageAlt": "Univus採用情報"
+    "title": "採用情報 | ともに新しい日常を創る仲間を募集",
+    "description": "株式会社Univus（福岡本社）の採用情報。多様な強みを認め合い、チームでものづくりを楽しむエンジニア・デザイナー・事業推進メンバーを募集しています。",
+    "ogImageAlt": "Univus 採用情報"
   },
   "contact": {
-    "title": "お問い合わせ",
-    "description": "ご不明な点がありましたら、いつでもお問い合わせください",
-    "ogImageAlt": "Univusお問い合わせ",
+    "title": "お問い合わせ・無料相談 | Web開発・DXのご相談",
+    "description": "Webシステム開発、DX推進、新規事業立ち上げ、自社プロダクトに関するお問い合わせはこちら。「仕様書がない」「予算感が知りたい」といった初期段階のご相談も歓迎です。",
+    "ogImageAlt": "Univus お問い合わせ・無料相談",
     "notice": {
-      "title": "ニュース",
-      "description": "Univusのニュースを紹介します",
-      "ogImageAlt": "Univusニュース"
+      "title": "お知らせ・ニュース",
+      "description": "株式会社Univusの最新ニュース、プレスリリース、サービスアップデート情報をお届けします。",
+      "ogImageAlt": "Univus お知らせ"
     }
   }
 }

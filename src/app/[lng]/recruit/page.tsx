@@ -74,13 +74,14 @@ export default function RecruitPage(
 
   useEffect(() => {
     const fetchPositions = async () => {
-      try {
-        const response = await fetch(`https://univus-jp.s3.ap-northeast-1.amazonaws.com/positions-ja.json`);
-        const data = await response.json();
-        setPositions(data.positions);
-      } catch (error) {
-        console.error('Error fetching positions:', error);
-      }
+      // 現在採用計画なし
+      // try {
+      //   const response = await fetch(`https://univus-jp.s3.ap-northeast-1.amazonaws.com/positions-ja.json`);
+      //   const data = await response.json();
+      //   setPositions(data.positions);
+      // } catch (error) {
+      //   console.error('Error fetching positions:', error);
+      // }
     };
     fetchPositions();
   }, []);
@@ -213,13 +214,12 @@ export default function RecruitPage(
               </div>
             ) : (
               <div className='empty-positions'>
-                <div className='count'>
-                  現在募集中のポジションはありません。{'\n'}
-                  お気軽にご連絡ください。
+                <div className='empty-text'>
+                  現在募集中のポジションはありません
                 </div>
-                <Link href='/contact' className='contact-button'>
+                {/* <Link href='/contact' className='contact-button'>
                   採用担当者に問い合わせる
-                </Link>
+                </Link> */}
               </div>
             )}
           </Box>

@@ -1,0 +1,218 @@
+@import '@/styles/base/_variables.scss';
+@import '@/styles/base/_mixins.scss';
+
+.contact-section {
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 3rem 1rem 6rem;
+
+  @include mobile {
+    padding: 2rem 1rem 4rem;
+  }
+
+  .contact-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+
+    .contact-title {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--main-color, #111827);
+      margin-bottom: 0.75rem;
+
+      @include mobile {
+        font-size: 1.6rem;
+      }
+    }
+
+    .contact-subtitle {
+      font-size: 0.95rem;
+      color: #64748b;
+      line-height: 1.6;
+    }
+  }
+
+  .contact-card {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 2.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+    text-align: left;
+
+    @include mobile {
+      padding: 1.5rem 1.25rem;
+      border-radius: 8px;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+
+      .field-label-row {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+
+        label {
+          font-size: 0.9rem;
+          font-weight: 600;
+          color: #1f2937;
+        }
+
+        .req-badge {
+          font-size: 0.6875rem;
+          font-weight: 600;
+          color: #dc2626;
+          background: #fef2f2;
+          padding: 0.1rem 0.4rem;
+          border-radius: 3px;
+        }
+
+        .opt-badge {
+          font-size: 0.6875rem;
+          font-weight: 500;
+          color: #94a3b8;
+          background: #f8fafc;
+          padding: 0.1rem 0.4rem;
+          border-radius: 3px;
+        }
+      }
+
+      .form-input,
+      .form-select,
+      .form-textarea {
+        width: 100%;
+        padding: 0.75rem 0.9rem;
+        font-size: 0.9375rem;
+        color: #111827;
+        background: #ffffff;
+        border: 1px solid #d1d5db;
+        border-radius: 6px;
+        outline: none;
+        transition: border-color 0.15s ease, box-shadow 0.15s ease;
+        font-family: inherit;
+
+        &:focus {
+          border-color: #2181d3;
+          box-shadow: 0 0 0 3px rgba(33, 129, 211, 0.12);
+        }
+
+        &::placeholder {
+          color: #9ca3af;
+          font-size: 0.875rem;
+        }
+      }
+
+      .form-select {
+        cursor: pointer;
+        background-color: #fff;
+        line-height: 1.5;
+
+        optgroup {
+          font-weight: 700;
+          color: #111827;
+        }
+
+        option {
+          font-weight: 400;
+          color: #374151;
+          padding: 0.35rem;
+        }
+      }
+
+      .form-textarea {
+        min-height: 160px;
+        resize: vertical;
+        line-height: 1.6;
+      }
+    }
+
+    .form-row-half {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+
+      @include mobile {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+    }
+
+    .form-submit-row {
+      margin-top: 0.75rem;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+
+      .privacy-text {
+        font-size: 0.8125rem;
+        color: #64748b;
+        line-height: 1.5;
+      }
+
+      .btn-submit {
+        min-width: 220px;
+        padding: 0.85rem 2.5rem;
+        border-radius: 6px;
+        background: #111827;
+        color: #ffffff;
+        font-size: 0.95rem;
+        font-weight: 600;
+        border: none;
+        cursor: pointer;
+        transition: background 0.2s ease;
+
+        &:hover:not(:disabled) {
+          background: #1f2937;
+        }
+
+        &:disabled {
+          opacity: 0.5;
+          cursor: not-allowed;
+        }
+
+        @include mobile {
+          width: 100%;
+        }
+      }
+
+      .error-alert {
+        font-size: 0.875rem;
+        color: #ef4444;
+      }
+    }
+  }
+
+  .success-box {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 3.5rem 2rem;
+    text-align: center;
+
+    .success-title {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: #111827;
+      margin-bottom: 0.75rem;
+    }
+
+    .success-desc {
+      font-size: 0.925rem;
+      color: #4b5563;
+      line-height: 1.7;
+      margin-bottom: 2rem;
+    }
+  }
+}

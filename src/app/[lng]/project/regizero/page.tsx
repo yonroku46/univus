@@ -1,6 +1,5 @@
 import NextImage from 'next/image';
 import { SectionNav } from '@/components/layout/SectionNav';
-import Breadcrumbs from '@/components/layout/Breadcrumbs';
 import { getRegizeroLandingContent, getRegizeroLandingNavItems } from '@/common/contents/content.regizero';
 import { PricingEstimator } from '@/app/[lng]/project/regizero/components/pricing-estimator';
 import '@/styles/pages/project.regizero.scss';
@@ -9,11 +8,6 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 
-const breadcrumbs: Breadcrumb[] = [
-  { label: 'プロジェクト', href: '/project' },
-  { label: 'レジゼロ', href: '/project/regizero', active: true },
-];
-
 export default function ProjectRegizero() {
   const { hero, problems, systemFocus, benefits, features, plans, steps, faqs } = getRegizeroLandingContent();
   const navItems = getRegizeroLandingNavItems();
@@ -21,7 +15,6 @@ export default function ProjectRegizero() {
 
   return (
     <>
-      <Breadcrumbs breadcrumbs={breadcrumbs} style={{ marginBottom: 'calc(var(--breadcrumbs-height) * -1)' }} />
       <div className="rz-landing-v2">
         
         {/* Hero */}

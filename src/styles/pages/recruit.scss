@@ -162,10 +162,9 @@
     justify-content: center;
     padding: 4rem 0;
     text-align: center;
-    .count {
+    .empty-text {
+      color: var(--text-sub-color);
       font-size: 1.25rem;
-      font-weight: 600;
-      margin-bottom: 1rem;
     }
     .contact-button {
       margin-top: 2rem;

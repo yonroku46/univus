@@ -1,7 +1,6 @@
 import NextImage from 'next/image';
 import Image from 'next/image';
 import { SectionNav } from '@/components/layout/SectionNav';
-import Breadcrumbs from '@/components/layout/Breadcrumbs';
 import { getLandingContent, getLandingNavItems } from '@/common/contents/content.hirukuru';
 import '@/styles/pages/project.hirukuru.scss';
 
@@ -15,11 +14,6 @@ import PersonIcon from '@mui/icons-material/Person';
 import StoreIcon from '@mui/icons-material/Store';
 import TrendingUpIcon from '@mui/icons-material/TrendingUp';
 
-const breadcrumbs: Breadcrumb[] = [
-  { label: 'プロジェクト', href: '/project' },
-  { label: 'ヒルクル', href: '/project/hirukuru', active: true },
-];
-
 export default function ProjectHirukuru() {
   const { reasons, problems, comparison, testimonials, processSteps, faqs, useCases, features } = getLandingContent();
   const navItems = getLandingNavItems();
@@ -27,7 +21,6 @@ export default function ProjectHirukuru() {
 
   return (
     <>
-      <Breadcrumbs breadcrumbs={breadcrumbs} style={{ marginBottom: 'calc(var(--breadcrumbs-height) * -1)' }} />
       <div className="hirukuru-landing">
         {/* Hero Section */}
         <section className="hero-section">

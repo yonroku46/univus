@@ -117,8 +117,8 @@
   .hero-section {
     position: relative;
     padding: clamp(4.5rem, 6vw, 7.5rem) 0 clamp(3.25rem, 5vw, 6rem);
-    min-height: calc(88vh - var(--header-height));
-    min-height: calc(88dvh - var(--header-height));
+    min-height: calc(92vh - var(--header-height));
+    min-height: calc(92dvh - var(--header-height));
     display: grid;
     align-items: center;
     overflow: hidden;
@@ -1155,11 +1155,11 @@
       width: 100%;
       position: relative;
       z-index: 1;
-      @media (max-width: 992px) {
+      @include mobile {
          grid-template-columns: repeat(2, 1fr);
          grid-template-rows: auto;
       }
-      @media (max-width: 640px) {
+      @include sm-mobile {
          display: flex;
          flex-direction: column;
       }
@@ -1189,7 +1189,7 @@
       &.bento-card-2 { grid-column: span 1; grid-row: span 2; }
       &.bento-card-3 { grid-column: span 1; }
       &.bento-card-4 { grid-column: span 1; }
-      @media (max-width: 992px) {
+      @include mobile {
         &.bento-card-1 { grid-column: span 2; }
         &.bento-card-2 { grid-column: span 1; grid-row: auto; }
         &.bento-card-3 { grid-column: span 1; grid-row: auto; }
@@ -1372,7 +1372,7 @@
       max-width: var(--max);
       margin-left: auto;
       margin-right: auto;
-      @media (max-width: 860px) {
+      @include mobile {
         display: flex;
         flex-direction: column;
         gap: 2.5rem;
@@ -1387,7 +1387,7 @@
         width: auto;
         bottom: auto;
         background: rgba(15, 23, 42, 0.08);
-        @media (max-width: 860px) {
+        @include mobile {
           top: 0;
           bottom: 0;
           left: 24px;
@@ -1403,7 +1403,7 @@
       gap: 1.5rem;
       position: relative;
       z-index: 1;
-      @media (max-width: 860px) {
+      @include mobile {
         flex-direction: row;
         gap: 1.5rem;
       }
@@ -1907,7 +1907,7 @@
     .reasons-section {
       .reasons-grid {
         gap: 0.85rem;
-        @media (max-width: 640px) {
+        @include sm-mobile {
           grid-template-columns: 1fr;
         }
       }
