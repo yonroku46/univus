@@ -42,6 +42,7 @@ export default async function MainLayout(
 
   const appAddress = process.env.NEXT_PUBLIC_APP_ADDRESS || 'https://www.univus.jp';
   const appName = process.env.NEXT_PUBLIC_APP_NAME || '株式会社Univus';
+  const googleAdsId = process.env.NEXT_PUBLIC_GOOGLE_ADS_ID;
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -145,6 +146,24 @@ export default async function MainLayout(
   return (
     <html lang={lng} dir={dir(lng)}>
       <head>
+        {googleAdsId && (
+          <>
+            <script
+              async
+              src={`https://www.googletagmanager.com/gtag/js?id=${googleAdsId}`}
+            />
+            <script
+              dangerouslySetInnerHTML={{
+                __html: `
+                  window.dataLayer = window.dataLayer || [];
+                  function gtag(){dataLayer.push(arguments);}
+                  gtag('js', new Date());
+                  gtag('config', '${googleAdsId}');
+                `,
+              }}
+            />
+          </>
+        )}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
