@@ -3,11 +3,17 @@ import { Analytics } from '@vercel/analytics/next';
 import { dir } from 'i18next'
 import { AvailableLanguages, languages } from '@/i18n/settings'
 import { Noto_Sans_JP, Noto_Sans_KR, Noto_Sans } from 'next/font/google';
+import type { Viewport } from 'next';
 import { generatePageMetadata } from '@/common/utils/MetaUtils';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import '@/styles/globals.scss';
 import 'aos/dist/aos.css'
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+};
 
 const notoSansJP = Noto_Sans_JP({
   subsets: ['latin'],
@@ -139,6 +145,44 @@ export default async function MainLayout(
           "jobTitle": "代表取締役 CEO"
         },
         "taxID": "T3290001109800"
+      },
+      {
+        "@type": "FAQPage",
+        "@id": `${appAddress}/#faq`,
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "仕様書や要件定義が固まっていない初期構想の段階でも相談できますか？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "はい、大歓迎です。株式会社Univusでは、「こんな仕組みが欲しい」「社内業務を効率化したい」という初期の構想やお困りごとのヒアリングから伴走します。課題整理から画面設計、要件定義まで丁寧にサポートしますので、IT専門部署のない企業様もお気軽にご相談ください。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "福岡以外の地域（東京・関西など）からの開発・DX支援依頼も可能ですか？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "はい、日本全国からご依頼いただけます。福岡本社での対面ミーティングはもちろん、ZoomやGoogle Meet、Slackなどを活用したオンラインでの円滑なコミュニケーション体制を整えております。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "開発後の保守・運用や継続的な機能改修も依頼できますか？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "はい、納品・公開後も安心してサービスを運用いただけるよう、サーバー保守・死活監視、セキュリティ対策、追加機能開発まで継続的に伴走サポートいたします。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "どのような開発案件に対応していますか？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "オーダーメイドのWebアプリケーション・業務システム開発、手作業や紙業務のDX・デジタル化支援、クラウドインフラ（AWS/GCP/Vercel）構築、店舗向け決済やテイクアウトなどの自社プロダクト企画・運営まで幅広く対応しています。"
+            }
+          }
+        ]
       }
     ]
   };

@@ -77,11 +77,9 @@ export async function generatePageMetadata(type: MetadataType, lng: AvailableLan
     },
     alternates: {
       canonical: `${process.env.NEXT_PUBLIC_APP_ADDRESS}/${lng}${type !== 'home' ? `/${type}` : ''}`,
-      languages: {
-        'ja': `${process.env.NEXT_PUBLIC_APP_ADDRESS}/ja${type !== 'home' ? `/${type}` : ''}`,
-        'ko': `${process.env.NEXT_PUBLIC_APP_ADDRESS}/ko${type !== 'home' ? `/${type}` : ''}`,
-        'en': `${process.env.NEXT_PUBLIC_APP_ADDRESS}/en${type !== 'home' ? `/${type}` : ''}`,
-      },
+      languages: Object.fromEntries(
+        languages.map((l) => [l, `${process.env.NEXT_PUBLIC_APP_ADDRESS}/${l}${type !== 'home' ? `/${type}` : ''}`])
+      ),
     },
     icons: {
       icon: [
@@ -93,11 +91,6 @@ export async function generatePageMetadata(type: MetadataType, lng: AvailableLan
       ],
     },
     manifest: '/manifest.json',
-    viewport: {
-      width: 'device-width',
-      initialScale: 1,
-      maximumScale: 1,
-    },
   };
 
   const pageMetadata: Record<MetadataType, Metadata> = {

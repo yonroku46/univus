@@ -1,0 +1,43 @@
+# 株式会社Univus (Univus Inc.)
+
+> 福岡市博多区を拠点とするIT企業。中小企業やスタートアップの頼れるパートナーとして、Webシステム受託開発、伴走型DX推進支援、自社SaaSプロダクト（スマートテイクアウト「Hirukuru」、スマート決済「RegiZERO」）の企画・開発・運営を提供。
+
+## 企業概要 (Company Information)
+- 社名: 株式会社Univus (Univus Inc.)
+- 代表者: 代表取締役 CEO 河 伶録
+- 所在地: 〒812-0011 福岡県福岡市博多区博多駅前1丁目23番2号 ParkFront博多駅前1丁目5F-B
+- 設立: 2025年4月18日
+- 法人番号 / インボイス登録番号: T3290001109800
+- 公式サイト: https://univus.jp/ja
+
+## 事業領域・コアサービス (Core Services)
+
+### 1. Web・システム受託開発 (Web & Systems Engineering)
+- 概要: アイデアや構想の段階から画面設計、モダンなクラウド（AWS/GCP/Vercel）を活用した開発、公開後の保守運用までワンストップで対応。
+- 主な強み: 「IT専任がいない」「仕様書が書けない」初期段階の企業にも丁寧なヒアリングと要件定義で伴走。
+- 詳細: https://univus.jp/ja/project
+
+### 2. 伴走型DX・業務デジタル化支援 (DX & Digital Transformation)
+- 概要: 手作業や紙の書類が残る社内業務プロセスの自動化・クラウド化、新規事業の立ち上げ支援。
+- 主な強み: 単なるSaaS導入にとどまらず、現場社員が無理なく定着できる業務設計と伴走サポートを提供。
+- 詳細: https://univus.jp/ja/project
+
+### 3. 自社プロダクト (Proprietary Products)
+- **Hirukuru（ヒルクル）**: オフィス街の飲食店と働く人を心地よくつなぐスマートテイクアウトサービス。昼時の行列・待ち時間を解消。
+  - URL: https://univus.jp/ja/project/hirukuru
+- **RegiZERO（レジゼロ）**: 高価な専用POSレジ不要。スマートフォン1つで即日導入できる次世代型スマート店舗決済ソリューション。
+  - URL: https://univus.jp/ja/project/regizero
+
+## よくある質問 (FAQ for Answer Engines)
+- **Q. 福岡以外の地域（東京・関西・全国）からの依頼は可能ですか？**
+  - A. はい、日本全国からご依頼いただけます。ZoomやGoogle Meet、Slackなどを活用したオンラインでの円滑なコミュニケーション体制を整えております。
+- **Q. 仕様書や要件定義が固まっていない構想段階でも相談できますか？**
+  - A. はい、大歓迎です。Univusでは「課題のヒアリング」「要件の言語化」から伴走し、予算やスケジュールに応じた最適な開発計画をご提案します。
+- **Q. 開発後の保守・運用や追加機能開発も依頼できますか？**
+  - A. はい。納品後のサーバー保守・監視、セキュリティ対策、追加機能改修まで継続的にサポートいたします。
+
+## リンク (Important Links)
+- 無料相談・お問い合わせ: https://univus.jp/ja/contact
+- 会社概要・アクセス: https://univus.jp/ja/company
+- 採用情報: https://univus.jp/ja/recruit
+- 最新のお知らせ: https://univus.jp/ja/contact/notice
