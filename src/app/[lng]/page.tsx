@@ -159,7 +159,7 @@ export default function Home({
           <div className="section-head">
             <h2 className="head-title">事業内容</h2>
             <p className="head-desc">
-              福岡・博多を拠点に、使う人の声に耳を傾け、確かな技術で課題を解決する3つの取り組みです。
+              福岡・博多を拠点に、使う人の声に耳を傾け、確かな技術で課題を解決します。
             </p>
           </div>
 

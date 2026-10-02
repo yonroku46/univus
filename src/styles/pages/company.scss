@@ -133,7 +133,6 @@
       .access-item {
         display: flex;
         flex-direction: column;
-        gap: 0.35rem;
 
         .item-label {
           font-size: 0.8125rem;
@@ -147,6 +146,7 @@
           line-height: 1.7;
           white-space: pre-line;
           margin-top: 0;
+          margin-bottom: 0;
         }
       }
     }

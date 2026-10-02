@@ -110,7 +110,7 @@ export default function CompanyPage({
               <div className="map-frame">
                 <iframe
                   title="株式会社Univus 本社所在地マップ"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3323.4451007277326!2d130.41336308830793!3d33.5937539730544!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x354191c68c8db49d%3A0xa714bbe4691285a!2z5pel5pys44CB44CSODEyLTAwMTEg56aP5bKh55yM56aP5bKh5biC5Y2a5aSa5Yy65Y2a5aSa6aeF5YmN77yR5LiB55uu77yS77yT4oiS77yS!5e0!3m2!1sja!2skr!4v1741582070141!5m2!1sja!2skr"
+                  src="https://maps.google.com/maps?q=%E7%A6%8F%E5%B2%A1%E7%9C%8C%E7%A6%8F%E5%B2%A1%E5%B8%82%E5%8D%9A%E5%A4%9A%E5%8C%BA%E5%8D%9A%E5%A4%9A%E9%A7%85%E5%89%8D1%E4%B8%81%E7%9B%AE23-2&t=&z=17&ie=UTF8&iwloc=&output=embed"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
