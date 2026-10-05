@@ -3,6 +3,7 @@
 import React, { useState, use } from 'react';
 import Breadcrumbs from '@/components/layout/Breadcrumbs';
 import { AvailableLanguages } from '@/i18n/settings';
+import * as gtag from '@/common/utils/gtag';
 import '@/styles/pages/contact.scss';
 
 interface ContactPageProps {
@@ -81,6 +82,12 @@ export default function ContactPage({ params }: ContactPageProps) {
       if (response.ok) {
         setShowSuccess(true);
         setForm(initialForm);
+
+        gtag.event('generate_lead', {
+          event_category: 'contact',
+          event_label: form.type,
+        });
+        gtag.reportAdsConversion(process.env.NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_LABEL);
       } else {
         setErrorMessage('送信中にエラーが発生しました。お手数ですが時間をおいて再度お試しください。');
       }

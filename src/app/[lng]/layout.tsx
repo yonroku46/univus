@@ -49,6 +49,9 @@ export default async function MainLayout(
   const appAddress = process.env.NEXT_PUBLIC_APP_ADDRESS || 'https://www.univus.jp';
   const appName = process.env.NEXT_PUBLIC_APP_NAME || '株式会社Univus';
   const googleAdsId = process.env.NEXT_PUBLIC_GOOGLE_ADS_ID;
+  const gaId = process.env.NEXT_PUBLIC_GA_ID;
+  const clarityId = process.env.NEXT_PUBLIC_CLARITY_ID;
+  const gtmId = gaId || googleAdsId;
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -190,11 +193,11 @@ export default async function MainLayout(
   return (
     <html lang={lng} dir={dir(lng)}>
       <head>
-        {googleAdsId && (
+        {gtmId && (
           <>
             <script
               async
-              src={`https://www.googletagmanager.com/gtag/js?id=${googleAdsId}`}
+              src={`https://www.googletagmanager.com/gtag/js?id=${gtmId}`}
             />
             <script
               dangerouslySetInnerHTML={{
@@ -202,11 +205,26 @@ export default async function MainLayout(
                   window.dataLayer = window.dataLayer || [];
                   function gtag(){dataLayer.push(arguments);}
                   gtag('js', new Date());
-                  gtag('config', '${googleAdsId}');
+                  ${googleAdsId ? `gtag('config', '${googleAdsId}');` : ''}
+                  ${gaId ? `gtag('config', '${gaId}');` : ''}
                 `,
               }}
             />
           </>
+        )}
+        {clarityId && (
+          <script
+            type="text/javascript"
+            dangerouslySetInnerHTML={{
+              __html: `
+                (function(c,l,a,r,i,t,y){
+                    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+                    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+                    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+                })(window, document, "clarity", "script", "${clarityId}");
+              `,
+            }}
+          />
         )}
         <script
           type="application/ld+json"
