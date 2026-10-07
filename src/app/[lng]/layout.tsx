@@ -166,7 +166,7 @@ export default async function MainLayout(
             "name": "福岡以外の地域（東京・関西など）からの開発・DX支援依頼も可能ですか？",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "はい、日本全国からご依頼いただけます。福岡本社での対面ミーティングはもちろん、ZoomやGoogle Meet、Slackなどを活用したオンラインでの円滑なコミュニケーション体制を整えております。"
+              "text": "はい、日本全国からご依頼いただけます。福岡本社での対面ミーティングはもちろん、Google Meet、Slackなどを活用したオンラインでの円滑なコミュニケーション体制を整えております。"
             }
           },
           {
