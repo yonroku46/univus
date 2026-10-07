@@ -340,26 +340,6 @@
           }
         }
 
-        .device-spec-tag {
-          margin-top: 1rem;
-          display: inline-flex;
-          align-items: center;
-          gap: 0.5rem;
-          background: rgba(255, 255, 255, 0.9);
-          backdrop-filter: blur(6px);
-          border: 1px solid #e2e8f0;
-          color: #475569;
-          font-size: 0.775rem;
-          font-weight: 700;
-          padding: 0.4rem 0.95rem;
-          border-radius: 9999px;
-          box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
-
-          .tag-icon {
-            font-size: 1.05rem;
-            color: #0284c7;
-          }
-        }
       }
     }
   }

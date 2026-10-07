@@ -1,6 +1,6 @@
 'use client';
 
-import { use, useEffect, useState } from 'react';
+import { use, useState } from 'react';
 import { AvailableLanguages } from '@/i18n/settings';
 import Breadcrumbs from '@/components/layout/Breadcrumbs';
 import SmePartnerSection from '@/components/home/SmePartnerSection';
@@ -16,17 +16,6 @@ export default function ProjectPage(
 ) {
   const { lng } = use(params);
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
-
-  useEffect(() => {
-    import('aos').then((AOS) => {
-      AOS.default.init({
-        once: true,
-        duration: 650,
-        easing: 'ease-out-cubic',
-        offset: 80,
-      });
-    });
-  }, []);
 
   const faqs = [
     {
@@ -69,7 +58,7 @@ export default function ProjectPage(
         {/* Project & Development FAQ Section (AEO & Customer Clarity) */}
         <section className="project-faq-section" id="faq">
           <div className="container">
-            <div className="faq-header" data-aos="fade-up">
+            <div className="faq-header">
               <span className="eyebrow">FAQ</span>
               <h2 className="title">事業・開発に関するよくあるご質問</h2>
               <p className="subtitle">
@@ -77,7 +66,7 @@ export default function ProjectPage(
               </p>
             </div>
 
-            <div className="faq-accordion-list" data-aos="fade-up" data-aos-delay="100">
+            <div className="faq-accordion-list">
               {faqs.map((faq, idx) => {
                 const isOpen = openFaqIndex === idx;
                 return (

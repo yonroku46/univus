@@ -11,7 +11,6 @@ import CodeIcon from '@mui/icons-material/Code';
 import TrendingUpIcon from '@mui/icons-material/TrendingUp';
 import CheckCircleOutlineRoundedIcon from '@mui/icons-material/CheckCircleOutlineRounded';
 import SecurityRoundedIcon from '@mui/icons-material/SecurityRounded';
-import DevicesRoundedIcon from '@mui/icons-material/DevicesRounded';
 import SpeedRoundedIcon from '@mui/icons-material/SpeedRounded';
 import VerifiedRoundedIcon from '@mui/icons-material/VerifiedRounded';
 import CalendarMonthRoundedIcon from '@mui/icons-material/CalendarMonthRounded';
@@ -293,23 +292,23 @@ export default function SmePartnerSection({ lng }: SmePartnerSectionProps) {
           <div className="lp-hero-grid">
             {/* Left Column: Value Copy & Trust Badges */}
             <div className="lp-hero-copy">
-              <div className="eyebrow-pill" data-aos="fade-down">
+              <div className="eyebrow-pill">
                 <span>中小企業向け開発＆DX伴走パートナー</span>
               </div>
 
-              <h1 className="lp-hero-title" data-aos="fade-up" data-aos-delay="100">
+              <h1 className="lp-hero-title">
                 IT専任・仕様書がなくても<br />
                 <span className="highlight-text">事業の成長を形にする</span><br />
                 Webシステム開発。
               </h1>
 
-              <p className="lp-hero-desc" data-aos="fade-up" data-aos-delay="200">
+              <p className="lp-hero-desc">
                 企画・UIデザインからシステム受託開発、自社SaaS運営、納品後の保守運用までワンストップ。
                 大掛かりなIT投資や複雑な専門知識は不要です。貴社の課題に寄り添い、最小構成（MVP）からスピーディに伴走します。
               </p>
 
               {/* 4 Trust Badges */}
-              <div className="hero-trust-list" data-aos="fade-up" data-aos-delay="300">
+              <div className="hero-trust-list">
                 {heroTrustBadges.map((badge, bIdx) => (
                   <div key={bIdx} className="hero-trust-item">
                     <CheckCircleOutlineRoundedIcon className="check-icon" />
@@ -319,7 +318,7 @@ export default function SmePartnerSection({ lng }: SmePartnerSectionProps) {
               </div>
 
               {/* Hero Action CTA */}
-              <div className="hero-actions" data-aos="fade-up" data-aos-delay="400">
+              <div className="hero-actions">
                 <Link
                   href={consultationUrl}
                   target="_blank"
@@ -342,7 +341,7 @@ export default function SmePartnerSection({ lng }: SmePartnerSectionProps) {
             </div>
 
             {/* Right Column: Natural Device Visual Stage (No floating card frame) */}
-            <div className="lp-hero-visual" data-aos="fade-left" data-aos-delay="250">
+            <div className="lp-hero-visual">
               <div className="hero-device-stage">
                 <div className="device-glow-backdrop" />
                 <div className="device-mockup-wrap">
@@ -355,10 +354,6 @@ export default function SmePartnerSection({ lng }: SmePartnerSectionProps) {
                     className="hero-mockup-img"
                   />
                 </div>
-                <div className="device-spec-tag">
-                  <DevicesRoundedIcon className="tag-icon" />
-                  <span>PC / タブレット / スマホ マルチデバイス対応</span>
-                </div>
               </div>
             </div>
           </div>
@@ -369,22 +364,22 @@ export default function SmePartnerSection({ lng }: SmePartnerSectionProps) {
       <div className="trust-metrics-strip">
         <div className="container">
           <div className="metrics-grid">
-            <div className="metric-box" data-aos="fade-up" data-aos-delay="50">
+            <div className="metric-box">
               <span className="metric-tag">体制</span>
               <span className="metric-val">100% 自社内製</span>
               <span className="metric-sub">中抜き・外注丸投げのない安心の開発</span>
             </div>
-            <div className="metric-box" data-aos="fade-up" data-aos-delay="100">
+            <div className="metric-box">
               <span className="metric-tag">実績</span>
               <span className="metric-val">自社SaaS 運営実績</span>
               <span className="metric-sub">テイクアウト＆店舗決済プロダクト展開</span>
             </div>
-            <div className="metric-box" data-aos="fade-up" data-aos-delay="150">
+            <div className="metric-box">
               <span className="metric-tag">スピード</span>
               <span className="metric-val">最短2週間〜 プロトタイプ</span>
               <span className="metric-sub">アジャイルで動く画面を早期に確認</span>
             </div>
-            <div className="metric-box" data-aos="fade-up" data-aos-delay="200">
+            <div className="metric-box">
               <span className="metric-tag">安心保証</span>
               <span className="metric-val">1ヶ月間 無償バグ保証</span>
               <span className="metric-sub">公開後も万全の保守・サポート体制</span>
@@ -396,8 +391,8 @@ export default function SmePartnerSection({ lng }: SmePartnerSectionProps) {
       <div className="container main-content-wrapper">
         {/* 3. VISUAL PORTFOLIO & PRODUCT SHOWCASE */}
         <section id="portfolio" className="lp-section showcase-section">
-          <div className="section-head text-center" data-aos="fade-up">
-            <span className="section-sub-label">DEVELOPMENT & PRODUCTS SHOWCASE</span>
+          <div className="section-head text-center">
+            <span className="section-sub-label">DEVELOPMENT PRODUCTS</span>
             <h2 className="head-title">実際の開発・自社プロダクト実績</h2>
             <p className="head-desc">
               自社で企画・開発・運営を行うサービスと、受託業務システムの画面をご紹介します。
@@ -409,8 +404,6 @@ export default function SmePartnerSection({ lng }: SmePartnerSectionProps) {
               <div
                 key={item.id}
                 className="portfolio-feature-card"
-                data-aos="fade-up"
-                data-aos-delay={pIdx * 80}
               >
                 <div className="portfolio-media-side">
                   <div className="main-image-wrap">
@@ -478,8 +471,8 @@ export default function SmePartnerSection({ lng }: SmePartnerSectionProps) {
 
         {/* 4. CASE STUDIES (Visual Before / After Transformation Stories) */}
         <section className="lp-section sme-case-wrap">
-          <div className="section-head text-center" data-aos="fade-up">
-            <span className="section-sub-label">BEFORE & AFTER CASE STUDIES</span>
+          <div className="section-head text-center">
+            <span className="section-sub-label">BEFORE & AFTER CASE</span>
             <h2 className="head-title">課題解決の具体事例</h2>
             <p className="head-desc">
               「自社の課題をどう解決できるのか？」実際のBefore/Afterと、開発期間・概算予算の目安をご紹介します。
@@ -491,8 +484,6 @@ export default function SmePartnerSection({ lng }: SmePartnerSectionProps) {
               <div
                 key={c.id}
                 className="case-story-card"
-                data-aos="fade-up"
-                data-aos-delay={idx * 100}
               >
                 {/* Story Top Bar */}
                 <div className="story-top-row">
@@ -576,7 +567,7 @@ export default function SmePartnerSection({ lng }: SmePartnerSectionProps) {
 
         {/* 5. PRICING & SCOPE GUIDELINE (Transparency for B2B) */}
         <section className="lp-section pricing-guide-section">
-          <div className="section-head text-center" data-aos="fade-up">
+          <div className="section-head text-center">
             <span className="section-sub-label">PRICING & SCOPE</span>
             <h2 className="head-title">対応領域と料金・期間の目安</h2>
             <p className="head-desc">
@@ -590,8 +581,6 @@ export default function SmePartnerSection({ lng }: SmePartnerSectionProps) {
               <div
                 key={pIdx}
                 className={`pricing-plan-card ${plan.recommended ? 'is-recommended' : ''}`}
-                data-aos="fade-up"
-                data-aos-delay={pIdx * 90}
               >
                 {plan.recommended && <div className="recommend-badge">最も選ばれています</div>}
                 <div className="plan-header">
@@ -639,7 +628,7 @@ export default function SmePartnerSection({ lng }: SmePartnerSectionProps) {
 
         {/* 6. WHY UNIVUS (4 Core Reasons) */}
         <section className="lp-section why-univus-section">
-          <div className="section-head text-center" data-aos="fade-up">
+          <div className="section-head text-center">
             <span className="section-sub-label">WHY CHOOSE US</span>
             <h2 className="head-title">Univusが選ばれる4つの理由</h2>
             <p className="head-desc">
@@ -655,8 +644,6 @@ export default function SmePartnerSection({ lng }: SmePartnerSectionProps) {
                 <div
                   key={item.title}
                   className="strength-card"
-                  data-aos="fade-up"
-                  data-aos-delay={idx * 100}
                 >
                   <div className="card-top">
                     <div className="strength-icon-box">
@@ -674,7 +661,7 @@ export default function SmePartnerSection({ lng }: SmePartnerSectionProps) {
 
         {/* 7. MODERN TECH STACK */}
         <section className="lp-section tech-stack-section">
-          <div className="section-head text-center" data-aos="fade-up">
+          <div className="section-head text-center">
             <span className="section-sub-label">MODERN TECHNOLOGY</span>
             <h2 className="head-title">高い開発生産性と将来性を支える技術スタック</h2>
             <p className="head-desc">
@@ -682,7 +669,7 @@ export default function SmePartnerSection({ lng }: SmePartnerSectionProps) {
             </p>
           </div>
 
-          <div className="tech-grid" data-aos="fade-up">
+          <div className="tech-grid">
             {techStack.map((stack, sIdx) => (
               <div key={sIdx} className="tech-category-card">
                 <span className="tech-category-name">{stack.category}</span>
@@ -700,7 +687,7 @@ export default function SmePartnerSection({ lng }: SmePartnerSectionProps) {
 
         {/* 8. 4 PROMISES OF TRUST & REASSURANCE */}
         <section className="lp-section trust-promises-section">
-          <div className="section-head text-center" data-aos="fade-up">
+          <div className="section-head text-center">
             <span className="section-sub-label">REASSURANCE & GUARANTEE</span>
             <h2 className="head-title">初めての外注でも安心できる4つの約束</h2>
             <p className="head-desc">
@@ -715,8 +702,6 @@ export default function SmePartnerSection({ lng }: SmePartnerSectionProps) {
                 <div
                   key={idx}
                   className="promise-card"
-                  data-aos="fade-up"
-                  data-aos-delay={idx * 90}
                 >
                   <div className="promise-icon-box">
                     <IconComponent className="p-icon" />
@@ -731,7 +716,7 @@ export default function SmePartnerSection({ lng }: SmePartnerSectionProps) {
 
         {/* 9. WORKFLOW (4 STEPS) */}
         <section className="lp-section sme-workflow-wrap">
-          <div className="section-head text-center" data-aos="fade-up">
+          <div className="section-head text-center">
             <span className="section-sub-label">WORKFLOW</span>
             <h2 className="head-title">ご相談から納品までの流れ</h2>
             <p className="head-desc">
@@ -744,8 +729,6 @@ export default function SmePartnerSection({ lng }: SmePartnerSectionProps) {
               <div
                 key={sIdx}
                 className="workflow-step-item"
-                data-aos="fade-right"
-                data-aos-delay={sIdx * 80}
               >
                 <div className="step-badge">{item.step}</div>
                 <h3 className="step-title">{item.title}</h3>
@@ -756,7 +739,7 @@ export default function SmePartnerSection({ lng }: SmePartnerSectionProps) {
         </section>
 
         {/* 10. MID-CONVERSION CALLOUT (Sticky / Strong Conversion Magnet) */}
-        <div className="sme-consultation-callout" data-aos="zoom-in">
+        <div className="sme-consultation-callout">
           <div className="callout-text">
             <span className="callout-pill">オンライン壁打ち受付中</span>
             <h3>「こんなことWebでできる？」「他社見積もりと比較したい」段階から大歓迎です</h3>
