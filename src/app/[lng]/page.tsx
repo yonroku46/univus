@@ -6,10 +6,17 @@ import Link from 'next/link';
 import { AvailableLanguages } from '@/i18n/settings';
 import { getLocalizedPath } from '@/common/utils/LngUtils';
 import HeroSection from '@/components/home/HeroSection';
-import EastIcon from '@mui/icons-material/East';
-import CodeRoundedIcon from '@mui/icons-material/CodeRounded';
-import AutoModeRoundedIcon from '@mui/icons-material/AutoModeRounded';
+import GeometricShape from '@/components/common/GeometricShape';
+import ArrowForwardRoundedIcon from '@mui/icons-material/ArrowForwardRounded';
+import CheckRoundedIcon from '@mui/icons-material/CheckRounded';
 import '@/styles/pages/home.scss';
+
+interface Notice {
+  id: string | number;
+  date: string;
+  title: string;
+  type: string;
+}
 
 export default function Home({
   params,
@@ -21,26 +28,17 @@ export default function Home({
   const [isNoticesLoading, setIsNoticesLoading] = useState<boolean>(true);
 
   useEffect(() => {
-    import('aos').then((AOS) => {
-      AOS.default.init({
-        once: true,
-        duration: 650,
-        easing: 'ease-out-cubic',
-        offset: 80,
-      });
-    });
-  }, []);
-
-  useEffect(() => {
     async function fetchNotices() {
       try {
-        const response = await fetch('https://univus-jp.s3.ap-northeast-1.amazonaws.com/notices-ja.json');
+        const response = await fetch(
+          'https://univus-jp.s3.ap-northeast-1.amazonaws.com/notices-ja.json'
+        );
         if (response.ok) {
           const data = await response.json();
           setNotices(data.notices || []);
         }
-      } catch (error) {
-        console.error('Failed to fetch notices:', error);
+      } catch (err) {
+        console.error('Failed to fetch notices:', err);
       } finally {
         setIsNoticesLoading(false);
       }
@@ -48,262 +46,325 @@ export default function Home({
     fetchNotices();
   }, [lng]);
 
-  const coreValues = [
-    {
-      tag: '01',
-      title: 'それぞれの得意を、そのまま力に',
-      body: '人それぞれ違う「得意」や「こだわり」を認め合い、誰もが自分らしく力を発揮できるチームをつくります。ちがう視点が集まるからこそ、新しい答えが見つかります。',
-    },
-    {
-      tag: '02',
-      title: '対話を重ね、一緒に創る',
-      body: '一人では届かない場所へも、仲間やお客様と想いを交わし合うことでたどり着けます。じっくりと対話を重ね、関わる人みんなにとって本当に喜ばれるものを目指します。',
-    },
-    {
-      tag: '03',
-      title: '使う人の毎日に、心地よさを',
-      body: '「作って終わり」ではなく、実際に手にする人が使いやすく、ずっと愛着を持てるものを。見えない部分の丁寧さと誠実な技術で、期待の一歩先へお応えします。',
-    },
+  const techBadges = [
+    { name: 'TypeScript', category: 'Language' },
+    { name: 'Next.js 15', category: 'Framework' },
+    { name: 'AWS Cloud', category: 'Infrastructure' },
+    { name: 'React 19', category: 'Modern Frontend' },
+    { name: 'PostgreSQL', category: 'Database' },
   ];
 
-  const businessDomains = [
-    {
-      icon: CodeRoundedIcon,
-      category: '受託開発',
-      categoryJa: 'Web・システム開発',
-      desc: '「こんな仕組みがあったら便利なのに」という構想から、画面設計、開発、公開後の運用まで。日々の業務を助け、事業の成長を支える仕組みをオーダーメイドで形にします。',
-      tags: ['業務システム構築', 'Webサイト・Webアプリ', '安心の運用サポート'],
-    },
-    {
-      icon: AutoModeRoundedIcon,
-      category: 'DX支援',
-      categoryJa: 'DX・デジタル化支援',
-      desc: '新しい取り組みの立ち上げから、手作業や紙が残る業務のデジタル化まで。「ITの専門部署がない」という企業にも寄り添い、無理のないペースで伴走します。',
-      tags: ['新規事業立ち上げ', '業務のデジタル化', '伴走型サポート'],
-    },
-  ];
-
-  const inHouseProducts = [
-    {
-      id: 'hirukuru',
-      name: 'Hirukuru（ヒルクル）',
-      title: '待たず、迷わず、できたての食事を。スマートテイクアウト',
-      summary:
-        'お昼時の混雑や待ち時間をなくし、働く人にゆったりとした休憩時間を届けるテイクアウトサービス。オフィス街の飲食店と働く人を心地よくつなぎます。',
-      image: '/assets/lp/hero.png',
-      link: getLocalizedPath('/project/hirukuru', lng),
-      bg: '#f1f5f9',
-      appIcon: '/assets/icon/hirukuru-icon.svg',
-    },
-    {
-      id: 'regizero',
-      name: 'RegiZERO（レジゼロ）',
-      title: 'レジはもっとシンプルでいい。次世代型スマート店舗決済',
-      summary:
-        '専用の大きなレジや機械がなくても、スマホひとつでスムーズにお会計。お店の手間を減らし、お買い物をもっと身近で手軽にします。',
-      image: '/assets/lp2/hero.png',
-      link: getLocalizedPath('/project/regizero', lng),
-      bg: '#f4f4f5',
-      appIcon: '/assets/icon/regizero-icon.svg',
-    },
-  ];
-
-  const displayNotices = notices.slice(0, 3);
+  const displayNotices = notices.slice(0, 4);
 
   return (
-    <article className="gd-home-page">
+    <article className="gl-landing-page">
       {/* 1. Hero Section */}
       <HeroSection lng={lng} />
 
-      {/* 2. Philosophy & Statement */}
-      <section className="gd-section gd-statement-section">
-        <div className="container">
-          <div className="statement-layout" data-aos="fade" data-aos-duration="700">
-            <div className="statement-lead-area">
-              <h2 className="statement-title">
-                個の強みを、<br />
-                社会の力へ。
+      {/* 2. Customer / Technology Infrastructure Bar (Gumloop Style) */}
+      <section className="gl-proof-section">
+        <div className="gl-container">
+          <div className="gl-proof-header">
+            <span className="gl-proof-kicker">Core Technology</span>
+            <div className="gl-proof-title-row">
+              <h2 className="gl-proof-title">
+                現場の課題を解き<br />
+                成長を支えるエンジニアリング基盤
               </h2>
-            </div>
-            <div className="statement-body-area">
-              <p className="body-lead">
-                異なる強みや想いが重なり合うところに、<br className="pc-only" />
-                これからの社会を動かす、確かな変化が芽生えます。<br />
-                誰かひとりの力だけに頼るのではなく、<br className="pc-only" />
-                互いの得意を信じ、手を取り合って前へ進むこと。
-              </p>
-            </div>
-          </div>
-
-          <div className="values-row">
-            {coreValues.map((val, idx) => (
-              <div
-                key={val.tag}
-                className="value-col"
-                data-aos="fade-up"
-                data-aos-delay={idx * 130}
-                data-aos-duration="600"
-              >
-                <span className="value-tag">{val.tag}</span>
-                <h3 className="value-title">{val.title}</h3>
-                <p className="value-text">{val.body}</p>
+              <div className="gl-proof-metrics">
+                <div className="gl-metric-box">
+                  <span className="label">プロジェクト累計実績</span>
+                  <span className="value">130<span className="unit">+件</span></span>
+                </div>
+                <div className="gl-metric-box">
+                  <span className="label">エンジニアリング歴</span>
+                  <span className="value">11<span className="unit">+年</span></span>
+                </div>
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 3. Business Domains */}
-      <section className="gd-section gd-business-section">
-        <div className="container">
-          <div className="section-head">
-            <h2 className="head-title">事業内容</h2>
-            <p className="head-desc">
-              福岡・博多を拠点に、使う人の声に耳を傾け、確かな技術で課題を解決します。
+            </div>
+            <p className="gl-proof-sub">
+              モダンなWebフロントエンドから高可用なクラウドインフラまで、妥協のない技術選定でプロダクトの安定稼働と事業成長を支えます。
             </p>
           </div>
 
-          <div className="domain-grid">
-            {businessDomains.map((domain, idx) => {
-              const IconComponent = domain.icon;
-              return (
-                <div
-                  key={domain.category}
-                  className="domain-item"
-                  data-aos="fade-up"
-                  data-aos-delay={idx * 120}
-                  data-aos-duration="600"
-                >
-                  <div className="domain-top-bar">
-                    <div className="domain-icon-wrapper">
-                      <IconComponent className="domain-icon" />
-                    </div>
-                    <span className="domain-category-pill">{domain.category}</span>
-                  </div>
-
-                  <h3 className="domain-title">{domain.categoryJa}</h3>
-                  <p className="domain-desc">{domain.desc}</p>
-
-                  <div className="domain-tags-wrap">
-                    {domain.tags.map((tag, tIdx) => (
-                      <span key={tIdx} className="domain-tag-pill">
-                        <span className="dot" />
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* 4. In-House Products Section */}
-      <section className="gd-section gd-projects-section">
-        <div className="container">
-          <div className="section-head split">
-            <div>
-              <h2 className="head-title">自社プロダクト</h2>
-              <p className="head-desc">
-                日々の暮らしや街の店舗を豊かにする、自社企画・運営のサービスです。
-              </p>
-            </div>
-            <Link href={getLocalizedPath('/project/products', lng)} className="link-text-arrow pc-only">
-              <span>プロダクト一覧を見る</span>
-              <EastIcon className="arrow" />
-            </Link>
-          </div>
-
-          <div className="projects-grid">
-            {inHouseProducts.map((project, idx) => (
-              <div
-                key={project.id}
-                className="project-frame"
-                data-aos="fade-up"
-                data-aos-delay={idx * 140}
-                data-aos-duration="600"
-              >
-                <div className="project-visual-box" style={{ backgroundColor: project.bg }}>
-                  <div className="img-container">
-                    <Image
-                      src={project.image}
-                      alt={project.name}
-                      fill
-                      sizes="(max-width: 900px) 100vw, 560px"
-                      className="project-cover"
-                    />
-                  </div>
-                  {/* Floating App Icon Badge */}
-                  <div className="project-app-badge" aria-hidden="true">
-                    <Image
-                      src={project.appIcon}
-                      alt={`${project.name} icon`}
-                      width={52}
-                      height={52}
-                      className="app-icon-img"
-                    />
-                  </div>
-                </div>
-                <div className="project-body">
-                  <h3 className="project-name">{project.name}</h3>
-                  <h4 className="project-heading">{project.title}</h4>
-                  <p className="project-summary">{project.summary}</p>
-                  <Link href={project.link} className="project-detail-link">
-                    <span>詳細を見る</span>
-                  </Link>
-                </div>
+          <div className="gl-tech-grid">
+            {techBadges.map((tech, idx) => (
+              <div key={idx} className="gl-tech-card">
+                <span className="gl-tech-name">{tech.name}</span>
+                <span className="gl-tech-cat">{tech.category}</span>
               </div>
             ))}
           </div>
+        </div>
+      </section>
 
-          <div className="sp-view-all sp-only">
-            <Link href={getLocalizedPath('/project/products', lng)} className="link-text-arrow">
-              <span>プロダクト一覧を見る</span>
-              <EastIcon className="arrow" />
-            </Link>
+      {/* 3. Feature Showcase 1: Hirukuru (Takeout Platform) */}
+      <section className="gl-feature-section">
+        <div className="gl-container">
+          <div className="gl-feature-split">
+            <div className="gl-feature-copy-col">
+              <span className="gl-feature-badge">テイクアウトプラットフォーム / 01</span>
+              <h2 className="gl-feature-title">
+                スマートテイクアウトで<br />
+                働く人の毎日に心地よさを
+              </h2>
+              <p className="gl-feature-desc">
+                「Hirukuru（ヒルクル）」は、オフィス街のランチ時の混雑を解消するテイクアウト注文プラットフォームです。
+                自社でゼロから構想し、現場の店舗と利用者の声を聞きながら、使い心地の良いUIと安定したクラウド基盤を共創しました。
+              </p>
+
+              <div className="gl-feature-actions">
+                <Link href={getLocalizedPath('/project/hirukuru', lng)} className="gl-btn gl-btn-black">
+                  <span>Hirukuru 詳細を見る</span>
+                </Link>
+              </div>
+
+              <div className="gl-feature-checklist">
+                <div className="gl-check-item">
+                  <CheckRoundedIcon className="check-icon" />
+                  <span>リアルタイム調理状況の可視化</span>
+                </div>
+                <div className="gl-check-item">
+                  <CheckRoundedIcon className="check-icon" />
+                  <span>スマホ完結のスムーズな事前決済</span>
+                </div>
+                <div className="gl-check-item">
+                  <CheckRoundedIcon className="check-icon" />
+                  <span>店舗側のオーダー管理画面・ダッシュボード</span>
+                </div>
+                <div className="gl-check-item">
+                  <CheckRoundedIcon className="check-icon" />
+                  <span>ピーク時にも耐えうる高可用クラウド構成</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="gl-feature-media-col">
+              <div className="gl-media-window-box">
+                <div className="gl-media-app-badge" aria-hidden="true">
+                  <Image
+                    src="/assets/icon/hirukuru-icon.svg"
+                    alt="Hirukuru App Icon"
+                    width={48}
+                    height={48}
+                    className="badge-icon-img"
+                  />
+                </div>
+                <Image
+                  src="/assets/img/hirukuru-kitchen-car.jpg"
+                  alt="Hirukuru Kitchen Car Takeout Platform"
+                  width={580}
+                  height={435}
+                  className="gl-feature-image"
+                  priority
+                />
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* 5. Information News */}
-      <section className="gd-section gd-news-section">
-        <div className="container">
-          <div className="news-card-block">
-            <div className="news-block-header">
-              <div className="title-group">
-                <h3 className="section-title">お知らせ</h3>
+      {/* 4. Feature Showcase 2: RegiZERO (Smart Store Payment) */}
+      <section className="gl-feature-section gl-alt-bg">
+        <div className="gl-container">
+          <div className="gl-feature-split gl-reverse">
+            <div className="gl-feature-copy-col">
+              <span className="gl-feature-badge">スマート店舗決済ソリューション / 02</span>
+              <h2 className="gl-feature-title">
+                レジはもっとシンプルに<br />
+                スマホ完結のスマート決済
+              </h2>
+              <p className="gl-feature-desc">
+                「RegiZERO（レジゼロ）」は、高額な専用レジ端末を使わずに、スマートフォンひとつで即座にお会計ができるスマート決済ソリューションです。
+                会計の手間と初期導入費用を抑え、あらゆる小規模店舗やイベントでの会計をスマートに変革します。
+              </p>
+
+              <div className="gl-feature-actions">
+                <Link href={getLocalizedPath('/project/regizero', lng)} className="gl-btn gl-btn-black">
+                  <span>RegiZERO 詳細を見る</span>
+                </Link>
               </div>
-              <Link href={getLocalizedPath('/contact/notice', lng)} className="news-all-link">
-                <span>一覧を見る</span>
-                <EastIcon className="arrow" />
-              </Link>
+
+              <div className="gl-feature-checklist">
+                <div className="gl-check-item">
+                  <CheckRoundedIcon className="check-icon" />
+                  <span>専用機械不要・スマホひとつで導入</span>
+                </div>
+                <div className="gl-check-item">
+                  <CheckRoundedIcon className="check-icon" />
+                  <span>バーコードスキャンと即時集計</span>
+                </div>
+                <div className="gl-check-item">
+                  <CheckRoundedIcon className="check-icon" />
+                  <span>現場オペレーションの劇的削減</span>
+                </div>
+                <div className="gl-check-item">
+                  <CheckRoundedIcon className="check-icon" />
+                  <span>セキュアな決済トークンアーキテクチャ</span>
+                </div>
+              </div>
             </div>
 
-            <div className="news-list-rows">
-              {displayNotices.length > 0 ? (
-                displayNotices.map((notice) => (
-                  <Link
-                    key={notice.id}
-                    href={getLocalizedPath('/contact/notice', lng)}
-                    className="news-row-item"
-                  >
-                    <div className="news-row-meta">
-                      <time className="news-date">{notice.date}</time>
-                      <span className={`news-type-tag ${notice.type}`}>
-                        {notice.type === 'service' ? 'サービス' : 'お知らせ'}
-                      </span>
-                    </div>
-                    <div className="news-row-title">
-                      <span>{notice.title}</span>
-                    </div>
-                  </Link>
-                ))
-              ) : !isNoticesLoading ? (
-                <div className="news-empty-row">
-                  <span>現在、掲載中のお知らせはありません。</span>
+            <div className="gl-feature-media-col">
+              <div className="gl-media-window-box">
+                <div className="gl-media-app-badge" aria-hidden="true">
+                  <Image
+                    src="/assets/icon/regizero-icon.svg"
+                    alt="RegiZERO App Icon"
+                    width={48}
+                    height={48}
+                    className="badge-icon-img"
+                  />
                 </div>
-              ) : null}
+                <Image
+                  src="/assets/img/regizero-restaurant.jpg"
+                  alt="RegiZERO Restaurant Smart Payment"
+                  width={580}
+                  height={435}
+                  className="gl-feature-image"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 5. Business Capabilities (Gumloop Grid Style) */}
+      <section className="gl-capabilities-section">
+        <div className="gl-container">
+          <div className="gl-section-title-wrap">
+            <span className="gl-feature-badge">Capabilities</span>
+            <h2 className="gl-capabilities-heading">事業領域</h2>
+            <p className="gl-capabilities-desc">
+              確かな技術力と丁寧なコミュニケーションで、構想からリリース後の成長まで伴走します。
+            </p>
+          </div>
+
+          <div className="gl-capabilities-grid">
+            <div className="gl-cap-card cap-purple">
+              <div className="gl-cap-top">
+                <span className="gl-cap-number">01</span>
+                <span className="gl-cap-symbol" aria-hidden="true">
+                  <GeometricShape type="purple" width={20} height={20} className="gl-cap-svg" />
+                </span>
+              </div>
+              <h3 className="gl-cap-title">Web・システム受託開発</h3>
+              <p className="gl-cap-text">
+                お客様の事業要件に合わせて、Webアプリケーションや業務システムを設計・開発します。
+                使い心地の良いUI/UXから堅牢なクラウドインフラまで、一貫した品質で形にします。
+              </p>
+              <div className="gl-cap-list">
+                <span>・ 業務システム・管理画面構築</span>
+                <span>・ Webアプリケーション開発</span>
+                <span>・ API連携・データベース設計</span>
+              </div>
+            </div>
+
+            <div className="gl-cap-card cap-green">
+              <div className="gl-cap-top">
+                <span className="gl-cap-number">02</span>
+                <span className="gl-cap-symbol" aria-hidden="true">
+                  <GeometricShape type="green" width={20} height={20} className="gl-cap-svg" />
+                </span>
+              </div>
+              <h3 className="gl-cap-title">DX推進・業務自動化</h3>
+              <p className="gl-cap-text">
+                手作業や紙、Excelに依存した業務フローを可視化し、デジタル化による効率化を推進します。
+                IT専門部署を持たない企業様에도寄り添い、実現可能なペースで伴走支援します。
+              </p>
+              <div className="gl-cap-list">
+                <span>・ 業務プロセスの可視化と改善設計</span>
+                <span>・ クラウド移行・ペーパーレス化</span>
+                <span>・ 社内運用の定着伴走サポート</span>
+              </div>
+            </div>
+
+            <div className="gl-cap-card cap-amber">
+              <div className="gl-cap-top">
+                <span className="gl-cap-number">03</span>
+                <span className="gl-cap-symbol" aria-hidden="true">
+                  <GeometricShape type="amber" width={20} height={20} className="gl-cap-svg" />
+                </span>
+              </div>
+              <h3 className="gl-cap-title">自社プロダクトの企画・運営</h3>
+              <p className="gl-cap-text">
+                日常の課題や街のニーズを捉えたWebサービスを自社で企画・開発・運営しています。
+                実戦で培ったユーザー体験と運用のノウハウを、受託開発における提案品質へ還元しています。
+              </p>
+              <div className="gl-cap-list">
+                <span>・ BtoC / BtoB Webプラットフォーム</span>
+                <span>・ PWA・モバイル最適化</span>
+                <span>・ 実戦に基づく継続的な機能改善</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 6. Information News (Gumloop Minimal Feed Style) */}
+      <section className="gl-news-section">
+        <div className="gl-container">
+          <div className="gl-news-header">
+            <div>
+              <span className="gl-feature-badge">Information</span>
+              <h2 className="gl-news-title">お知らせ</h2>
+            </div>
+            <Link href={getLocalizedPath('/contact/notice', lng)} className="gl-news-all-link">
+              <span>一覧を見る</span>
+              <ArrowForwardRoundedIcon className="icon" />
+            </Link>
+          </div>
+
+          <div className="gl-news-feed">
+            {displayNotices.length > 0 ? (
+              displayNotices.map((notice) => (
+                <Link
+                  key={notice.id}
+                  href={getLocalizedPath('/contact/notice', lng)}
+                  className="gl-news-feed-item"
+                >
+                  <time className="gl-feed-date">{notice.date}</time>
+                  <span className={`gl-feed-tag ${notice.type}`}>
+                    {notice.type === 'service' ? 'サービス' : 'お知らせ'}
+                  </span>
+                  <span className="gl-feed-headline">{notice.title}</span>
+                  <ArrowForwardRoundedIcon className="gl-feed-arrow" />
+                </Link>
+              ))
+            ) : !isNoticesLoading ? (
+              <div className="gl-news-empty">現在、掲載中のお知らせはありません。</div>
+            ) : null}
+          </div>
+        </div>
+      </section>
+
+      {/* 7. Bottom High-Impact CTA (Gumloop "Build your team of agents" Style) */}
+      <section className="gl-closing-section">
+        <div className="gl-container">
+          <div className="gl-closing-box">
+            <div className="gl-closing-shape" aria-hidden="true">
+              <GeometricShape type="blue" width={36} height={36} className="gl-closing-svg" />
+            </div>
+            <h2 className="gl-closing-title">
+              アイデアの壁打ちから、<br />
+              まずはお気軽にお話ししませんか？
+            </h2>
+            <p className="gl-closing-desc">
+              Webシステム開発から新規事業の立ち上げ、業務改善まで、丁寧にお伺いします。
+            </p>
+            <div className="gl-closing-actions">
+              <Link href={getLocalizedPath('/contact', lng)} className="gl-btn gl-btn-white">
+                <span>お問い合わせフォーム</span>
+              </Link>
+              <a
+                href="https://timerex.net/s/univus/3a845251"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="gl-btn gl-btn-outline-white"
+              >
+                <span>オンライン日程調整</span>
+                <ArrowForwardRoundedIcon className="gl-btn-icon" />
+              </a>
             </div>
           </div>
         </div>
