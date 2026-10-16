@@ -111,7 +111,7 @@
 // ==========================================
 .gl-hero-section {
   width: 100%;
-  padding: 5rem 0 6rem;
+  padding: 6rem 0 7rem;
   background-color: #ffffff;
   display: flex;
   justify-content: center;
@@ -122,16 +122,39 @@
 
   .gl-hero-container {
     width: 100%;
-    max-width: 1200px;
+    max-width: 1240px;
     padding: 0 1.5rem;
     box-sizing: border-box;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    text-align: center;
+    justify-content: space-between;
+    gap: 3.5rem;
+    text-align: left;
 
     @include mobile {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 2.5rem;
       padding: 0 1.25rem;
+    }
+  }
+
+  // Left Content Column (Shapes track, Headings, CTA)
+  .gl-hero-content {
+    flex: 1 1 45%;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+
+    @include mobile {
+      flex: none;
+      width: 100%;
+      align-items: center;
+      text-align: center;
     }
   }
 
@@ -149,6 +172,11 @@
     justify-content: flex-start;
     mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
     -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+
+    @include mobile {
+      margin-left: auto;
+      margin-right: auto;
+    }
 
     .gl-hero-shape-track {
       display: flex;
@@ -189,26 +217,30 @@
     color: #0f172a;
     margin-bottom: 1.25rem;
     max-width: 720px;
+    text-align: left;
 
     @include mobile {
       font-size: 2.25rem;
       line-height: 1.25;
       margin-bottom: 1rem;
+      text-align: center;
     }
   }
 
   .gl-hero-subheading {
-    font-size: 1.125rem;
+    font-size: 1.0625rem;
     font-weight: 400;
-    line-height: 1.75;
+    line-height: 1.7;
     color: #64748b;
-    max-width: 640px;
-    margin-bottom: 2.25rem;
+    max-width: 520px;
+    margin-bottom: 2rem;
+    text-align: left;
 
     @include mobile {
       font-size: 0.95rem;
       line-height: 1.65;
       margin-bottom: 1.75rem;
+      text-align: center;
     }
   }
 
@@ -216,13 +248,13 @@
     display: flex;
     gap: 0.75rem;
     align-items: center;
-    margin-bottom: 4rem;
+    margin-bottom: 0;
 
     @include mobile {
       flex-direction: column;
       width: 100%;
       max-width: 320px;
-      margin-bottom: 2.5rem;
+      margin-bottom: 0;
 
       .gl-btn {
         width: 100%;
@@ -230,300 +262,91 @@
     }
   }
 
-  // Gumloop 1440/900 Aspect Canvas Frame
+  // Premium Tech Window Frame (Gumloop / Stripe / Linear Style)
   .gl-hero-canvas-frame {
+    flex: 1 1 54%;
+    min-width: 0;
     width: 100%;
-    max-width: 1120px;
-    background: #f8fafc;
-    border: 1px solid #e2e8f0;
+    max-width: 660px;
+    background: #ffffff;
+    border: 1px solid rgba(15, 23, 42, 0.08);
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 4px 20px -5px rgba(0, 0, 0, 0.05);
     text-align: left;
 
+    @include mobile {
+      flex: none;
+      max-width: 100%;
+    }
+
     .gl-canvas-top-bar {
-      min-height: 48px;
+      min-height: 44px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0.5rem 1.25rem;
-      background: #ffffff;
+      gap: 0.75rem;
+      padding: 0.5rem 1rem;
+      background: #f8fafc;
       border-bottom: 1px solid #e2e8f0;
-
-      @media (max-width: 640px) {
-        padding: 0.65rem 0.85rem;
-        min-height: auto;
-      }
 
       .gl-canvas-dots {
         display: flex;
         gap: 6px;
+        align-items: center;
         flex-shrink: 0;
-
-        @media (max-width: 640px) {
-          display: none;
-        }
 
         .dot {
           width: 9px;
           height: 9px;
           border-radius: 50%;
-          background: #cbd5e1;
-        }
-      }
 
-      .gl-canvas-tabs {
-        display: flex;
-        gap: 0.35rem;
-
-        @media (max-width: 640px) {
-          width: 100%;
-          overflow-x: auto;
-          -webkit-overflow-scrolling: touch;
-          scrollbar-width: none;
-          gap: 0.5rem;
-          padding-bottom: 2px;
-
-          &::-webkit-scrollbar {
-            display: none;
-          }
-        }
-
-        .gl-tab-item {
-          padding: 0.45rem 0.85rem;
-          font-size: 0.8125rem;
-          font-weight: 500;
-          color: #64748b;
-          background: transparent;
-          border: 1px solid transparent;
-          border-radius: 6px;
-          cursor: pointer;
-          transition: all 0.15s ease;
-          white-space: nowrap;
-          flex-shrink: 0;
-
-          @media (max-width: 640px) {
-            padding: 0.45rem 0.85rem;
-            font-size: 0.8125rem;
-            background: #f8fafc;
-            border-color: #e2e8f0;
+          &.dot-red {
+            background-color: #ff5f56;
           }
 
-          &:hover {
-            color: #0f172a;
+          &.dot-yellow {
+            background-color: #ffbd2e;
           }
 
-          &.is-active {
-            color: #0f172a;
-            background: #f1f5f9;
-            border-color: #cbd5e1;
-            font-weight: 600;
-
-            @media (max-width: 640px) {
-              background: #0f172a;
-              color: #ffffff;
-              border-color: #0f172a;
-            }
+          &.dot-green {
+            background-color: #27c93f;
           }
         }
       }
     }
 
-    .gl-canvas-body {
-      padding: 3rem 2rem;
+    .gl-canvas-body.gl-screen-container {
+      padding: 0;
       background: #f8fafc;
-      min-height: 380px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      overflow: hidden;
+      display: block;
 
-      @media (max-width: 768px) {
-        padding: 1.5rem 1rem;
-        min-height: auto;
-      }
-
-      // Flow Node Workspace
-      .gl-flow-workspace {
+      .gl-screen-slide {
         width: 100%;
-        max-width: 480px;
-        margin: 0 auto;
+        display: block;
+        animation: fadeInScreen 0.25s ease-out;
 
-        .gl-flow-node-col {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          gap: 0.5rem;
-
-          .gl-node-card {
-            width: 100%;
-            background: #ffffff;
-            border: 1px solid #e2e8f0;
-            border-radius: 8px;
-            padding: 1.15rem 1.25rem;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
-            display: flex;
-            flex-direction: column;
-            gap: 0.35rem;
-
-            &.active-border {
-              border-color: #0f172a;
-            }
-
-            .gl-node-header {
-              .gl-node-step {
-                font-size: 0.75rem;
-                font-weight: 600;
-                color: #64748b;
-              }
-            }
-
-            .gl-node-title {
-              font-size: 0.95rem;
-              font-weight: 600;
-              color: #0f172a;
-            }
-
-            .gl-node-desc {
-              font-size: 0.8125rem;
-              color: #64748b;
-              line-height: 1.5;
-            }
-
-            .gl-node-badge {
-              font-size: 0.7rem;
-              font-weight: 500;
-              color: #475569;
-              background: #f1f5f9;
-              padding: 0.2rem 0.5rem;
-              border-radius: 4px;
-              width: fit-content;
-              margin-top: 0.35rem;
-            }
-          }
-
-          .gl-node-connector {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            color: #94a3b8;
-            font-size: 0.85rem;
-            line-height: 1;
-
-            .line {
-              width: 1px;
-              height: 12px;
-              background: #cbd5e1;
-            }
-
-            .arrow {
-              font-size: 0.8rem;
-              margin-top: 2px;
-            }
-          }
-        }
-      }
-
-      // Product Workspace
-      .gl-product-workspace {
-        width: 100%;
-
-        .gl-product-split {
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: 3rem;
-          align-items: center;
-
-          @include mobile {
-            grid-template-columns: 1fr;
-            gap: 1.75rem;
-          }
-
-          .gl-product-text {
-            display: flex;
-            flex-direction: column;
-
-            .gl-product-kicker {
-              font-size: 0.75rem;
-              font-weight: 600;
-              color: #64748b;
-              text-transform: uppercase;
-              letter-spacing: 0.05em;
-              margin-bottom: 0.5rem;
-            }
-
-            .gl-product-heading {
-              font-size: 1.65rem;
-              font-weight: 600;
-              color: #0f172a;
-              margin-bottom: 0.75rem;
-              letter-spacing: -0.02em;
-            }
-
-            .gl-product-summary {
-              font-size: 0.9375rem;
-              line-height: 1.7;
-              color: #475569;
-              margin-bottom: 1.5rem;
-            }
-
-            .gl-tech-pills {
-              display: flex;
-              gap: 0.4rem;
-              flex-wrap: wrap;
-              margin-bottom: 1.75rem;
-
-              span {
-                font-size: 0.75rem;
-                font-weight: 500;
-                color: #475569;
-                background: #ffffff;
-                border: 1px solid #e2e8f0;
-                padding: 0.25rem 0.6rem;
-                border-radius: 4px;
-              }
-            }
-
-            .gl-product-link {
-              display: inline-flex;
-              align-items: center;
-              gap: 0.35rem;
-              font-size: 0.875rem;
-              font-weight: 600;
-              color: #0f172a;
-              text-decoration: none;
-
-              &:hover {
-                color: #64748b;
-                .icon {
-                  transform: translateX(3px);
-                }
-              }
-
-              .icon {
-                font-size: 1rem;
-                transition: transform 0.15s ease;
-              }
-            }
-          }
-
-          .gl-product-preview-box {
-            background: #ffffff;
-            border: 1px solid #e2e8f0;
-            border-radius: 8px;
-            padding: 1.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            .gl-preview-image {
-              max-width: 100%;
-              height: auto;
-              object-fit: contain;
-            }
-          }
+        .gl-screen-shot {
+          width: 100%;
+          height: auto;
+          display: block;
+          object-fit: cover;
+          vertical-align: middle;
         }
       }
     }
+  }
+}
+
+@keyframes fadeInScreen {
+  from {
+    opacity: 0.6;
+    transform: scale(0.995);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
   }
 }
 
@@ -531,7 +354,7 @@
 // 2. PROOF & TECH INFRASTRUCTURE BAR (Gumloop Style)
 // ==========================================
 .gl-proof-section {
-  padding: 4rem 0 5rem;
+  padding: 5rem 0;
   background-color: #ffffff;
   border-top: 1px solid #f1f5f9;
 
@@ -661,6 +484,7 @@
       padding-top: 0.25rem;
       padding-bottom: 0.75rem;
       scrollbar-width: none;
+
       &::-webkit-scrollbar {
         display: none;
       }
@@ -738,6 +562,7 @@
         .gl-feature-copy-col {
           order: 2;
         }
+
         .gl-feature-media-col {
           order: 1;
         }
@@ -749,6 +574,7 @@
         .gl-feature-copy-col {
           order: 1;
         }
+
         .gl-feature-media-col {
           order: 2;
         }
@@ -798,13 +624,37 @@
       }
 
       .gl-feature-actions {
-        margin-bottom: 2.25rem;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        margin-bottom: 1.75rem;
 
         @media (max-width: 768px) {
-          margin-bottom: 1.75rem;
+          justify-content: flex-end;
+          margin-bottom: 1.25rem;
+        }
 
-          .gl-btn {
-            width: 100%;
+        .gl-feature-link {
+          display: inline-flex;
+          align-items: center;
+          gap: 0.35rem;
+          font-size: 0.925rem;
+          font-weight: 600;
+          color: #0f172a;
+          text-decoration: none;
+          transition: color 0.15s ease;
+
+          &:hover {
+            color: #2563eb;
+
+            .gl-feature-link-icon {
+              transform: translateX(4px);
+            }
+          }
+
+          .gl-feature-link-icon {
+            font-size: 1.1rem;
+            transition: transform 0.15s ease;
           }
         }
       }
@@ -928,7 +778,6 @@
 
   .gl-section-title-wrap {
     margin-bottom: 3.5rem;
-    max-width: 640px;
 
     .gl-feature-badge {
       font-size: 0.75rem;
@@ -980,22 +829,10 @@
       transition: all 0.2s ease;
       overflow: hidden;
 
-      &::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 2px;
-        opacity: 0;
-        transition: opacity 0.2s ease;
-      }
-
       &.cap-purple {
         &:hover {
           border-color: #d8b4fe;
           background: #ffffff;
-          &::before { background: #9810FA; opacity: 1; }
         }
       }
 
@@ -1003,7 +840,6 @@
         &:hover {
           border-color: #86efac;
           background: #ffffff;
-          &::before { background: #11AC4B; opacity: 1; }
         }
       }
 
@@ -1011,7 +847,6 @@
         &:hover {
           border-color: #fde047;
           background: #ffffff;
-          &::before { background: #FE9A00; opacity: 1; }
         }
       }
 
@@ -1108,6 +943,7 @@
 
       &:hover {
         color: #64748b;
+
         .icon {
           transform: translateX(3px);
         }
@@ -1145,6 +981,7 @@
         .gl-feed-headline {
           color: #64748b;
         }
+
         .gl-feed-arrow {
           transform: translateX(3px);
           opacity: 1;

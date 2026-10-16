@@ -114,8 +114,9 @@ export default function Home({
               </p>
 
               <div className="gl-feature-actions">
-                <Link href={getLocalizedPath('/project/hirukuru', lng)} className="gl-btn gl-btn-black">
-                  <span>Hirukuru 詳細を見る</span>
+                <Link href={getLocalizedPath('/project/hirukuru', lng)} className="gl-feature-link">
+                  <span>詳細を見る</span>
+                  <ArrowForwardRoundedIcon className="gl-feature-link-icon" />
                 </Link>
               </div>
 
@@ -130,11 +131,11 @@ export default function Home({
                 </div>
                 <div className="gl-check-item">
                   <CheckRoundedIcon className="check-icon" />
-                  <span>店舗側のオーダー管理画面・ダッシュボード</span>
+                  <span>店舗向け管理ダッシュボード</span>
                 </div>
                 <div className="gl-check-item">
                   <CheckRoundedIcon className="check-icon" />
-                  <span>ピーク時にも耐えうる高可用クラウド構成</span>
+                  <span>ピーク時も安定の高可用クラウド</span>
                 </div>
               </div>
             </div>
@@ -180,8 +181,9 @@ export default function Home({
               </p>
 
               <div className="gl-feature-actions">
-                <Link href={getLocalizedPath('/project/regizero', lng)} className="gl-btn gl-btn-black">
-                  <span>RegiZERO 詳細を見る</span>
+                <Link href={getLocalizedPath('/project/regizero', lng)} className="gl-feature-link">
+                  <span>詳細を見る</span>
+                  <ArrowForwardRoundedIcon className="gl-feature-link-icon" />
                 </Link>
               </div>
 
@@ -200,7 +202,7 @@ export default function Home({
                 </div>
                 <div className="gl-check-item">
                   <CheckRoundedIcon className="check-icon" />
-                  <span>セキュアな決済トークンアーキテクチャ</span>
+                  <span>セキュアなトークン決済基盤</span>
                 </div>
               </div>
             </div>
