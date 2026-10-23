@@ -357,16 +357,8 @@ export default function Home({
             <div className="gl-closing-actions">
               <Link href={getLocalizedPath('/contact', lng)} className="gl-btn gl-btn-white">
                 <span>お問い合わせフォーム</span>
-              </Link>
-              <a
-                href="https://timerex.net/s/univus/3a845251"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="gl-btn gl-btn-outline-white"
-              >
-                <span>オンライン日程調整</span>
                 <ArrowForwardRoundedIcon className="gl-btn-icon" />
-              </a>
+              </Link>
             </div>
           </div>
         </div>

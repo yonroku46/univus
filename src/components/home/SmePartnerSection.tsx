@@ -13,7 +13,7 @@ import CheckCircleOutlineRoundedIcon from '@mui/icons-material/CheckCircleOutlin
 import SecurityRoundedIcon from '@mui/icons-material/SecurityRounded';
 import SpeedRoundedIcon from '@mui/icons-material/SpeedRounded';
 import VerifiedRoundedIcon from '@mui/icons-material/VerifiedRounded';
-import CalendarMonthRoundedIcon from '@mui/icons-material/CalendarMonthRounded';
+import MailOutlineRoundedIcon from '@mui/icons-material/MailOutlineRounded';
 import ArrowOutwardRoundedIcon from '@mui/icons-material/ArrowOutwardRounded';
 import '@/styles/pages/sme-partner.scss';
 
@@ -22,8 +22,7 @@ interface SmePartnerSectionProps {
 }
 
 export default function SmePartnerSection({ lng }: SmePartnerSectionProps) {
-  const consultationUrl = 'https://timerex.net/s/univus/3a845251';
-  const inquiryUrl = getLocalizedPath('/inquiry', lng);
+  const contactUrl = getLocalizedPath('/contact', lng);
 
   // Trust Badges for First View (Google Ads landing reassurance)
   const heroTrustBadges = [
@@ -99,8 +98,8 @@ export default function SmePartnerSection({ lng }: SmePartnerSectionProps) {
         '月次集計作業が「3日 → 半日」へ大幅短縮（集計工数80%削減）',
         '現場スタッフも迷わず使える直感的なUI設計',
       ],
-      link: consultationUrl,
-      isExternal: true,
+      link: contactUrl,
+      isExternal: false,
       linkText: '類似システムの開発を相談する',
     },
     {
@@ -116,8 +115,8 @@ export default function SmePartnerSection({ lng }: SmePartnerSectionProps) {
         'スマートフォン・タブレット完全最適化のモダンデザイン',
         'SEO最適化・超高速ページ表示で問い合わせCVR向上',
       ],
-      link: consultationUrl,
-      isExternal: true,
+      link: contactUrl,
+      isExternal: false,
       linkText: 'Webサイト刷新を相談する',
     },
   ];
@@ -320,16 +319,11 @@ export default function SmePartnerSection({ lng }: SmePartnerSectionProps) {
               {/* Hero Action CTA */}
               <div className="hero-actions">
                 <Link
-                  href={consultationUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href={contactUrl}
                   className="btn-primary-hero"
                 >
-                  <CalendarMonthRoundedIcon className="icon-calendar" />
-                  <div className="btn-text-group">
-                    <span className="btn-main-label">30分無料オンライン相談を予約する</span>
-                    <span className="btn-sub-label">空き日程をカレンダーから選べます（Google Meet対応）</span>
-                  </div>
+                  <MailOutlineRoundedIcon className="btn-icon" />
+                  <span>無料相談・お問い合わせ</span>
                   <EastIcon className="arrow" />
                 </Link>
 
@@ -612,9 +606,7 @@ export default function SmePartnerSection({ lng }: SmePartnerSectionProps) {
 
                 <div className="plan-action">
                   <Link
-                    href={consultationUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    href={contactUrl}
                     className="plan-btn"
                   >
                     <span>このプランについて相談する</span>
@@ -749,17 +741,12 @@ export default function SmePartnerSection({ lng }: SmePartnerSectionProps) {
           </div>
           <div className="callout-action">
             <Link
-              href={consultationUrl}
-              target="_blank"
-              rel="noopener noreferrer"
+              href={contactUrl}
               className="consultation-btn primary"
             >
-              <CalendarMonthRoundedIcon className="icon-calendar" />
-              <span>30分無料オンライン相談を予約する</span>
+              <MailOutlineRoundedIcon className="icon-calendar" />
+              <span>お問い合わせフォームから相談する</span>
               <EastIcon className="arrow" />
-            </Link>
-            <Link href={inquiryUrl} className="consultation-btn secondary">
-              <span>お問い合わせフォームから相談</span>
             </Link>
           </div>
         </div>
